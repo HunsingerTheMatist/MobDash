@@ -31,4 +31,4 @@ try:
     os.remove('MobDash.zip')
 except OSError:
     pass
-zip('MobDash.zip', '.', ['generate.py', 'package.py', 'tiers.md', 'MobDash.zip', 'credentials.json', 'metadata.json'])
+zip('MobDash.zip', '.', ['generate.py', 'package.py', 'tiers.md', ".git", ".gitignore", "changelog.md", 'MobDash.zip', 'credentials.json', 'metadata.json'])

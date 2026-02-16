@@ -1,0 +1,22 @@
+# Show the tutorial
+
+execute if score @s md_menu_ticks matches 20 run tellraw @s ["\n", {"text": "Mob Dash!", "color": "gold"}, {"text": " is a game about frantically hunting mobs. The game will call out a target mob, and the first team to kill that mob gets the points."}, {"text":" [","color":"gold","bold": true},{"text":"X", "color":"green","clickEvent":{"action":"run_command", "value":"/scoreboard players set @s md_action 2"},"hoverEvent": {"action": "show_text","contents": {"text":"Cancel Tutorial"}}},{"text":"]","color":"gold", "bold": true}]
+
+execute if score @s md_menu_ticks matches 120 run tellraw @s ["\n", {"text": "When you first join the game, you'll be placed on a random team. Use the "}, {"text": "Switch Teams","color": "#FF46B6"}, {"text": " menu option to select a team."}, {"text":" [","color":"gold","bold": true},{"text":"X", "color":"green","clickEvent":{"action":"run_command", "value":"/scoreboard players set @s md_action 2"},"hoverEvent": {"action": "show_text","contents": {"text":"Cancel Tutorial"}}},{"text":"]","color":"gold", "bold": true}]
+
+execute if score @s md_menu_ticks matches 220 run tellraw @s ["\n", {"text": "Game options include: "},{"text": "Progression Speed","color": "#FF46B6"},{"text": " setting, "},{"text": "Incrementation Period","color": "#FF46B6"},{"text": " setting, "},{"text": "Passive-only Start","color": "#FF46B6"},{"text": " toggle, "},{"text": "Hostile","color": "#FF46B6"},{"text": " toggle, and "},{"text": "Nether", "color": "#FF46B6"},{"text": " toggle."},{"text":" [","color":"gold","bold": true},{"text":"X", "color":"green","clickEvent":{"action":"run_command", "value":"/scoreboard players set @s md_action 2"},"hoverEvent": {"action": "show_text","contents": {"text":"Cancel Tutorial"}}},{"text":"]","color":"gold", "bold": true}]
+
+execute if score @s md_menu_ticks matches 320 run tellraw @s ["\n", {"text": "Progression Speed","color": "#FF46B6"},{"text": " controls how quickly harder mobs get added to the pool of choices."}, {"text":" [","color":"gold","bold": true},{"text":"X", "color":"green","clickEvent":{"action":"run_command", "value":"/scoreboard players set @s md_action 2"},"hoverEvent": {"action": "show_text","contents": {"text":"Cancel Tutorial"}}},{"text":"]","color":"gold", "bold": true}]
+
+execute if score @s md_menu_ticks matches 420 run tellraw @s ["\n", {"text": "Incrementation Period","color": "#FF46B6"},{"text": " controls how quickly mobs increment their point score."}, {"text":" [","color":"gold","bold": true},{"text":"X", "color":"green","clickEvent":{"action":"run_command", "value":"/scoreboard players set @s md_action 2"},"hoverEvent": {"action": "show_text","contents": {"text":"Cancel Tutorial"}}},{"text":"]","color":"gold", "bold": true}]
+
+execute if score @s md_menu_ticks matches 520 run tellraw @s ["\n", {"text": "Passive-only Start","color": "#FF46B6"},{"text": " toggle controls whether to only include passive mobs in the starting pool."}, {"text":" [","color":"gold","bold": true},{"text":"X", "color":"green","clickEvent":{"action":"run_command", "value":"/scoreboard players set @s md_action 2"},"hoverEvent": {"action": "show_text","contents": {"text":"Cancel Tutorial"}}},{"text":"]","color":"gold", "bold": true}]
+
+execute if score @s md_menu_ticks matches 620 run tellraw @s ["\n", {"text": "Hostile","color": "#FF46B6"},{"text": " toggle controls whether hostile mobs are included in the pool."}, {"text":" [","color":"gold","bold": true},{"text":"X", "color":"green","clickEvent":{"action":"run_command", "value":"/scoreboard players set @s md_action 2"},"hoverEvent": {"action": "show_text","contents": {"text":"Cancel Tutorial"}}},{"text":"]","color":"gold", "bold": true}]
+
+execute if score @s md_menu_ticks matches 720 run tellraw @s ["\n", {"text": "Nether","color": "#FF46B6"},{"text": " toggle controls whether nether mobs are included in the pool."}, {"text":" [","color":"gold","bold": true},{"text":"X", "color":"green","clickEvent":{"action":"run_command", "value":"/scoreboard players set @s md_action 2"},"hoverEvent": {"action": "show_text","contents": {"text":"Cancel Tutorial"}}},{"text":"]","color":"gold", "bold": true}]
+
+execute if score @s md_menu_ticks matches 820 run tellraw @s ["\n",{"text": "When everyone is ready, start the game using the "},{"text": "Start Game","color": "#FF46B6"},{"text": " menu option."}]
+
+execute if score @s md_menu_ticks matches 920 run tellraw @s ""
+execute if score @s md_menu_ticks matches 920 run function mob_dash:menu/cancel_tutorial

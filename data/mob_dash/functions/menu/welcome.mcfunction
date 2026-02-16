@@ -1,0 +1,1 @@
+tellraw @s [{"text":"Welcome to "},{"text":"Mob Dash!","color":"gold"},{"text":" version "},{"text":"beta 0.9","color":"gold"},{"text":" by "},{"text":"slicedlime (with tweaks by Hunsinger)","color":"green","clickEvent":{"action":"open_url","value":"https://www.youtube.com/slicedlime"}}]

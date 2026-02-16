@@ -5,14 +5,13 @@ first team to kill that mob gets the points. The game can be set to a time or sc
 condition. The game can be played as a singleplayer challenge, but is meant as a multiplayer,
 competitive game.
 
-The current version of the game is made for Minecraft 1.19.4.
+The current version of the game is made for Minecraft 1.20
 
 ## Overview
 
-As the game starts, a title shows up designating a target mob. That type of mob is now the one to
-kill. The first team to kill the mob gets the score, and a new mob type is called out. The current
-target mob is displayed on the action bar (above the hotbar), together with the score awared for
-killing that mob.
+As the game starts, a title shows up designating a target mob. The first team to kill the mob gets
+the score, and a new mob type is called out. The current target mob is displayed on the action
+bar (above the hotbar), together with the score awarded for killing that mob.
 
 ## Installation
 
@@ -28,17 +27,20 @@ Datapacks screen in the Create New World options.
 When you first join the game, you'll be placed on a random team. Use the Switch Teams menu option
 to select a team.
 
-There are two scoring modes - Flat and Progressive. Switch between them using the Scoring menu
-option. In Flat mode all mobs are equally valuable, no matter how hard they are to kill. In
-Progressive mode, harder mobs that take longer to kill are worth more. It is recommended to
-play in Progressive mode.
-
-There is also a Difficulty menu option. The difficulty controls how quickly the game will start
-assigning harder mob targets.
-
 You can set time and/or score limits for winning the game. After clicking the menu option, fill
 in the number of minutes or win score at the end of the command that gets placed in your chat line
 and hit enter.
+
+The 'Progression Speed' setting controls how quickly the game will start assigning harder mob targets.
+
+The 'Incrementation Period' setting sets the time delay before a selected mob’s score increases if it
+isn’t killed.
+
+The 'Passive-only Start' setting starts the game with only passive mobs for the first bit.
+
+The 'Hostiles' setting determines whether hostile mobs can be chosen.
+
+The 'Nether' setting determines whether nether mobs can be chosen.
 
 When everyone is ready, start the game using the Start Game menu option.
 
@@ -68,41 +70,44 @@ up fish in buckets, carrying eggs and capturing hostile mobs in boats.
 ## Mob Reference
 
 ### Tier 1
-- Zombie
-- Skeleton
-- Creeper
-- Spider
-- Cow
-- Chicken
-- Pig
-- Sheep
-- Cod
-- Salmon
-- Squid
 - Bee
-- Bat
-- Rabbit
+- Chicken
+- Cod
+- Cow
+- Dolphin
 - Horse
+- Pig
+- Rabbit
+- Salmon
+- Sheep
+- Squid
 
 ### Tier 2
-- Axolotl
-- Glow Squid
-- Goat
-- Enderman
-- Dolphin
+- Bat
+- Creeper
 - Drowned
-- Witch
-- Iron Golem
-- Piglin
-- Hoglin
-- Ghast
-- Strider
-- Magma Cube
-- Zombified Piglin
+- Skeleton
+- Spider
+- Zombie
 
 ### Tier 3
-- Zoglin
-- Blaze
-- Wither Skeleton
-- Piglin Brute
+- Axolotl
+- Enderman
+- Ghast
+- Glow Squid
+- Goat
 - Guardian
+- Hoglin
+- Iron Golem
+- Llama
+- Magma Cube
+- Piglin
+- Strider
+- Witch
+- Zombified Piglin
+
+### Tier 4
+- Blaze
+- Piglin Brute
+- Wither Skeleton
+- Zoglin
