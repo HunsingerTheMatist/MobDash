@@ -10,7 +10,7 @@
     "package": "MobDash.zip",
     "source": ".",
     "supports": [
-        "1.20"
+        "1.21.11"
     ],
     "beta": true
 }

@@ -1,6 +1,7 @@
 {
   "pack": {
-    "pack_format": 15,
-    "description": "Mob Dash Minigame"
+    "description": "Mob Dash Minigame",
+    "min_format": 94,
+    "max_format": 94
   }
 }
