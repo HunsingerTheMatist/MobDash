@@ -6,4 +6,4 @@ execute as @e[type=marker,tag=md_team] if score @s md_team = @p md_team run func
 execute as @a[scores={md_team=1..8}] if score @s md_team = @p md_team at @s run playsound minecraft:block.note_block.bell master @s ~ ~ ~ 1 0.6
 execute as @a[scores={md_team=1..8}] unless score @s md_team = @p md_team at @s run playsound minecraft:block.note_block.didgeridoo master @s ~ ~ ~ 1 0.5
 
-function mob_dash:game/remove_target
+function mob_dash:game/target/remove_target

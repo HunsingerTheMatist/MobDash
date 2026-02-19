@@ -67,13 +67,13 @@ def get_level(mob_info):
 def get_scoreboard_name(mob):
     return 'md_' + mob[:12]
 
-with open('data/mob_dash/function/load/create_target_scoreboards.mcfunction', 'w') as file:
-    file.write('# Create all target scoreboards (auto-generated file)\n\n')
-
-    for mob, *_ in all_mobs:
-        display_name = get_display_name(mob)
-        scoreboard_name = get_scoreboard_name(mob)
-        file.write(f'scoreboard objectives add {scoreboard_name} minecraft.killed:minecraft.{mob} "Mob Dash {display_name} Kills"\n')
+#with open('data/mob_dash/function/load/create_target_scoreboards.mcfunction', 'w') as file:
+#    file.write('# Create all target scoreboards (auto-generated file)\n\n')
+#
+#    for mob, *_ in all_mobs:
+#        display_name = get_display_name(mob)
+#        scoreboard_name = get_scoreboard_name(mob)
+#        file.write(f'scoreboard objectives add {scoreboard_name} minecraft.killed:minecraft.{mob} "Mob Dash {display_name} Kills"\n')
 
 with open('data/mob_dash/function/load/create_targets.mcfunction', 'w') as file:
     file.write('# Create target data (auto-generated file)\n\n')
@@ -106,22 +106,47 @@ with open('data/mob_dash/function/load/create_targets.mcfunction', 'w') as file:
     file.write('\nexecute as @e[type=marker,tag=md_target] store result score @s md_level run data get entity @s data.level')
     file.write('\nexecute as @e[type=marker,tag=md_target] store result score @s md_weight run data get entity @s data.weight')
 
-with open('data/mob_dash/function/game/detect_kill.mcfunction', 'w') as file:
-    file.write('# Detect if a target has been killed (auto-generated file)\n\n')
-
-    prev_lvl = i = 1
-    for mob_info in all_mobs:
-        mob = mob_info[0]
-        level = get_level(mob_info)
+for mob, *_ in all_mobs:
+    with open(f'data/mob_dash/advancement/kill_{mob}.json', 'w') as file:
+        file.write(
+            '{\n'
+            '  "criteria": {\n'
+            '    "requirement": {\n'
+            '      "trigger": "minecraft:player_killed_entity",\n'
+            '      "conditions": {\n'
+            '        "entity": {\n'
+            f'          "type": "minecraft:{mob}"\n'
+            '        }\n'
+            '      }\n'
+            '    }\n'
+            '  },\n'
+            '  "rewards": {\n'
+            f'    "function": "mob_dash:game/kill_detection/killed_{mob}"\n'
+            '  }\n'
+            '}'
+        )
+    with open(f'data/mob_dash/function/game/kill_detection/killed_{mob}.mcfunction', 'w') as file:
         display_name = get_display_name(mob)
-        scoreboard_name = get_scoreboard_name(mob)
+        file.write('# Runs when the current mob has been killed (auto-generated file)\n\n')
+        file.write(f'advancement revoke @s only mob_dash:kill_{mob}\n')
+        file.write(f'execute as @n[type=minecraft:marker,tag=md_selected,name="{display_name}"] run function mob_dash:game/award_kill')
 
-        if level != prev_lvl:
-            file.write("\n")
-        file.write(f'execute as @n[type=minecraft:marker,tag=md_selected,name="{display_name}"] at @p[scores={{{scoreboard_name}=1..}}] run function mob_dash:game/award_kill\n')
-        file.write(f'scoreboard players reset * {scoreboard_name}\n')
-        prev_lvl = level
-        i += 1
+#with open('data/mob_dash/function/game/detect_kill.mcfunction', 'w') as file:
+#    file.write('# Detect if a target has been killed (auto-generated file)\n\n')
+#
+#    prev_lvl = i = 1
+#    for mob_info in all_mobs:
+#        mob = mob_info[0]
+#        level = get_level(mob_info)
+#        display_name = get_display_name(mob)
+#        scoreboard_name = get_scoreboard_name(mob)
+#
+#        if level != prev_lvl:
+#            file.write("\n")
+#        file.write(f'execute as @n[type=minecraft:marker,tag=md_selected,name="{display_name}"] at @p[scores={{{scoreboard_name}=1..}}] run function mob_dash:game/award_kill\n')
+#        file.write(f'scoreboard players reset * {scoreboard_name}\n')
+#        prev_lvl = level
+#        i += 1
 
 with open('tiers.md', 'w') as file:
     file.write('### Tier 1\n')

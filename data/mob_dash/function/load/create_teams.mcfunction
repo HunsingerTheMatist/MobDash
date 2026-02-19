@@ -12,27 +12,27 @@ summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Poisonous Puffer
 team add yellow {"text":"The Poisonous Pufferfish","color":"yellow"}
 team modify yellow color yellow
 
-summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Fearless Phantoms","color":"blue"}', data:{"team_id": 3}}
+summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Fearless Phantoms","color":"blue"}', data:{"team_id": 4}}
 team add blue {"text":"The Fearless Phantoms","color":"blue"}
 team modify blue color blue
 
-summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Shooting Shulkers","color":"light_purple"}', data:{"team_id": 4}}
+summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Shooting Shulkers","color":"light_purple"}', data:{"team_id": 5}}
 team add purple {"text":"The Shooting Shulkers","color":"light_purple"}
 team modify purple color light_purple
 
-summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Blistering Blazes","color":"gold"}', data:{"team_id": 5}}
+summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Blistering Blazes","color":"gold"}', data:{"team_id": 6}}
 team add gold {"text":"The Blistering Blazes","color":"gold"}
 team modify gold color gold
 
-summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Dreadful Drowned","color":"aqua"}', data:{"team_id": 6}}
+summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Dreadful Drowned","color":"aqua"}', data:{"team_id": 7}}
 team add aqua {"text":"The Dreadful Drowned","color":"aqua"}
 team modify aqua color aqua
 
-summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Blackstone Brutes","color":"dark_gray"}', data:{"team_id": 7}}
+summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Blackstone Brutes","color":"dark_gray"}', data:{"team_id": 8}}
 team add black {"text":"The Blackstone Brutes","color":"dark_gray"}
 team modify black color dark_gray
 
-summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Viewing Vexes","color":"gray","italic": true}', data:{"team_id": 8}}
+summon marker 0 0 0 {Tags:["md_team"], CustomName:'{"text":"The Viewing Vexes","color":"gray","italic": true}', data:{"team_id": 9}}
 team add gray {"text":"The Viewing Vexes","color":"gray"}
 team modify black color gray
 

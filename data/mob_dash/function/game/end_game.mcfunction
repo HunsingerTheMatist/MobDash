@@ -1,6 +1,6 @@
 # End the game, display results, set post-game states
 
-scoreboard players set $State md_state 2
+scoreboard players set $GameState md_state 2
 
 scoreboard players set $Max md_score 0
 scoreboard players operation $Max md_score > @e[type=marker,tag=md_team] md_score
@@ -15,7 +15,7 @@ execute if score $WinningTeams md_state matches 1 run title @a subtitle ["",{"te
 title @a title "Game Over"
 bossbar remove mob_dash:timer
 
-scoreboard players set $Tick md_state 0
+scoreboard players set $GameTick md_state 0
 
 execute if score $WinningTeams md_state matches 2.. run tellraw @a [{"text":"It's a draw!","color": "gold"}]
 execute if score $WinningTeams md_state matches 1 run tellraw @a ["",{"text":"Team ","color": "gold"},{"selector":"@e[type=marker,tag=md_winner]"},{"text":" wins!","color":"gold"}]

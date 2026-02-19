@@ -31,8 +31,6 @@ scoreboard objectives add Reroll trigger "Reroll latest Mob Dash target"
 scoreboard objectives setdisplay list md_player_scores
 scoreboard objectives setdisplay sidebar md_team_scores
 
-function mob_dash:load/create_target_scoreboards
-
 scoreboard players set -1 md_const -1
 scoreboard players set 2 md_const 2
 scoreboard players set 5 md_const 5
@@ -45,12 +43,18 @@ scoreboard players add $TargetCount md_state 0
 scoreboard players add $Win md_state 0
 scoreboard players add $Timeout md_state 0
 
+# Set default configs
+execute unless score $MaxTargetScore md_state matches 1.. run scoreboard players set $MaxTargetScore md_state 5
+execute unless score $MaxTargetCount md_state matches 1.. run scoreboard players set $MaxTargetCount md_state 3
+execute unless score $AddTargetThreshold md_state matches 1.. run scoreboard players set $AddTargetThreshold md_state 3
+execute unless score $UseNightWeight md_state matches 0..1 run scoreboard players set $UseNightWeight md_state 1
+
 # Set default settings
-scoreboard players set $ProgressionSpeed md_state 1
-scoreboard players set $IncrementPeriod md_state 1
-scoreboard players set $PassiveStart md_state 1
-scoreboard players set $Hostiles md_state 0
-scoreboard players set $Nether md_state 0
+execute unless score $ProgressionSpeed md_state matches 0..2 run scoreboard players set $ProgressionSpeed md_state 1
+execute unless score $IncrementPeriod md_state matches 0..2 run scoreboard players set $IncrementPeriod md_state 1
+execute unless score $PassiveStart md_state matches 0..1 run scoreboard players set $PassiveStart md_state 1
+execute unless score $Hostiles md_state matches 0..1 run scoreboard players set $Hostiles md_state 1
+execute unless score $Nether md_state matches 0..1 run scoreboard players set $Nether md_state 1
 
 scoreboard players add $OpOnly md_state 0
 
@@ -58,11 +62,11 @@ execute store result score $Temp md_state run difficulty
 execute if score $Temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = $Temp md_state
 
 # TODO: Fix this in the 1.20 branch!
-# function mob_dash:menu/settings/update_progression_text
-# function mob_dash:menu/settings/update_increment_period_text
-# function mob_dash:menu/settings/update_passive_start_text
-# function mob_dash:menu/settings/update_hostiles_text
-# function mob_dash:menu/settings/update_nether_text
+function mob_dash:menu/settings/update_progression_text
+function mob_dash:menu/settings/update_increment_period_text
+function mob_dash:menu/settings/update_passive_start_text
+function mob_dash:menu/settings/update_hostiles_text
+function mob_dash:menu/settings/update_nether_text
 
 forceload add 0 0
 execute unless entity @n[type=minecraft:marker,tag=md_target] run function mob_dash:load/create_targets

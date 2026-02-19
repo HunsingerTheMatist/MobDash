@@ -1,21 +1,19 @@
-# runs every tick
+# Runs every tick when the game is running
 
-execute unless entity @n[type=marker,tag=md_selected] run function mob_dash:game/new_target
+# Check if the game has ended on time limit
+scoreboard players add $GameTick md_state 1
+execute if score $EndTick md_state matches 1.. if score $GameTick md_state >= $EndTick md_state run function mob_dash:game/end_game
 
-scoreboard players add @e[type=marker,tag=md_selected] md_time 1
-function mob_dash:game/update_target_scores
-
-function mob_dash:game/detect_kill
-function mob_dash:game/update_scores
-
-scoreboard players add $Tick md_state 1
-
-execute unless score $Win md_state matches 0 run function mob_dash:game/check_win_score
-execute unless score $Timeout md_state matches 0 run function mob_dash:game/check_time_limit
-
-function mob_dash:game/display_action_bar
-
+# Update the bossbar timer
 execute if score $EndTick md_state matches 1.. run function mob_dash:game/update_timer_bar
+
+# Process targets
+scoreboard players remove $TargetTick md_state 1
+execute if score $TargetTick md_state matches ..0 run function mob_dash:game/target/process_targets
+
+# Process action bar
+scoreboard players remove $ActionBarTick md_state 1
+execute if score $ActionBarTick md_state matches ..0 run function mob_dash:game/display_action_bar
 
 # Enables/disables triggers
 execute if score $OpOnly md_state matches 0 run tag @a add md_op
@@ -27,5 +25,5 @@ execute as @a run trigger WinScore add 0
 execute if score $OpOnly md_state matches 0 run tag @a remove md_op
 
 # Reroll the latest mob if requested
-execute as @a[scores={Reroll=1..}] run function mob_dash:game/reroll_mob
+execute as @a[scores={Reroll=1..}] run function mob_dash:game/target/reroll_mob
 scoreboard players set @a Reroll 0

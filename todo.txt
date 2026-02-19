@@ -1,0 +1,92 @@
+Custom worldgen:
+- Smaller biomes
+- Increase mob spawning like armadillos, rabbits, etc.
+- Make high ambient lighting like night vision
+
+'Bounty' targets:
+- Worth more points but don't increase in value
+- You can't earn more points than would tie you with the 1st place team
+- A new bounty appears every 4-6 mins, whether the old one was completed or not
+- When creating a new bounty it delays creation of a new target by 80 ticks (waitTime = max(80, waitTime)) [this is to prevent title overlap]
+- When creating a new regular target it delays creation of a new bounty by 80 ticks (waitTime = max(80, waitTime))
+- Mobs:
+    - Chicken jockey (all types)
+    - Spider jockey (all types)
+    - Camel husk jockey
+    - Strider jockey
+    - Zombie horseman
+    - Zombie nautilus jockey
+    - Creaking
+    - Panda
+    - Invisible Spider
+    - Sniffer
+    - Tadpole
+    - Happy Ghast
+    - Mooshroom
+    - Zoglin
+    - Warden
+
+New mobs:
+- Armadillo
+- Copper Golem
+- Snow Golem
+- Tropical Fish
+- Turtle
+- Fox
+- Polar Bear
+- Wolf
+
+Remove mobs:
+- Guardian
+- Zoglin
+- Piglin Brute
+
+Improve passive mob spawning:
+- Force despawn of passive mobs to allow for more cycling of them
+- Artificially increase the passive mob cap to 40
+- Calibrate 400 tick clock:
+    - Start clock uncalibrated
+    - When detecting a mob spawned, calibrate the clock to happen 5 ticks before spawning sequence
+- Every 400 ticks (spawn frequency of passive mobs):
+    - Loop through all passive mobs and each one has a chance of being killed
+    - Criteria for killing a mob:
+        - Cannot be nametagged (has CustomName nbt)
+        - Cannot be in a boat/minecart 
+        - Cannot have been bred (see if the bred_animals advancement can tag them)
+        - Note: If any of the above are found they have the custom persistence tag removed
+        - Cannot be within 32 blocks of a player
+        - If it is 32-64 blocks from any player has a 1/4 chance to be killed
+        - If it is 64+ blocks from any player has a 2/3 chance to be killed
+    - After killing mobs, loop through each player:
+        - Take note of how many mobs have the custom persistence tag within 128 blocks of the player
+        - If persistent mobs > 30:
+            - Remove persistence from mobs starting furthest from player until it hits 30
+        - If persistent mobs < 30:
+            - Add persistence to mobs starting closest to player until it hits 30
+
+Add better reset functionality (optional config):
+- Prevent players from stashing mobs
+- Prevent players from stashing items
+- Implementation:
+    - Alternate scoreboard value between games
+    - Scoreboard value determines whether to use tag #1 or #2
+    - On a clock:
+        - Do a search for tags of alternate parity:
+            - Kill any items/armor stands/item frames found
+            - Dismount any mobs and then tp them into the void
+              (alternatively, could turn off mob_drops & tile_drops, kill all mobs, then turn back on)
+        - Do a search within 32 blocks of the player for:
+            - Mobs in a boat or minecart
+            - Persistent mobs
+            - Items on the ground
+            - Armor stands
+            - Item frames
+        - Give anything found the current tag
+    - Detect player items:
+        - Advancement on inventory changed: (check if it works with equipping armor from dispenser)
+            - Give custom parity component to all items in inventory
+    - Detect players opening containers via advancement:
+        - /replace item to remove all items with the opposite parity component
+
+Maybe:
+- Refactor the code to support an arbitrary number of simultaneous targets, rather than just 3

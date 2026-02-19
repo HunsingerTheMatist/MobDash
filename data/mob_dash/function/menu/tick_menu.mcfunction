@@ -17,9 +17,9 @@ execute if score $BorderCooldown md_state matches 0.. run scoreboard players rem
 
 # Player griefing fixup
 gamemode adventure @a[name=!"slicedlime"]
-effect give @a minecraft:weakness 1 100 true
-effect give @a minecraft:mining_fatigue 1 100 true
-effect give @a minecraft:saturation 1 1 true
+effect give @a weakness infinite 100 true
+effect give @a mining_fatigue infinite 100 true
+effect give @a saturation infinite 1 true
 
 # Set allowed triggers
 execute if score $OpOnly md_state matches 0 run tag @a add md_op
