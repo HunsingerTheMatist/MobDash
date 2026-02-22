@@ -1,6 +1,2 @@
-# Prompt to authenticate @s as an op and put the game into op-control mode
-
-execute if score $OpOnly md_state matches 0 run tellraw @s [{"text": "Click here to place the game into op-only mode and authenticate as an operator", "color": "green", "click_event": {"action": "run_command", "command": "/function mob_dash:menu/op"}}]
-execute if score $OpOnly md_state matches 1 run tellraw @s [{"text": "The game is already in op-only mode. Click here to authenticate as an operator", "color": "green", "click_event": {"action": "run_command", "command": "/function mob_dash:menu/op"}}]
-
-scoreboard players reset @s OpControl
+# Sets the player who ran this as an operator
+tag @s add md_op

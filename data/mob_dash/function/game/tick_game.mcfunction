@@ -15,15 +15,6 @@ execute if score $TargetTick md_state matches ..0 run function mob_dash:game/tar
 scoreboard players remove $ActionBarTick md_state 1
 execute if score $ActionBarTick md_state matches ..0 run function mob_dash:game/display_action_bar
 
-# Enables/disables triggers
-execute if score $OpOnly md_state matches 0 run tag @a add md_op
-scoreboard players enable @a[tag=md_op] HardReset
-scoreboard players enable @a[tag=md_op] Reroll
-execute as @a run trigger SetTeam add 0
-execute as @a run trigger TimeLimit add 0
-execute as @a run trigger WinScore add 0
-execute if score $OpOnly md_state matches 0 run tag @a remove md_op
-
 # Reroll the latest mob if requested
 execute as @a[scores={Reroll=1..}] run function mob_dash:game/target/reroll_mob
 scoreboard players set @a Reroll 0

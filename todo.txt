@@ -52,8 +52,20 @@ Improve passive mob spawning:
     - Criteria for killing a mob:
         - Cannot be nametagged (has CustomName nbt)
         - Cannot be in a boat/minecart 
-        - Cannot have been bred (see if the bred_animals advancement can tag them)
+        - Cannot have been bred:
+            - Use bred_animals advancement to detect breeding
+            - Search for 2 animals within 32 blocks that don't have the 'mc_bred' tag & have an Age value greater than 0
+              (search nearest to furthest)
+            - When found, search for nearest mob with Age value below 0 (this is the baby)
         - Note: If any of the above are found they have the custom persistence tag removed
+        - Cannot be the following:
+            - Allay (already persistent)
+            - Bee
+            - Cat (already persistent or can despawn) (check if has Owner)
+            - Happy Ghast
+            - Sniffer
+            - Tadpole (already persistent)
+            - Tamed Wolf (check if has Owner)
         - Cannot be within 32 blocks of a player
         - If it is 32-64 blocks from any player has a 1/4 chance to be killed
         - If it is 64+ blocks from any player has a 2/3 chance to be killed

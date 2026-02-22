@@ -42,6 +42,14 @@ execute if score $GameDifficulty md_state matches 3 run difficulty hard
 scoreboard players reset * md_team_scores
 scoreboard players reset * md_player_scores
 
+# Remove triggers
+scoreboard players add @a WinScore 0
+scoreboard players add @a TimeLimit 0
+scoreboard players add @a SetTeam 0
+scoreboard players reset @a WinScore
+scoreboard players reset @a TimeLimit
+scoreboard players reset @a SetTeam
+
 # Count team members
 scoreboard players set @e[type=marker,tag=md_team] md_team_count 0
 execute as @e[type=marker,tag=md_team,scores={md_team=1..8}] run function mob_dash:game/count_members

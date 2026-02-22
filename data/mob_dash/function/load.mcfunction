@@ -5,9 +5,9 @@ scoreboard objectives add md_state dummy "Mob Dash Game State"
 # Menu states
 scoreboard objectives add md_menu_ticks dummy "Mob Dash Menu Ticks"
 scoreboard objectives add md_action dummy "Mob Dash Menu Actions"
-scoreboard objectives add OpControl dummy "Op-only control"
 
 # Menu triggers
+scoreboard objectives add MenuAction trigger "Trigger Menu Actions"
 scoreboard objectives add SetTeam trigger "Set Team for player"
 scoreboard objectives add WinScore trigger "Mob Dash Win Score"
 scoreboard objectives add TimeLimit trigger "Mob Dash Time Limit"
@@ -22,10 +22,6 @@ scoreboard objectives add md_time dummy "Mob Dash Target Times"
 scoreboard objectives add md_score dummy "Mob Dash Team Scores"
 scoreboard objectives add md_team_scores dummy "Team Scores"
 scoreboard objectives add md_player_scores dummy "Scores"
-
-# Game triggers
-scoreboard objectives add HardReset trigger "Hard Reset for Mob Dash"
-scoreboard objectives add Reroll trigger "Reroll latest Mob Dash target"
 
 # Set score displays
 scoreboard objectives setdisplay list md_player_scores
@@ -45,18 +41,18 @@ scoreboard players add $Timeout md_state 0
 
 # Set default configs
 execute unless score $MaxTargetScore md_state matches 1.. run scoreboard players set $MaxTargetScore md_state 5
+# TODO: Remove below until it can actually be changed
 execute unless score $MaxTargetCount md_state matches 1.. run scoreboard players set $MaxTargetCount md_state 3
 execute unless score $AddTargetThreshold md_state matches 1.. run scoreboard players set $AddTargetThreshold md_state 3
 execute unless score $UseNightWeight md_state matches 0..1 run scoreboard players set $UseNightWeight md_state 1
 
 # Set default settings
+execute unless score $OpOnly md_state matches 0..1 run scoreboard players set $OpOnly md_state 0
 execute unless score $ProgressionSpeed md_state matches 0..2 run scoreboard players set $ProgressionSpeed md_state 1
 execute unless score $IncrementPeriod md_state matches 0..2 run scoreboard players set $IncrementPeriod md_state 1
 execute unless score $PassiveStart md_state matches 0..1 run scoreboard players set $PassiveStart md_state 1
 execute unless score $Hostiles md_state matches 0..1 run scoreboard players set $Hostiles md_state 1
 execute unless score $Nether md_state matches 0..1 run scoreboard players set $Nether md_state 1
-
-scoreboard players add $OpOnly md_state 0
 
 execute store result score $Temp md_state run difficulty
 execute if score $Temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = $Temp md_state
