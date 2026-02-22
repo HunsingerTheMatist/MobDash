@@ -9,9 +9,9 @@ difficulty peaceful
 time set noon
 
 # World border
-execute if score $BorderCooldown md_state matches 0 run execute at @e[type=marker,tag=md_spawn] run worldborder center ~ ~
-execute if score $BorderCooldown md_state matches 0 run execute at @e[type=marker,tag=md_spawn] run spawnpoint @a ~ ~ ~
-execute if score $BorderCooldown md_state matches 0 run execute at @e[type=marker,tag=md_spawn] run setworldspawn ~ ~ ~
+execute if score $BorderCooldown md_state matches 0 at @n[type=marker,tag=md_spawn] run worldborder center ~ ~
+execute if score $BorderCooldown md_state matches 0 at @n[type=marker,tag=md_spawn] run spawnpoint @a ~ ~ ~
+execute if score $BorderCooldown md_state matches 0 at @n[type=marker,tag=md_spawn] run setworldspawn ~ ~ ~
 execute if score $BorderCooldown md_state matches 0 run worldborder set 100
 execute if score $BorderCooldown md_state matches 0.. run scoreboard players remove $BorderCooldown md_state 1
 
@@ -48,7 +48,7 @@ scoreboard players enable @a SetTeam
 # React to menu actions
 execute as @a[scores={md_action=1}] run function mob_dash:menu/trigger_tutorial
 execute as @a[scores={md_action=2}] run function mob_dash:menu/cancel_tutorial
-execute as @a[scores={md_action=3}] run function mob_dash:menu/display_teams_menu
+execute as @a[scores={md_action=3}] in mob_dash:mb_markers positioned 0 0 0 run function mob_dash:menu/display_teams_menu
 
 execute as @n[scores={md_action=11}] run function mob_dash:menu/settings/cycle_difficulty_speed
 execute as @n[scores={md_action=12}] run function mob_dash:menu/settings/cycle_increment_period

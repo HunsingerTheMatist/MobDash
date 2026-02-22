@@ -20,5 +20,5 @@ scoreboard players operation $SecsLeft md_state = $TimeLeft md_state
 scoreboard players add $SecsLeft md_state 19
 scoreboard players operation $SecsLeft md_state /= 20 md_const
 
-execute unless score $SecsLeft md_state matches 1 run return run bossbar set mob_dash:timer name [{text:"Game Time Remaining: "}, {score: {objective:md_state, name:"$SecsLeft"}}, {text:" seconds"}]
-bossbar set mob_dash:timer name [{text:"Game Time Remaining: 1 second"}]
+execute unless score $SecsLeft md_state matches 1 run return run bossbar set mob_dash:timer name [{text:"Game Time Remaining: "}, {score: {objective:md_state, name:"$SecsLeft"}}, {text:" secs"}]
+bossbar set mob_dash:timer name [{text:"Game Time Remaining: 1 sec"}]

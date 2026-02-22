@@ -1,0 +1,10 @@
+{
+    "type": "mob_dash:mb_markers",
+    "generator": {
+      "type": "minecraft:flat",
+      "settings": {
+        "biome": "minecraft:the_void",
+        "layers": []
+      }
+    }
+}

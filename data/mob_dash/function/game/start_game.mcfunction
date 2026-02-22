@@ -20,14 +20,7 @@ scoreboard players set $GameState md_state 1
 scoreboard players set $TargetCount md_state 0
 scoreboard players set $TotalMobsSelected md_state 0
 
-scoreboard players set @e[type=marker] md_score 0
-scoreboard players set @e[type=marker] md_time 0
-tag @e[type=marker] remove md_selected
-tag @e[type=marker] remove md_selected1
-tag @e[type=marker] remove md_selected2
-tag @e[type=marker] remove md_selected3
-tag @e[type=marker] remove md_prev_selected
-tag @e[type=marker] remove md_killed
+execute in mob_dash:mb_markers positioned 0 0 0 run function mob_dash:game/reset_marker_data
 
 scoreboard players set $GameTick md_state 0
 scoreboard players operation $EndTick md_state = $Timeout md_state
@@ -51,8 +44,8 @@ scoreboard players reset @a TimeLimit
 scoreboard players reset @a SetTeam
 
 # Count team members
-scoreboard players set @e[type=marker,tag=md_team] md_team_count 0
-execute as @e[type=marker,tag=md_team,scores={md_team=1..8}] run function mob_dash:game/count_members
+execute in mob_dash:mb_markers positioned 0 0 0 run scoreboard players reset @e[distance=0,type=marker,tag=md_team] md_team_count
+execute in mob_dash:mb_markers positioned 0 0 0 as @e[distance=0,type=marker,tag=md_team,scores={md_team=1..8}] run function mob_dash:game/count_members
 
 # Set setting factors
 execute if score $DifficultySpeed md_state matches 0 run scoreboard players set $ProgressionFactor md_state 20
@@ -63,7 +56,7 @@ execute if score $IncrementPeriod md_state matches 1 run scoreboard players set 
 execute if score $IncrementPeriod md_state matches 2 run scoreboard players set $ScorePeriod md_state 3600
 
 # Scale the progression speed by number of active teams
-execute store result score $ActiveTeams md_state if entity @e[type=marker,tag=md_team,scores={md_team_count=1..}]
+execute in mob_dash:mb_markers positioned 0 0 0 store result score $ActiveTeams md_state if entity @e[distance=0,type=marker,tag=md_team,scores={md_team_count=1..}]
 scoreboard players operation $ProgressionFactor md_state *= $ActiveTeams md_state
 
 execute if score $EndTick md_state matches 1.. run function mob_dash:game/setup_timer_bar

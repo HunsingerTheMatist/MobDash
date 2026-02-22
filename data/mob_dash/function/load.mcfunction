@@ -67,8 +67,9 @@ function mob_dash:menu/settings/update_nether_text
 # Store various text components in storage for future use
 function mob_dash:load/store_text
 
-forceload add 0 0
-execute unless entity @n[type=minecraft:marker,tag=md_target] run function mob_dash:load/create_targets
-execute unless entity @n[type=minecraft:marker,tag=md_team] run function mob_dash:load/create_teams
+# Sets up the game marker entities in the mb_markers dimension
+# Schedule is necessary to ensure the chunk is loaded when the 'setup_markers' function runs
+execute in mob_dash:mb_markers run forceload add 0 0
+schedule function mob_dash:load/setup_markers 1
 
 function mob_dash:game/reset

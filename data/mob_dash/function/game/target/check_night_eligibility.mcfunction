@@ -14,4 +14,4 @@ execute if score $DayTick md_state matches 19000.. run scoreboard players add $N
 
 # Remove night mobs if random value is above $NightValue
 execute store result score $Random md_state run random value 0..24000
-execute as @e[type=marker,tag=md_eligible,tag=md_night] if score $Random md_state > $NightValue md_state run tag @s remove md_eligible
+execute if score $Random md_state > $NightValue md_state run tag @e[distance=0,type=marker,tag=md_eligible,tag=md_night] remove md_eligible

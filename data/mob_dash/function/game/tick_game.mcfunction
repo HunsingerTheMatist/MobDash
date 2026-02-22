@@ -14,7 +14,3 @@ execute if score $TargetTick md_state matches ..0 run function mob_dash:game/tar
 # Process action bar
 scoreboard players remove $ActionBarTick md_state 1
 execute if score $ActionBarTick md_state matches ..0 run function mob_dash:game/display_action_bar
-
-# Reroll the latest mob if requested
-execute as @a[scores={Reroll=1..}] run function mob_dash:game/target/reroll_mob
-scoreboard players set @a Reroll 0

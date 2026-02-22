@@ -4,7 +4,7 @@ scoreboard players set $GameState md_state 0
 scoreboard players reset * md_score
 scoreboard players reset * md_player_scores
 
-execute unless entity @e[type=marker,tag=md_spawn] run summon marker 0 0 0 {Tags:["md_spawn"]}
+execute unless entity @n[type=marker,tag=md_spawn] run summon marker 0 0 0 {Tags:[md_spawn]}
 
 worldborder set 50000
 
