@@ -31,9 +31,9 @@ You can set time and/or score limits for winning the game. After clicking the me
 in the number of minutes or win score at the end of the command that gets placed in your chat line
 and hit enter.
 
-The 'Progression Speed' setting controls how quickly the game will start assigning harder mob targets.
+The 'Difficulty Scaling' setting controls how quickly the game will start assigning harder mob targets.
 
-The 'Incrementation Period' setting sets the time delay before a selected mob’s score increases if it
+The 'Points Increase Every' setting sets the time delay before a selected mob’s score increases if it
 isn’t killed.
 
 The 'Passive-only Start' setting starts the game with only passive mobs for the first bit.

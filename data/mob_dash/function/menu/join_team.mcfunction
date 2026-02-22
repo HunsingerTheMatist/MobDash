@@ -13,7 +13,7 @@ execute if score @s md_team matches 8 run team join black @s
 execute if score @s md_team matches 9 run team join gray @s
 
 tag @s add md_current
-execute as @e[type=marker,tag=md_team] if score @s md_team = @p[tag=md_current] md_team run tellraw @a ["", {"selector":"@p[tag=md_current]"}, {"text":" has joined "}, {"selector": "@s"}]
+execute as @e[type=marker,tag=md_team] if score @s md_team = @p[tag=md_current] md_team run tellraw @a [{selector:"@p[tag=md_current]"}, {text:" has joined "}, {selector: "@s"}]
 tag @s remove md_current
 
 scoreboard players reset @s SetTeam

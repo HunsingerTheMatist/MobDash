@@ -55,9 +55,9 @@ scoreboard players set @e[type=marker,tag=md_team] md_team_count 0
 execute as @e[type=marker,tag=md_team,scores={md_team=1..8}] run function mob_dash:game/count_members
 
 # Set setting factors
-execute if score $ProgressionSpeed md_state matches 0 run scoreboard players set $ProgressionFactor md_state 20
-execute if score $ProgressionSpeed md_state matches 1 run scoreboard players set $ProgressionFactor md_state 15
-execute if score $ProgressionSpeed md_state matches 2 run scoreboard players set $ProgressionFactor md_state 10
+execute if score $DifficultySpeed md_state matches 0 run scoreboard players set $ProgressionFactor md_state 20
+execute if score $DifficultySpeed md_state matches 1 run scoreboard players set $ProgressionFactor md_state 15
+execute if score $DifficultySpeed md_state matches 2 run scoreboard players set $ProgressionFactor md_state 10
 execute if score $IncrementPeriod md_state matches 0 run scoreboard players set $ScorePeriod md_state 1200
 execute if score $IncrementPeriod md_state matches 1 run scoreboard players set $ScorePeriod md_state 2400
 execute if score $IncrementPeriod md_state matches 2 run scoreboard players set $ScorePeriod md_state 3600

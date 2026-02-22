@@ -1,4 +1,4 @@
 # Start the tutorial for player @s
 
 tag @s add md_tutorial
-scoreboard players set @s md_menu_ticks 1
+scoreboard players set @s md_menu_ticks 0

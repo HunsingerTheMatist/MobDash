@@ -50,13 +50,13 @@ execute as @a[scores={md_action=1}] run function mob_dash:menu/trigger_tutorial
 execute as @a[scores={md_action=2}] run function mob_dash:menu/cancel_tutorial
 execute as @a[scores={md_action=3}] run function mob_dash:menu/display_teams_menu
 
-execute as @n[scores={md_action=11}] run function mob_dash:menu/settings/cycle_progression
+execute as @n[scores={md_action=11}] run function mob_dash:menu/settings/cycle_difficulty_speed
 execute as @n[scores={md_action=12}] run function mob_dash:menu/settings/cycle_increment_period
 execute as @n[scores={md_action=13}] run function mob_dash:menu/settings/cycle_passive_start
 execute as @n[scores={md_action=14}] run function mob_dash:menu/settings/cycle_hostiles
 execute as @n[scores={md_action=15}] run function mob_dash:menu/settings/cycle_nether
 
-execute as @n[scores={md_action=20}] unless entity @p[scores={md_team=1..8}] run tellraw @s [{"text": "No players on any team, cannot start", "color": "red"}]
+execute as @n[scores={md_action=20}] unless entity @p[scores={md_team=1..8}] run tellraw @s [{text:"No players on any team, cannot start", color:red}]
 execute as @n[scores={md_action=20}] if entity @p[scores={md_team=1..8}] run function mob_dash:game/start_game
 
 scoreboard players reset @a md_action

@@ -5,7 +5,12 @@ scoreboard players operation @p md_player_scores += @n[type=marker,tag=md_killed
 
 data modify storage mob_dash:data PointString set value " points"
 execute if score @s md_score matches 1 run data modify storage mob_dash:data PointString set value " point"
-tellraw @a [{"text": "Target "}, {"selector":"@n[type=marker,tag=md_killed]","color":"red"}, {"text": " killed by "}, {"selector":"@p"}, {"text": " from "}, {"selector":"@s"}, {"text": ", now at "}, {"score":{"objective": "md_score", "name": "@s"}, "color": "green"}, {"storage": "mob_dash:data", nbt:"PointString"}]
+tellraw @a [\
+    {text:"Target "}, {selector:"@n[type=marker,tag=md_killed]", color:red}, \
+    {text:" killed by "}, {selector:"@p"}, \
+    {text:" from "}, {selector:"@s"}, \
+    {text:", now at "}, {score: {objective:md_score, name:"@s"}, color:green}, {storage:"mob_dash:data", nbt:PointString} \
+]
 
 function mob_dash:game/update_sidebar_scores
 

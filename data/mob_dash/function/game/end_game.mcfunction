@@ -10,14 +10,15 @@ execute as @e[type=marker,tag=md_team] if score @s md_score = $Max md_score run 
 
 execute store result score $WinningTeams md_state if entity @e[type=marker,tag=md_winner]
 
-execute if score $WinningTeams md_state matches 2.. run title @a subtitle [{"text":"It's a draw!","color": "gold"}]
-execute if score $WinningTeams md_state matches 1 run title @a subtitle ["",{"text":"Team ","color": "gold"},{"selector":"@e[type=marker,tag=md_winner]"},{"text":" wins!","color":"gold"}]
+execute if score $WinningTeams md_state matches 1 run data modify storage mob_dash:data Message set value [{text:"Team ", color:gold}, {selector:"@n[type=marker,tag=md_winner]"}, {text:" wins!", color:gold}]
+execute if score $WinningTeams md_state matches 2.. run data modify storage mob_dash:data Message set value [{text:"It's a draw!", color:gold}]
+
 title @a title "Game Over"
+title @a subtitle [{storage:"mob_dash:data", nbt:Message, interpret:true}]
+tellraw @a [{storage:"mob_dash:data", nbt:Message, interpret:true}]
+
 bossbar remove mob_dash:timer
 
 scoreboard players set $GameTick md_state 0
-
-execute if score $WinningTeams md_state matches 2.. run tellraw @a [{"text":"It's a draw!","color": "gold"}]
-execute if score $WinningTeams md_state matches 1 run tellraw @a ["",{"text":"Team ","color": "gold"},{"selector":"@e[type=marker,tag=md_winner]"},{"text":" wins!","color":"gold"}]
 
 tellraw @a "Returning to menu in 60 seconds..."

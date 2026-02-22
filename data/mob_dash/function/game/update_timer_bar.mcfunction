@@ -13,12 +13,12 @@ scoreboard players operation $MinsLeft md_state = $TimeLeft md_state
 scoreboard players add $MinsLeft md_state 1199
 scoreboard players operation $MinsLeft md_state /= 1200 md_const
 
-execute unless score $MinsLeft md_state matches 1 run return run bossbar set mob_dash:timer name [{"text": "Game Time Remaining: "},{"score":{"name":"$MinsLeft","objective": "md_state"}},{"text": " mins"}]
+execute unless score $MinsLeft md_state matches 1 run return run bossbar set mob_dash:timer name [{text:"Game Time Remaining: "}, {score: {objective:md_state, name:"$MinsLeft"}}, {text:" mins"}]
 
 # Get the seconds remaining (round ticks up to the nearest second)
 scoreboard players operation $SecsLeft md_state = $TimeLeft md_state
 scoreboard players add $SecsLeft md_state 19
 scoreboard players operation $SecsLeft md_state /= 20 md_const
 
-execute unless score $SecsLeft md_state matches 1 run return run bossbar set mob_dash:timer name [{"text": "Game Time Remaining: "},{"score":{"name":"$SecsLeft","objective": "md_state"}},{"text": " seconds"}]
-bossbar set mob_dash:timer name [{"text": "Game Time Remaining: 1 second"}]
+execute unless score $SecsLeft md_state matches 1 run return run bossbar set mob_dash:timer name [{text:"Game Time Remaining: "}, {score: {objective:md_state, name:"$SecsLeft"}}, {text:" seconds"}]
+bossbar set mob_dash:timer name [{text:"Game Time Remaining: 1 second"}]

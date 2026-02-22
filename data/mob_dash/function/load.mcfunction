@@ -48,7 +48,7 @@ execute unless score $UseNightWeight md_state matches 0..1 run scoreboard player
 
 # Set default settings
 execute unless score $OpOnly md_state matches 0..1 run scoreboard players set $OpOnly md_state 0
-execute unless score $ProgressionSpeed md_state matches 0..2 run scoreboard players set $ProgressionSpeed md_state 1
+execute unless score $DifficultySpeed md_state matches 0..2 run scoreboard players set $DifficultySpeed md_state 1
 execute unless score $IncrementPeriod md_state matches 0..2 run scoreboard players set $IncrementPeriod md_state 1
 execute unless score $PassiveStart md_state matches 0..1 run scoreboard players set $PassiveStart md_state 1
 execute unless score $Hostiles md_state matches 0..1 run scoreboard players set $Hostiles md_state 1
@@ -58,11 +58,14 @@ execute store result score $Temp md_state run difficulty
 execute if score $Temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = $Temp md_state
 
 # TODO: Fix this in the 1.20 branch!
-function mob_dash:menu/settings/update_progression_text
+function mob_dash:menu/settings/update_difficulty_speed_text
 function mob_dash:menu/settings/update_increment_period_text
 function mob_dash:menu/settings/update_passive_start_text
 function mob_dash:menu/settings/update_hostiles_text
 function mob_dash:menu/settings/update_nether_text
+
+# Store various text components in storage for future use
+function mob_dash:load/store_text
 
 forceload add 0 0
 execute unless entity @n[type=minecraft:marker,tag=md_target] run function mob_dash:load/create_targets

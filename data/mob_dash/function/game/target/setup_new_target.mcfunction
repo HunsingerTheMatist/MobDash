@@ -1,7 +1,8 @@
 # Display name of target
+data modify storage mob_dash:data Message set value [{text:"New Target: ", color:gold}, {selector:"@s", color:red}]
 title @a title ""
-title @a subtitle ["",{"text":"New Target: ","color":"gold"},{"selector":"@s","color":"red"}]
-tellraw @a ["",{"text":"New Target: ","color":"gold"},{"selector":"@s","color":"red"}]
+title @a subtitle [{storage:"mob_dash:data", nbt:Message, interpret:true}]
+tellraw @a [{storage:"mob_dash:data", nbt:Message, interpret:true}]
 
 # Add the selection tags to the new selected mob
 tag @s remove md_selected_new
