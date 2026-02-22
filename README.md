@@ -33,14 +33,13 @@ and hit enter.
 
 The 'Difficulty Scaling' setting controls how quickly the game will start assigning harder mob targets.
 
-The 'Points Increase Every' setting sets the time delay before a selected mob’s score increases if it
-isn’t killed.
+The 'Points Increase Every' setting controls how often each mob's point value increases.
 
-The 'Passive-only Start' setting starts the game with only passive mobs for the first bit.
+The 'Passive-only Start' setting controls whether to only have passive mobs at the start of the game.
 
-The 'Hostiles' setting determines whether hostile mobs can be chosen.
+The 'Hostiles' setting controls whether hostile mobs can be chosen by the game.
 
-The 'Nether' setting determines whether nether mobs can be chosen.
+The 'Nether' setting controls whether nether mobs can be chosen by the game.
 
 When everyone is ready, start the game using the Start Game menu option.
 
