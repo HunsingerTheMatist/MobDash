@@ -1,5 +1,7 @@
 # Runs for every player on first joining the game
 
+tp @s @n[type=marker,tag=md_spawn]
+
 function mob_dash:menu/welcome
 
 execute unless score @s md_team matches 1..9 store result score @s SetTeam run random value 1..8

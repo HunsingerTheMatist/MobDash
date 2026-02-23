@@ -4,6 +4,7 @@ function mob_dash:menu/welcome
 
 # - [Tutorial]
 # - [Switch Teams]
+# - [Relocate Spawn]
 #
 # - [Op-Only Mode: Off]
 # - [Win Score Limit: None]
@@ -19,8 +20,9 @@ function mob_dash:menu/welcome
 tellraw @s \
 [ \
     {text:"\n"}, \
-    {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Tutorial",     color:green, click_event: {action:run_command, command:"trigger MenuAction set 1"}}, {text:"]\n", color:gold, bold: true}, \
-    {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Switch Teams", color:green, click_event: {action:run_command, command:"trigger MenuAction set 3"}}, {text:"]\n", color:gold, bold: true}, \
+    {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Tutorial",       color:green, click_event: {action:run_command, command:"trigger MenuAction set 1"}}, {text:"]\n", color:gold, bold: true}, \
+    {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Switch Teams",   color:green, click_event: {action:run_command, command:"trigger MenuAction set 3"}}, {text:"]\n", color:gold, bold: true}, \
+    {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Relocate Spawn", color:green, click_event: {action:run_command, command:"function mob_dash:menu/relocate_spawn"}}, {text:"]\n", color:gold, bold: true}, \
 ]
 
 # If Op-Only Mode is off, show all players the 'Op-Only Mode' toggle

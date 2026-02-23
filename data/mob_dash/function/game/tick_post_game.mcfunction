@@ -2,6 +2,4 @@
 
 scoreboard players add $GameTick md_state 1
 execute if score $GameTick md_state matches 600 run function mob_dash:game/reset
-
-clear @a[gamemode=!spectator]
-gamemode spectator @a[gamemode=!spectator]
+execute if score $GameTick md_state matches 600 at @n[type=marker,tag=md_spawn] run function mob_dash:menu/setup_spawn

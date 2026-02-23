@@ -5,21 +5,16 @@ gamerule advance_time false
 gamerule advance_weather false
 gamerule spawn_mobs false
 difficulty peaceful
-
 time set noon
-
-# World border
-execute if score $BorderCooldown md_state matches 0 at @n[type=marker,tag=md_spawn] run worldborder center ~ ~
-execute if score $BorderCooldown md_state matches 0 at @n[type=marker,tag=md_spawn] run spawnpoint @a ~ ~ ~
-execute if score $BorderCooldown md_state matches 0 at @n[type=marker,tag=md_spawn] run setworldspawn ~ ~ ~
-execute if score $BorderCooldown md_state matches 0 run worldborder set 100
-execute if score $BorderCooldown md_state matches 0.. run scoreboard players remove $BorderCooldown md_state 1
 
 # Player griefing fixup
 gamemode adventure @a
 effect give @a weakness infinite 100 true
 effect give @a mining_fatigue infinite 100 true
 effect give @a saturation infinite 1 true
+
+# Handle setting up spawn once a player is present
+execute unless score $SpawnSetupDone md_state matches 1 at @p run function mob_dash:menu/setup_spawn
 
 # Handle new players
 execute as @a[tag=!md_assigned] run function mob_dash:menu/new_player

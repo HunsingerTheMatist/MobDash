@@ -1,7 +1,5 @@
 # End the game, display results, set post-game states
 
-scoreboard players set $GameState md_state 2
-
 scoreboard players set $Max md_score 0
 scoreboard players operation $Max md_score > @e[distance=0,type=marker,tag=md_team] md_score
 
@@ -16,9 +14,12 @@ execute if score $WinningTeams md_state matches 2.. run data modify storage mob_
 title @a title "Game Over"
 title @a subtitle [{storage:"mob_dash:data", nbt:Message, interpret:true}]
 tellraw @a [{storage:"mob_dash:data", nbt:Message, interpret:true}]
+tellraw @a "Returning to menu in 60 seconds..."
+
+clear @a[gamemode=!spectator]
+gamemode spectator @a[gamemode=!spectator]
 
 bossbar remove mob_dash:timer
 
+scoreboard players set $GameState md_state 2
 scoreboard players set $GameTick md_state 0
-
-tellraw @a "Returning to menu in 60 seconds..."

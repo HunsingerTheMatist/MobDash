@@ -6,6 +6,7 @@ gamerule spawn_mobs true
 
 time set day
 tp @a @n[type=marker,tag=md_spawn]
+kill @e[type=marker,tag=md_spawn]
 effect clear @a
 effect give @a instant_health 1 10 true
 effect give @a saturation 1 10 true
