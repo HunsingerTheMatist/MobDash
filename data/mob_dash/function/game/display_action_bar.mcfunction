@@ -4,7 +4,6 @@
 scoreboard players set $ActionBarTick md_state 40
 
 # Build the action bar text component if necessary
-# TODO: See if there's a better way to sort entities by score
 scoreboard players set #temp md_state 0
 scoreboard players set #temp2 md_state 2147483647
 execute unless score $ActionBarCache md_state matches 1 run scoreboard players operation #temp2 md_state < @e[distance=0,type=marker,tag=md_selected] md_index

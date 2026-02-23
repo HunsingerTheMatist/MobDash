@@ -8,8 +8,8 @@ tag @s remove md_killed
 
 scoreboard players remove $TargetCount md_state 1
 
-# Invalidate target ticking cache
-execute if score $TargetCount md_state matches ..0 run scoreboard players set $TargetTick md_state 0
-
 # Invalidate action bar cache
 scoreboard players set $ActionBarCache md_state 0
+
+# Check to see if a new target needs to be added
+function mob_dash:game/target/check_for_add_target

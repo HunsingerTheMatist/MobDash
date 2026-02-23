@@ -9,7 +9,7 @@ execute if score $EndTick md_state matches 1.. run function mob_dash:game/update
 
 # Process targets
 scoreboard players remove $TargetTick md_state 1
-execute if score $TargetTick md_state matches ..0 run function mob_dash:game/target/process_targets
+execute if score $TargetTick md_state matches ..0 run function mob_dash:game/target/increment_target_scores
 
 # Process action bar
 scoreboard players remove $ActionBarTick md_state 1
