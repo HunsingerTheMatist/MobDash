@@ -15,10 +15,10 @@ scoreboard objectives add TimeLimit trigger "Mob Dash Time Limit"
 # Game states
 scoreboard objectives add md_level dummy "Mob Dash Target Levels"
 scoreboard objectives add md_weight dummy "Mob Dash Target Weights"
+scoreboard objectives add md_index dummy "Mob Dash Target Index"
 scoreboard objectives add md_team dummy "Mob Dash Team ID"
 scoreboard objectives add md_team_count dummy "Mob Dash Team Member Count"
 scoreboard objectives add md_const dummy "Mob Dash Constants"
-scoreboard objectives add md_time dummy "Mob Dash Target Times"
 scoreboard objectives add md_score dummy "Mob Dash Team Scores"
 scoreboard objectives add md_team_scores dummy "Team Scores"
 scoreboard objectives add md_player_scores dummy "Scores"
@@ -41,7 +41,6 @@ scoreboard players add $Timeout md_state 0
 
 # Set default configs
 execute unless score $MaxTargetScore md_state matches 1.. run scoreboard players set $MaxTargetScore md_state 5
-# TODO: Remove below until it can actually be changed
 execute unless score $MaxTargetCount md_state matches 1.. run scoreboard players set $MaxTargetCount md_state 3
 execute unless score $AddTargetThreshold md_state matches 1.. run scoreboard players set $AddTargetThreshold md_state 3
 execute unless score $UseNightWeight md_state matches 0..1 run scoreboard players set $UseNightWeight md_state 1
@@ -54,8 +53,8 @@ execute unless score $PassiveStart md_state matches 0..1 run scoreboard players 
 execute unless score $Hostiles md_state matches 0..1 run scoreboard players set $Hostiles md_state 1
 execute unless score $Nether md_state matches 0..1 run scoreboard players set $Nether md_state 1
 
-execute store result score $Temp md_state run difficulty
-execute if score $Temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = $Temp md_state
+execute store result score #temp md_state run difficulty
+execute if score #temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = #temp md_state
 
 # TODO: Fix this in the 1.20 branch!
 function mob_dash:menu/settings/update_difficulty_speed_text

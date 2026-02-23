@@ -32,3 +32,6 @@ execute as @n[distance=0,type=marker,tag=md_selected_new] run function mob_dash:
 # Increment the mob counts
 scoreboard players add $TargetCount md_state 1
 scoreboard players add $TotalMobsSelected md_state 1
+
+# Invalidate action bar cache
+scoreboard players set $ActionBarCache md_state 0
