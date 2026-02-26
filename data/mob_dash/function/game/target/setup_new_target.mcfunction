@@ -1,8 +1,8 @@
 # Display name of target
-data modify storage mob_dash:data Message set value [{text:"New Target: ", color:gold}, {selector:"@s", color:red}]
+data modify storage mob_dash:data Runtime.Message set value [{text:"New Target: ", color:gold}, {selector:"@s", color:red}]
 title @a title ""
-title @a subtitle [{storage:"mob_dash:data", nbt:Message, interpret:true}]
-tellraw @a [{storage:"mob_dash:data", nbt:Message, interpret:true}]
+title @a subtitle [{storage:"mob_dash:data", nbt:Runtime.Message, interpret:true}]
+tellraw @a [{storage:"mob_dash:data", nbt:Runtime.Message, interpret:true}]
 
 # Add the selection tags to the new selected mob
 tag @s remove md_selected_new

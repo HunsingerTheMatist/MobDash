@@ -1,20 +1,20 @@
 # Build the action bar
 
 # Builds the prefix of "Target: "/"Targets: "
-execute if score #temp md_state matches 0 if score $TargetCount md_state matches 1 run data modify storage mob_dash:data ActionBar set value [{text:"Target: ", color:gold}]
-execute if score #temp md_state matches 0 unless score $TargetCount md_state matches 1 run data modify storage mob_dash:data ActionBar set value [{text:"Targets: ", color:gold}]
+execute if score #temp md_state matches 0 if score $TargetCount md_state matches 1 run data modify storage mob_dash:data Runtime.ActionBar set value [{text:"Target: ", color:gold}]
+execute if score #temp md_state matches 0 unless score $TargetCount md_state matches 1 run data modify storage mob_dash:data Runtime.ActionBar set value [{text:"Targets: ", color:gold}]
 
 # Builds the comma separation between each target
-execute unless score #temp md_state matches 0 run data modify storage mob_dash:data ActionBar append value {text:", ", color:gold}
+execute unless score #temp md_state matches 0 run data modify storage mob_dash:data Runtime.ActionBar append value {text:", ", color:gold}
 
 # Writes this target's name, score, and point plurality
-data modify storage mob_dash:data ActionBarTarget[0].text set from entity @s CustomName
-execute store result storage mob_dash:data ActionBarTarget[2].text int 1 run scoreboard players get @s md_score
-data modify storage mob_dash:data ActionBarTarget[2].text set string storage mob_dash:data ActionBarTarget[2].text
-data modify storage mob_dash:data ActionBarTarget[3].text set from entity @s data.PointString
+data modify storage mob_dash:data Templates.ActionBarTarget[0].text set from entity @s CustomName
+execute store result storage mob_dash:data Templates.ActionBarTarget[2].text int 1 run scoreboard players get @s md_score
+data modify storage mob_dash:data Templates.ActionBarTarget[2].text set string storage mob_dash:data Templates.ActionBarTarget[2].text
+data modify storage mob_dash:data Templates.ActionBarTarget[3].text set from entity @s data.PointString
 
 # Adds this target's message to the action bar
-data modify storage mob_dash:data ActionBar append from storage mob_dash:data ActionBarTarget[]
+data modify storage mob_dash:data Runtime.ActionBar append from storage mob_dash:data Templates.ActionBarTarget[]
 
 # Go to the next target in the priority list, if any
 tag @s add md_processed

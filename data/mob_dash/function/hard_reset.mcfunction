@@ -23,8 +23,9 @@ scoreboard players reset * md_score
 scoreboard players reset * md_team_scores
 scoreboard players reset * md_player_scores
 
-# TODO: Figure out how to remove everything. This doesn't work
-data modify storage mob_dash:data {} set value {}
+data remove storage mob_dash:data Templates
+data remove storage mob_dash:data Runtime
+data remove storage mob_dash:data Settings
 
 worldborder set 50000
 

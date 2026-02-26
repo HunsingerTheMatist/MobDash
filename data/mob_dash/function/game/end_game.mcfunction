@@ -8,12 +8,12 @@ execute as @e[distance=..1,type=marker,tag=md_team] if score @s md_score = $Max 
 
 execute store result score $WinningTeams md_state if entity @e[distance=..1,type=marker,tag=md_winner]
 
-execute if score $WinningTeams md_state matches 1 run data modify storage mob_dash:data Message set value [{text:"Team ", color:gold}, {selector:"@n[distance=..1,type=marker,tag=md_winner]"}, {text:" wins!", color:gold}]
-execute if score $WinningTeams md_state matches 2.. run data modify storage mob_dash:data Message set value [{text:"It's a draw!", color:gold}]
+execute if score $WinningTeams md_state matches 1 run data modify storage mob_dash:data Runtime.Message set value [{text:"Team ", color:gold}, {selector:"@n[distance=..1,type=marker,tag=md_winner]"}, {text:" wins!", color:gold}]
+execute if score $WinningTeams md_state matches 2.. run data modify storage mob_dash:data Runtime.Message set value [{text:"It's a draw!", color:gold}]
 
 title @a title "Game Over"
-title @a subtitle [{storage:"mob_dash:data", nbt:Message, interpret:true}]
-tellraw @a [{storage:"mob_dash:data", nbt:Message, interpret:true}]
+title @a subtitle [{storage:"mob_dash:data", nbt:Runtime.Message, interpret:true}]
+tellraw @a [{storage:"mob_dash:data", nbt:Runtime.Message, interpret:true}]
 tellraw @a "Returning to menu in 60 seconds..."
 
 clear @a
