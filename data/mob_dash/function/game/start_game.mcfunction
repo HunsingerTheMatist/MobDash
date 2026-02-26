@@ -6,14 +6,14 @@ gamerule spawn_mobs true
 
 time set day
 tp @a @n[type=marker,tag=md_spawn]
-kill @e[type=marker,tag=md_spawn]
+clear @a
+xp add @a -1000 levels
 effect clear @a
 effect give @a instant_health 1 10 true
 effect give @a saturation 1 10 true
 effect give @a resistance 1 10 true
 gamemode survival @a[team=!gray]
 gamemode spectator @a[team=gray]
-clear @a
 
 worldborder set 50000
 
@@ -45,8 +45,8 @@ scoreboard players reset @a TimeLimit
 scoreboard players reset @a SetTeam
 
 # Count team members
-execute in mob_dash:mb_markers positioned 0 0 0 run scoreboard players reset @e[distance=0,type=marker,tag=md_team] md_team_count
-execute in mob_dash:mb_markers positioned 0 0 0 as @e[distance=0,type=marker,tag=md_team,scores={md_team=1..8}] run function mob_dash:game/count_members
+execute in mob_dash:mb_markers positioned 0 0 0 run scoreboard players reset @e[distance=..1,type=marker,tag=md_team] md_team_count
+execute in mob_dash:mb_markers positioned 0 0 0 as @e[distance=..1,type=marker,tag=md_team,scores={md_team=1..8}] run function mob_dash:game/count_members
 
 # Set setting factors
 execute if score $DifficultySpeed md_state matches 0 run scoreboard players set $ProgressionFactor md_state 20
@@ -57,7 +57,7 @@ execute if score $IncrementPeriod md_state matches 1 run scoreboard players set 
 execute if score $IncrementPeriod md_state matches 2 run scoreboard players set $ScorePeriod md_state 3600
 
 # Scale the progression speed by number of active teams
-execute in mob_dash:mb_markers positioned 0 0 0 store result score $ActiveTeams md_state if entity @e[distance=0,type=marker,tag=md_team,scores={md_team_count=1..}]
+execute in mob_dash:mb_markers positioned 0 0 0 store result score $ActiveTeams md_state if entity @e[distance=..1,type=marker,tag=md_team,scores={md_team_count=1..}]
 scoreboard players operation $ProgressionFactor md_state *= $ActiveTeams md_state
 
 execute if score $EndTick md_state matches 1.. run function mob_dash:game/setup_timer_bar

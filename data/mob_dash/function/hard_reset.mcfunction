@@ -7,7 +7,6 @@ kill @e[type=marker,tag=md_team]
 scoreboard players reset * md_state
 
 scoreboard players reset * md_menu_ticks
-scoreboard players reset * md_action
 
 scoreboard players reset * MenuAction
 scoreboard players reset * SetTeam
@@ -25,7 +24,7 @@ scoreboard players reset * md_team_scores
 scoreboard players reset * md_player_scores
 
 # TODO: Figure out how to remove everything. This doesn't work
-data remove storage mob_dash:data *
+data modify storage mob_dash:data {} set value {}
 
 worldborder set 50000
 

@@ -4,7 +4,6 @@ scoreboard objectives add md_state dummy "Mob Dash Game State"
 
 # Menu states
 scoreboard objectives add md_menu_ticks dummy "Mob Dash Menu Ticks"
-scoreboard objectives add md_action dummy "Mob Dash Menu Actions"
 
 # Menu triggers
 scoreboard objectives add MenuAction trigger "Trigger Menu Actions"
@@ -35,10 +34,6 @@ scoreboard players set 100 md_const 100
 scoreboard players set 1200 md_const 1200
 scoreboard players set 24000 md_const 24000
 
-scoreboard players add $TargetCount md_state 0
-scoreboard players add $Win md_state 0
-scoreboard players add $Timeout md_state 0
-
 # Set default configs
 execute unless score $MaxTargetScore md_state matches 1.. run scoreboard players set $MaxTargetScore md_state 5
 execute unless score $MaxTargetCount md_state matches 1.. run scoreboard players set $MaxTargetCount md_state 3
@@ -47,6 +42,8 @@ execute unless score $UseNightWeight md_state matches 0..1 run scoreboard player
 
 # Set default settings
 execute unless score $OpOnly md_state matches 0..1 run scoreboard players set $OpOnly md_state 0
+execute unless score $Win md_state matches 0.. run scoreboard players set $Win md_state 0
+execute unless score $Timeout md_state matches 0.. run scoreboard players set $Timeout md_state 0
 execute unless score $DifficultySpeed md_state matches 0..2 run scoreboard players set $DifficultySpeed md_state 1
 execute unless score $IncrementPeriod md_state matches 0..2 run scoreboard players set $IncrementPeriod md_state 1
 execute unless score $PassiveStart md_state matches 0..1 run scoreboard players set $PassiveStart md_state 1
@@ -57,6 +54,9 @@ execute store result score #temp md_state run difficulty
 execute if score #temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = #temp md_state
 
 # TODO: Fix this in the 1.20 branch!
+function mob_dash:menu/settings/update_op_only_text
+function mob_dash:menu/settings/update_win_score_text
+function mob_dash:menu/settings/update_time_limit_text
 function mob_dash:menu/settings/update_difficulty_speed_text
 function mob_dash:menu/settings/update_increment_period_text
 function mob_dash:menu/settings/update_passive_start_text
@@ -71,4 +71,8 @@ function mob_dash:load/store_text
 execute in mob_dash:mb_markers run forceload add 0 0
 schedule function mob_dash:load/setup_markers 1
 
-function mob_dash:game/reset
+# Set up the spawn if there is no game running & no current spawn set up
+execute if score $GameState md_state matches 1..2 run return 1
+execute if entity @n[type=marker,tag=md_spawn] run return 1
+scoreboard players set $SpawnSetupDone md_state 0
+function mob_dash:menu/reset

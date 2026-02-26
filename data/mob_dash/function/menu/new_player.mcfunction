@@ -1,6 +1,8 @@
 # Runs for every player on first joining the game
 
 tp @s @n[type=marker,tag=md_spawn]
+clear @s
+xp add @s -1000 levels
 
 function mob_dash:menu/welcome
 

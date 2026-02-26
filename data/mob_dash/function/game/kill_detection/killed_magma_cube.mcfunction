@@ -2,5 +2,5 @@
 
 advancement revoke @s only mob_dash:kill_magma_cube
 tag @s add md_current
-execute in mob_dash:mb_markers positioned 0 0 0 as @n[distance=0,type=marker,tag=md_selected,name="Magma Cube"] run function mob_dash:game/award_kill
+execute in mob_dash:mb_markers positioned 0 0 0 as @n[distance=..1,type=marker,tag=md_selected,name="Magma Cube"] run function mob_dash:game/award_kill
 tag @s remove md_current

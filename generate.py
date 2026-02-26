@@ -104,8 +104,8 @@ with open('data/mob_dash/function/load/create_targets.mcfunction', 'w') as file:
         prev_lvl = level
         i += 1
 
-    file.write('\nexecute as @e[distance=0,type=marker,tag=md_target] store result score @s md_level run data get entity @s data.level')
-    file.write('\nexecute as @e[distance=0,type=marker,tag=md_target] store result score @s md_weight run data get entity @s data.weight')
+    file.write('\nexecute as @e[distance=..1,type=marker,tag=md_target] store result score @s md_level run data get entity @s data.level')
+    file.write('\nexecute as @e[distance=..1,type=marker,tag=md_target] store result score @s md_weight run data get entity @s data.weight')
 
 for mob, *_ in all_mobs:
     with open(f'data/mob_dash/advancement/kill_{mob}.json', 'w') as file:
@@ -131,7 +131,7 @@ for mob, *_ in all_mobs:
         file.write('# Runs when the current mob has been killed (auto-generated file)\n\n')
         file.write(f'advancement revoke @s only mob_dash:kill_{mob}\n')
         file.write(f'tag @s add md_current\n')
-        file.write(f'execute in mob_dash:mb_markers positioned 0 0 0 as @n[distance=0,type=marker,tag=md_selected,name="{display_name}"] run function mob_dash:game/award_kill\n')
+        file.write(f'execute in mob_dash:mb_markers positioned 0 0 0 as @n[distance=..1,type=marker,tag=md_selected,name="{display_name}"] run function mob_dash:game/award_kill\n')
         file.write(f'tag @s remove md_current')
 
 #with open('data/mob_dash/function/game/detect_kill.mcfunction', 'w') as file:

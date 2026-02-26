@@ -1,6 +1,7 @@
 # Set the world border
 
-execute unless entity @n[type=marker,tag=md_spawn] run summon marker ~ 0 ~ {Tags:[md_spawn]}
+execute unless entity @n[type=marker,tag=md_spawn] run summon marker ~ ~ ~ {Tags:[md_spawn]}
+forceload add ~ ~
 
 worldborder center ~ ~
 spawnpoint @a ~ ~ ~

@@ -5,7 +5,7 @@ data modify storage mob_dash:data CancelTutorialButton set value [ \
     {text:" [", color:gold, bold: true}, \
     {text:"X", color:green, \
         hover_event: {action:show_text, value: {text:"Cancel Tutorial"}}, \
-        click_event: {action:run_command, command:"trigger MenuAction set 1"}}, \
+        click_event: {action:run_command, command:"trigger MenuAction set 2"}}, \
     {text:"]", color:gold, bold: true} \
 ]
 

@@ -1,0 +1,2 @@
+execute if score $Win md_state matches 0 run return run data merge storage mob_dash:data {WinScore:"None"}
+data modify storage mob_dash:data WinScore set value [{score: {objective:md_state, name:"$Win"}}]

@@ -39,5 +39,5 @@ summon marker ~ ~ ~ {CustomName:"Piglin Brute", data: {level: 4, weight: 2}, Tag
 summon marker ~ ~ ~ {CustomName:"Wither Skeleton", data: {level: 4, weight: 3}, Tags:[md_target, md_hostile, md_nether]}
 summon marker ~ ~ ~ {CustomName:"Zoglin", data: {level: 4, weight: 4}, Tags:[md_target, md_hostile, md_nether]}
 
-execute as @e[distance=0,type=marker,tag=md_target] store result score @s md_level run data get entity @s data.level
-execute as @e[distance=0,type=marker,tag=md_target] store result score @s md_weight run data get entity @s data.weight
+execute as @e[distance=..1,type=marker,tag=md_target] store result score @s md_level run data get entity @s data.level
+execute as @e[distance=..1,type=marker,tag=md_target] store result score @s md_weight run data get entity @s data.weight
