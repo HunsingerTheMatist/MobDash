@@ -11,6 +11,9 @@ execute if score $EndTick md_state matches 1.. run function mob_dash:game/update
 scoreboard players remove $TargetTick md_state 1
 execute if score $TargetTick md_state matches ..0 run function mob_dash:game/target/increment_target_scores
 
+# Process animal handling
+function mob_dash:game/animals/tick_animal_handling
+
 # Process action bar
 scoreboard players remove $ActionBarTick md_state 1
 execute if score $ActionBarTick md_state matches ..0 run function mob_dash:game/display_action_bar

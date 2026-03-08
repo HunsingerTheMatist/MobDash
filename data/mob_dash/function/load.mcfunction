@@ -28,6 +28,7 @@ scoreboard objectives setdisplay sidebar md_team_scores
 
 scoreboard players set -1 md_const -1
 scoreboard players set 2 md_const 2
+scoreboard players set 3 md_const 3
 scoreboard players set 5 md_const 5
 scoreboard players set 20 md_const 20
 scoreboard players set 100 md_const 100
@@ -52,6 +53,9 @@ execute unless score $Nether md_state matches 0..1 run scoreboard players set $N
 
 execute store result score #temp md_state run difficulty
 execute if score #temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = #temp md_state
+
+# Setup animal handling
+function mob_dash:game/animals/load_animal_handling
 
 # TODO: Fix this in the 1.20 branch!
 function mob_dash:menu/settings/update_op_only_text

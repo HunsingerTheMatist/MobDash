@@ -1,0 +1,7 @@
+{
+  "_comment": "Contains a list of all mobs part of the 'creatures' mob cap",
+  "values": [
+    "#mob_dash:non_persistent_animals",
+    "#mob_dash:persistent_animals"
+  ]
+}

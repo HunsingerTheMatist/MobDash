@@ -1,0 +1,13 @@
+{
+  "_comment": "Contains a list of all animals that can never be chosen for despawn (and shouldn't count towards the mob cap)",
+  "values": [
+    "minecraft:allay",
+    "minecraft:bee",
+    "minecraft:happy_ghast",
+    "minecraft:skeleton_horse",
+    "minecraft:sniffer",
+    "minecraft:tadpole",
+    "minecraft:trader_llama",
+    "minecraft:wandering_trader"
+  ]
+}

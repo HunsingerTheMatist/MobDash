@@ -1,0 +1,12 @@
+{
+  "_comment": "Passes if the selected entity has a valid interaction id",
+  "_credit": "https://github.com/picarrow/hit-match",
+  "condition": "minecraft:entity_scores",
+  "entity": "this",
+  "scores": {
+    "md_id": {
+      "min": 1,
+      "max": 19682
+    }
+  }
+}

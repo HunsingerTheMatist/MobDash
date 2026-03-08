@@ -1,0 +1,7 @@
+{
+  "_comment": "Contains a list of all animals that can be non-persistent (the only reason this exists is because cats can despawn in vanilla)",
+  "values": [
+    "#mob_dash:despawnable_animals",
+    "minecraft:cat"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "_comment": "Passes if the selected entity is a baby",
+  "condition": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "flags": {
+      "is_baby": true
+    }
+  }
+}

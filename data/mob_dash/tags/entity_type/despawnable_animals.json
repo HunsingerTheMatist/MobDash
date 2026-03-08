@@ -1,0 +1,27 @@
+{
+  "_comment": "Contains a list of all animals that can be chosen to despawn",
+  "values": [
+    "minecraft:armadillo",
+    "minecraft:camel",
+    "minecraft:chicken",
+    "minecraft:cow",
+    "minecraft:donkey",
+    "minecraft:fox",
+    "minecraft:frog",
+    "minecraft:goat",
+    "minecraft:horse",
+    "minecraft:llama",
+    "minecraft:mooshroom",
+    "minecraft:mule",
+    "minecraft:ocelot",
+    "minecraft:panda",
+    "minecraft:parrot",
+    "minecraft:pig",
+    "minecraft:polar_bear",
+    "minecraft:rabbit",
+    "minecraft:sheep",
+    "minecraft:strider",
+    "minecraft:turtle",
+    "minecraft:wolf"
+  ]
+}
