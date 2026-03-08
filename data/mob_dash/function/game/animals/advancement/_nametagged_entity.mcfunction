@@ -1,2 +1,0 @@
-#advancement revoke @s only mob_dash:nametag_entity
-#execute as @n[type=#mob_dash:non_persistent_creatures,distance=..6,tag=!md_persistent,nbt={CustomName:{}}] run function mob_dash:game/creatures/mark_persistent
