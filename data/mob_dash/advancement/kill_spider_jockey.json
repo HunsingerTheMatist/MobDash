@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "kill_vehicle": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:spider",
+          "passenger": {
+            "type": "#minecraft:skeletons"
+          }
+        }
+      }
+    },
+    "kill_passenger": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "#minecraft:skeletons",
+          "vehicle": {
+            "type": "minecraft:spider"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kill_vehicle",
+      "kill_passenger"
+    ]
+  ],
+  "rewards": {
+    "function": "mob_dash:game/kill_detection/killed_spider_jockey"
+  }
+}

@@ -4,12 +4,12 @@
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "type": "minecraft:guardian"
+          "type": "minecraft:creaking"
         }
       }
     }
   },
   "rewards": {
-    "function": "mob_dash:game/kill_detection/killed_guardian"
+    "function": "mob_dash:game/kill_detection/killed_creaking"
   }
 }

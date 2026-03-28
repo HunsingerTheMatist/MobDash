@@ -1,5 +1,7 @@
 # On datapack load
 
+gamerule send_command_feedback false
+
 scoreboard objectives add md_state dummy "Mob Dash Game State"
 
 # Menu states
@@ -18,13 +20,30 @@ scoreboard objectives add md_index dummy "Mob Dash Target Index"
 scoreboard objectives add md_team dummy "Mob Dash Team ID"
 scoreboard objectives add md_team_count dummy "Mob Dash Team Member Count"
 scoreboard objectives add md_const dummy "Mob Dash Constants"
-scoreboard objectives add md_score dummy "Mob Dash Team Scores"
-scoreboard objectives add md_team_scores dummy "Team Scores"
+scoreboard objectives add md_score dummy "Mob Dash Scores"
+
 scoreboard objectives add md_player_scores dummy "Scores"
+scoreboard objectives add md_team_scores_base_ dummy "Team Scores"
+scoreboard objectives add md_team_scores_team1 dummy "Team Scores"
+scoreboard objectives add md_team_scores_team2 dummy "Team Scores"
+scoreboard objectives add md_team_scores_team3 dummy "Team Scores"
+scoreboard objectives add md_team_scores_team4 dummy "Team Scores"
+scoreboard objectives add md_team_scores_team5 dummy "Team Scores"
+scoreboard objectives add md_team_scores_team6 dummy "Team Scores"
+scoreboard objectives add md_team_scores_team7 dummy "Team Scores"
+scoreboard objectives add md_team_scores_team8 dummy "Team Scores"
 
 # Set score displays
 scoreboard objectives setdisplay list md_player_scores
-scoreboard objectives setdisplay sidebar md_team_scores
+scoreboard objectives setdisplay sidebar md_team_scores_base_
+scoreboard objectives setdisplay sidebar.team.red md_team_scores_team1
+scoreboard objectives setdisplay sidebar.team.green md_team_scores_team2
+scoreboard objectives setdisplay sidebar.team.yellow md_team_scores_team3
+scoreboard objectives setdisplay sidebar.team.blue md_team_scores_team4
+scoreboard objectives setdisplay sidebar.team.light_purple md_team_scores_team5
+scoreboard objectives setdisplay sidebar.team.gold md_team_scores_team6
+scoreboard objectives setdisplay sidebar.team.aqua md_team_scores_team7
+scoreboard objectives setdisplay sidebar.team.dark_gray md_team_scores_team8
 
 scoreboard players set -1 md_const -1
 scoreboard players set 2 md_const 2
@@ -47,15 +66,19 @@ execute unless score $Win md_state matches 0.. run scoreboard players set $Win m
 execute unless score $Timeout md_state matches 0.. run scoreboard players set $Timeout md_state 0
 execute unless score $DifficultySpeed md_state matches 0..2 run scoreboard players set $DifficultySpeed md_state 1
 execute unless score $IncrementPeriod md_state matches 0..2 run scoreboard players set $IncrementPeriod md_state 1
-execute unless score $PassiveStart md_state matches 0..1 run scoreboard players set $PassiveStart md_state 1
+execute unless score $Bounties md_state matches 0..1 run scoreboard players set $Bounties md_state 1
 execute unless score $Hostiles md_state matches 0..1 run scoreboard players set $Hostiles md_state 1
 execute unless score $Nether md_state matches 0..1 run scoreboard players set $Nether md_state 1
+execute unless score $PassiveStart md_state matches 0..1 run scoreboard players set $PassiveStart md_state 1
 
 execute store result score #temp md_state run difficulty
 execute if score #temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = #temp md_state
 
-# Setup animal handling
+# Set up animal handling
 function mob_dash:game/animals/load_animal_handling
+
+# Set up bounties
+function mob_dash:game/bounty/load_bounty
 
 # TODO: Fix this in the 1.20 branch!
 function mob_dash:menu/settings/update_op_only_text
@@ -63,17 +86,19 @@ function mob_dash:menu/settings/update_win_score_text
 function mob_dash:menu/settings/update_time_limit_text
 function mob_dash:menu/settings/update_difficulty_speed_text
 function mob_dash:menu/settings/update_increment_period_text
-function mob_dash:menu/settings/update_passive_start_text
+function mob_dash:menu/settings/update_bounties_text
 function mob_dash:menu/settings/update_hostiles_text
 function mob_dash:menu/settings/update_nether_text
+function mob_dash:menu/settings/update_passive_start_text
 
 # Store various text components in storage for future use
 function mob_dash:load/store_text
 
-# Sets up the game marker entities in the mb_markers dimension
-# Schedule is necessary to ensure the chunk is loaded when the 'setup_markers' function runs
-execute in mob_dash:mb_markers run forceload add 0 0
-schedule function mob_dash:load/setup_markers 1
+# Set the current version
+data modify storage mob_dash:data Version set value "beta 0.9"
+
+# Set up the game marker entities
+function mob_dash:load/setup_markers
 
 # Set up the spawn if there is no game running & no current spawn set up
 execute if score $GameState md_state matches 1..2 run return 1

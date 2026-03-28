@@ -1,12 +1,13 @@
 # Hard reset the minigame
 
+function mob_dash:menu/reset
+
 kill @e[type=marker,tag=md_spawn]
-kill @e[type=marker,tag=md_target]
 kill @e[type=marker,tag=md_team]
+kill @e[type=marker,tag=md_target]
+kill @e[type=marker,tag=md_bounty]
 
 scoreboard players reset * md_state
-
-scoreboard players reset * md_menu_ticks
 
 scoreboard players reset * MenuAction
 scoreboard players reset * SetTeam
@@ -19,16 +20,9 @@ scoreboard players reset * md_index
 scoreboard players reset * md_team
 scoreboard players reset * md_team_count
 scoreboard players reset * md_const
-scoreboard players reset * md_score
-scoreboard players reset * md_team_scores
-scoreboard players reset * md_player_scores
 
 data remove storage mob_dash:data Templates
 data remove storage mob_dash:data Runtime
 data remove storage mob_dash:data Settings
-
-worldborder set 50000
-
-bossbar remove mob_dash:timer
 
 function mob_dash:load

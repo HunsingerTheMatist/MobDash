@@ -1,0 +1,59 @@
+{
+  "criteria": {
+    "kill_vehicle1": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:strider",
+          "passenger": {
+            "type": "minecraft:strider"
+          }
+        }
+      }
+    },
+    "kill_vehicle2": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:strider",
+          "passenger": {
+            "type": "minecraft:zombified_piglin"
+          }
+        }
+      }
+    },
+    "kill_passenger1": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:strider",
+          "vehicle": {
+            "type": "minecraft:strider"
+          }
+        }
+      }
+    },
+    "kill_passenger2": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:zombified_piglin",
+          "vehicle": {
+            "type": "minecraft:strider"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kill_vehicle1",
+      "kill_vehicle2",
+      "kill_passenger1",
+      "kill_passenger2"
+    ]
+  ],
+  "rewards": {
+    "function": "mob_dash:game/kill_detection/killed_strider_jockey"
+  }
+}

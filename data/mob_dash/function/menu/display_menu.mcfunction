@@ -11,9 +11,10 @@ function mob_dash:menu/welcome
 # - [Time Limit: None]
 # - [Difficulty Scaling: Normal]
 # - [Points Increase Every: 1 min]
-# - [Passive-only Start: Off]
+# - [Bounties: On]
 # - [Hostiles: On]
 # - [Nether: On]
+# - [Passive-only Start: Off]
 #
 # - [Start Game]
 
@@ -40,11 +41,12 @@ tellraw @s \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Time Limit: ",            color:green, extra: [{storage:"mob_dash:data", nbt:Settings.TimeLimit,       interpret:true, color:aqua}], click_event: {action:suggest_command, command:"/trigger TimeLimit set "}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Difficulty Scaling: ",    color:green, extra: [{storage:"mob_dash:data", nbt:Settings.DifficultySpeed, interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 11"}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Points Increase Every: ", color:green, extra: [{storage:"mob_dash:data", nbt:Settings.IncrementPeriod, interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 12"}}, {text:"]\n", color:gold, bold: true}, \
+    {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Bounties: ",              color:green, extra: [{storage:"mob_dash:data", nbt:Settings.Bounties,        interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 13"}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Hostiles: ",              color:green, extra: [{storage:"mob_dash:data", nbt:Settings.Hostiles,        interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 14"}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Nether: ",                color:green, extra: [{storage:"mob_dash:data", nbt:Settings.Nether,          interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 15"}}, {text:"]", color:gold, bold: true}, \
 ]
 execute unless score $Hostiles md_state matches 0 run tellraw @s \
-   [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Passive-only Start: ",    color:green, extra: [{storage:"mob_dash:data", nbt:Settings.PassiveStart,    interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 13"}}, {text:"]", color:gold, bold: true}]
+   [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Passive-only Start: ",    color:green, extra: [{storage:"mob_dash:data", nbt:Settings.PassiveStart,    interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 16"}}, {text:"]", color:gold, bold: true}]
 tellraw @s \
    [{text:"\n- "}, {text:"[", color:gold, bold: true}, {text:"Start Game", color:green, click_event: {action:run_command, command:"trigger MenuAction set 20"}}, {text:"]", color:gold, bold: true}]
 

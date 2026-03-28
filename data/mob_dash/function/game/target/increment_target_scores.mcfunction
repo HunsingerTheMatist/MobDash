@@ -1,9 +1,9 @@
 # Increment the target scores
-scoreboard players add @e[distance=..1,type=marker,tag=md_selected] md_score 1
-scoreboard players operation @e[distance=..1,type=marker,tag=md_selected] md_score < $MaxTargetScore md_state
+scoreboard players add @e[distance=..1,type=marker,tag=md_target,tag=md_selected] md_score 1
+scoreboard players operation @e[distance=..1,type=marker,tag=md_target,tag=md_selected] md_score < $MaxTargetScore md_state
 
 # Change the string 'point' to 'points' since the score is now above 1
-execute if score $MaxTargetScore md_state matches 2.. as @e[distance=..1,type=marker,tag=md_selected] run data modify entity @s data.PointString set value " points"
+execute if score $MaxTargetScore md_state matches 2.. as @e[distance=..1,type=marker,tag=md_target,tag=md_selected] run data modify entity @s data.PointString set value " points"
 
 # Set the next score increment time
 scoreboard players operation $TargetTick md_state = $ScorePeriod md_state

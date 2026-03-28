@@ -20,5 +20,5 @@ data modify storage mob_dash:data Runtime.ActionBar append from storage mob_dash
 tag @s add md_processed
 scoreboard players set #temp md_state 1
 scoreboard players set #temp2 md_state 2147483647
-scoreboard players operation #temp2 md_state < @e[distance=..1,type=marker,tag=md_selected,tag=!md_processed] md_index
-execute as @e[distance=..1,type=marker,tag=md_selected,tag=!md_processed] if score @s md_index = #temp2 md_state run function mob_dash:game/build_action_bar
+scoreboard players operation #temp2 md_state < @e[distance=..1,type=marker,tag=md_target,tag=md_selected,tag=!md_processed] md_index
+execute as @e[distance=..1,type=marker,tag=md_target,tag=md_selected,tag=!md_processed] if score @s md_index = #temp2 md_state run function mob_dash:game/build_action_bar

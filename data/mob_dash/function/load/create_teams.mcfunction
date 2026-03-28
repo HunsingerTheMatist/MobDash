@@ -1,4 +1,4 @@
-# Create target data
+# Create team markers & teams
 
 summon marker ~ ~ ~ {Tags:[md_team], CustomName:{text:"The Redstone Reapers", color:red}, data:{team_id: 1}}
 team add red {text:"The Redstone Reapers", color:red}
@@ -33,7 +33,7 @@ team add black {text:"The Blackstone Brutes", color:dark_gray}
 team modify black color dark_gray
 
 summon marker ~ ~ ~ {Tags:[md_team], CustomName:{text:"The Viewing Vexes", color:gray, italic:true}, data:{team_id: 9}}
-team add gray {text:"The Viewing Vexes", color:gray}
+team add gray {text:"The Viewing Vexes", color:gray, italic:true}
 team modify black color gray
 
 execute as @e[distance=..1,type=marker,tag=md_team] store result score @s md_team run data get entity @s data.team_id
