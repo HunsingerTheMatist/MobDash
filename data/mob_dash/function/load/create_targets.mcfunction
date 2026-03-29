@@ -23,7 +23,9 @@ summon marker ~ ~ ~ {CustomName:"Zombie",           data: {level: 2, weight: 5},
 summon marker ~ ~ ~ {CustomName:"Armadillo",        data: {level: 3, weight: 1}, Tags:[md_target, md_armadillo]}
 summon marker ~ ~ ~ {CustomName:"Axolotl",          data: {level: 3, weight: 2}, Tags:[md_target, md_axolotl]}
 summon marker ~ ~ ~ {CustomName:"Copper Golem",     data: {level: 3, weight: 3}, Tags:[md_target, md_copper_golem]}
+summon marker ~ ~ ~ {CustomName:"Nautilus",         data: {level: 3, weight: 1}, Tags:[md_target, md_nautilus]}
 summon marker ~ ~ ~ {CustomName:"Fox",              data: {level: 3, weight: 2}, Tags:[md_target, md_fox]}
+summon marker ~ ~ ~ {CustomName:"Frog",             data: {level: 3, weight: 1}, Tags:[md_target, md_frog]}
 summon marker ~ ~ ~ {CustomName:"Glow Squid",       data: {level: 3, weight: 2}, Tags:[md_target, md_glow_squid]}
 summon marker ~ ~ ~ {CustomName:"Goat",             data: {level: 3, weight: 1}, Tags:[md_target, md_goat]}
 summon marker ~ ~ ~ {CustomName:"Iron Golem",       data: {level: 3, weight: 3}, Tags:[md_target, md_iron_golem]}
@@ -31,8 +33,8 @@ summon marker ~ ~ ~ {CustomName:"Llama",            data: {level: 3, weight: 1},
 summon marker ~ ~ ~ {CustomName:"Polar Bear",       data: {level: 3, weight: 2}, Tags:[md_target, md_polar_bear]}
 summon marker ~ ~ ~ {CustomName:"Snow Golem",       data: {level: 3, weight: 3}, Tags:[md_target, md_snow_golem]}
 summon marker ~ ~ ~ {CustomName:"Tropical Fish",    data: {level: 3, weight: 1}, Tags:[md_target, md_tropical_fish]}
-summon marker ~ ~ ~ {CustomName:"Wolf",             data: {level: 3, weight: 3}, Tags:[md_target, md_wolf]}
-summon marker ~ ~ ~ {CustomName:"Enderman",         data: {level: 3, weight: 5}, Tags:[md_target, md_hostile, md_night, md_enderman]}
+summon marker ~ ~ ~ {CustomName:"Wolf",             data: {level: 3, weight: 2}, Tags:[md_target, md_wolf]}
+summon marker ~ ~ ~ {CustomName:"Enderman",         data: {level: 3, weight: 4}, Tags:[md_target, md_hostile, md_night, md_enderman]}
 summon marker ~ ~ ~ {CustomName:"Witch",            data: {level: 3, weight: 2}, Tags:[md_target, md_hostile, md_night, md_witch]}
 summon marker ~ ~ ~ {CustomName:"Strider",          data: {level: 3, weight: 5}, Tags:[md_target, md_nether, md_strider]}
 summon marker ~ ~ ~ {CustomName:"Ghast",            data: {level: 3, weight: 4}, Tags:[md_target, md_hostile, md_nether, md_ghast]}
