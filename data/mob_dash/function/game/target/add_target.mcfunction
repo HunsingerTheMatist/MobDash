@@ -5,9 +5,11 @@ scoreboard players operation $CurrentLevel md_state = $TotalMobsSelected md_stat
 scoreboard players operation $CurrentLevel md_state /= $ProgressionFactor md_state
 scoreboard players add $CurrentLevel md_state 1
 
-# Start at level 2 if passive-only start is off OR if hostiles are off
-execute if score $PassiveStart md_setting matches 0 run scoreboard players add $CurrentLevel md_state 1
-execute unless score $PassiveStart md_setting matches 0 if score $Hostiles md_setting matches 0 run scoreboard players add $CurrentLevel md_state 1
+# Start at level 2 unless hostiles are only off at the start
+# Hostiles Off (0): lvl 2
+# Hostiles On (1): lvl 2
+# Hostiles Off at Start (2): lvl 1
+execute unless score $Hostiles md_setting matches 2 run scoreboard players add $CurrentLevel md_state 1
 
 # Set all mobs in level $CurrentLevel or below as eligible unless they are already a target or were just selected last time
 tag @e[distance=..1,type=marker,tag=md_eligible] remove md_eligible

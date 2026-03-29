@@ -69,9 +69,8 @@ execute unless score $Timeout md_setting matches 0.. run scoreboard players set 
 execute unless score $DifficultySpeed md_setting matches 0..2 run scoreboard players set $DifficultySpeed md_setting 1
 execute unless score $IncrementPeriod md_setting matches 0..2 run scoreboard players set $IncrementPeriod md_setting 1
 execute unless score $Bounties md_setting matches 0..1 run scoreboard players set $Bounties md_setting 1
-execute unless score $Hostiles md_setting matches 0..1 run scoreboard players set $Hostiles md_setting 1
+execute unless score $Hostiles md_setting matches 0..2 run scoreboard players set $Hostiles md_setting 2
 execute unless score $Nether md_setting matches 0..1 run scoreboard players set $Nether md_setting 1
-execute unless score $PassiveStart md_setting matches 0..1 run scoreboard players set $PassiveStart md_setting 1
 
 execute store result score #temp md_state run difficulty
 execute if score #temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = #temp md_state

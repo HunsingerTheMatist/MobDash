@@ -12,9 +12,8 @@ function mob_dash:menu/welcome
 # - [Difficulty Scaling: Normal]
 # - [Points Increase Every: 1 min]
 # - [Bounties: On]
-# - [Hostiles: On]
+# - [Hostiles: Off at Start]
 # - [Nether: On]
-# - [Passive-only Start: Off]
 #
 # - [Start Game]
 
@@ -45,8 +44,6 @@ tellraw @s \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Hostiles: ",              color:green, extra: [{storage:"mob_dash:data", nbt:Settings.Hostiles,        interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 14"}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Nether: ",                color:green, extra: [{storage:"mob_dash:data", nbt:Settings.Nether,          interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 15"}}, {text:"]", color:gold, bold: true}, \
 ]
-execute unless score $Hostiles md_setting matches 0 run tellraw @s \
-   [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Passive-only Start: ",    color:green, extra: [{storage:"mob_dash:data", nbt:Settings.PassiveStart,    interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 16"}}, {text:"]", color:gold, bold: true}]
 tellraw @s \
    [{text:"\n- "}, {text:"[", color:gold, bold: true}, {text:"Start Game", color:green, click_event: {action:run_command, command:"trigger MenuAction set 20"}}, {text:"]", color:gold, bold: true}]
 

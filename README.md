@@ -35,8 +35,6 @@ The 'Difficulty Scaling' setting controls how quickly the game will start assign
 
 The 'Points Increase Every' setting controls how often each mob's point value increases.
 
-The 'Passive-only Start' setting controls whether to only have passive mobs at the start of the game.
-
 The 'Hostiles' setting controls whether hostile mobs can be chosen by the game.
 
 The 'Nether' setting controls whether nether mobs can be chosen by the game.
