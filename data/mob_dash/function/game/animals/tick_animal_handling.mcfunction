@@ -1,7 +1,7 @@
 # Runs every tick when the game is running
 
 # Process whether the $UseAnimalDespawning toggle is on or not
-execute if score $UseAnimalDespawning md_state matches 0 run return run function mob_dash:game/animals/disable_animal_handling
+execute if score $UseAnimalDespawning md_animal_config matches 0 run return run function mob_dash:game/animals/disable_animal_handling
 execute if score #prev_use_animal_despawning md_state matches 0 run function mob_dash:game/animals/enable_animal_handling
 
 # Add new interaction ids to relevant animals that don't have one

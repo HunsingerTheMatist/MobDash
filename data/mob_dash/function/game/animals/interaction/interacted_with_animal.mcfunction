@@ -2,7 +2,7 @@
 # Runs when the 'interact_with_animal' advancement is awarded
 # Credit: https://github.com/picarrow/hit-match
 
-execute if score $UseAnimalDespawning md_state matches 0 run return 1
+execute if score $UseAnimalDespawning md_animal_config matches 0 run return 1
 
 # Exit early if the mob that was interacted with does not have an id
 execute if entity @s[advancements={mob_dash:interact_with_animal={no_id=true}}] run return run advancement revoke @s only mob_dash:interact_with_animal
@@ -32,4 +32,4 @@ advancement revoke @s only mob_dash:interact_with_animal
 
 # Try to find the animal with the calculated id and process it
 execute if score #id md_state matches 1..19682 as @e[type=#mob_dash:non_persistent_animals,distance=..20,tag=!md_persistent,sort=nearest] if score @s md_id = #id md_state run return run function mob_dash:game/animals/interaction/process_interaction
-execute unless score #debug_animal_handling md_state matches 0 run tellraw @a [{text:"FAILED TO FIND ANIMAL WITH ID ",color:red},{score:{objective:md_state,name:"#id"},color:white},{text:" INTERACTED BY "},{selector:"@s"}]
+execute unless score #debug_animal_handling md_animal_config matches 0 run tellraw @a [{text:"FAILED TO FIND ANIMAL WITH ID ",color:red},{score:{objective:md_state,name:"#id"},color:white},{text:" INTERACTED BY "},{selector:"@s"}]

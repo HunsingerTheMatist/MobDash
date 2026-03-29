@@ -3,6 +3,8 @@
 gamerule send_command_feedback false
 
 scoreboard objectives add md_state dummy "Mob Dash Game State"
+scoreboard objectives add md_setting dummy "Mob Dash Game Settings"
+scoreboard objectives add md_config dummy "Mob Dash Configs"
 
 # Menu states
 scoreboard objectives add md_menu_ticks dummy "Mob Dash Menu Ticks"
@@ -55,21 +57,21 @@ scoreboard players set 1200 md_const 1200
 scoreboard players set 24000 md_const 24000
 
 # Set default configs
-execute unless score $MaxTargetScore md_state matches 1.. run scoreboard players set $MaxTargetScore md_state 5
-execute unless score $MaxTargetCount md_state matches 1.. run scoreboard players set $MaxTargetCount md_state 3
-execute unless score $AddTargetThreshold md_state matches 1.. run scoreboard players set $AddTargetThreshold md_state 3
-execute unless score $UseNightWeight md_state matches 0..1 run scoreboard players set $UseNightWeight md_state 1
+execute unless score $MaxTargetScore md_config matches 1.. run scoreboard players set $MaxTargetScore md_config 5
+execute unless score $MaxTargetCount md_config matches 1.. run scoreboard players set $MaxTargetCount md_config 3
+execute unless score $AddTargetThreshold md_config matches 1.. run scoreboard players set $AddTargetThreshold md_config 3
+execute unless score $UseNightWeight md_config matches 0..1 run scoreboard players set $UseNightWeight md_config 1
 
 # Set default settings
-execute unless score $OpOnly md_state matches 0..1 run scoreboard players set $OpOnly md_state 0
-execute unless score $Win md_state matches 0.. run scoreboard players set $Win md_state 0
-execute unless score $Timeout md_state matches 0.. run scoreboard players set $Timeout md_state 0
-execute unless score $DifficultySpeed md_state matches 0..2 run scoreboard players set $DifficultySpeed md_state 1
-execute unless score $IncrementPeriod md_state matches 0..2 run scoreboard players set $IncrementPeriod md_state 1
-execute unless score $Bounties md_state matches 0..1 run scoreboard players set $Bounties md_state 1
-execute unless score $Hostiles md_state matches 0..1 run scoreboard players set $Hostiles md_state 1
-execute unless score $Nether md_state matches 0..1 run scoreboard players set $Nether md_state 1
-execute unless score $PassiveStart md_state matches 0..1 run scoreboard players set $PassiveStart md_state 1
+execute unless score $OpOnly md_setting matches 0..1 run scoreboard players set $OpOnly md_setting 0
+execute unless score $Win md_setting matches 0.. run scoreboard players set $Win md_setting 0
+execute unless score $Timeout md_setting matches 0.. run scoreboard players set $Timeout md_setting 0
+execute unless score $DifficultySpeed md_setting matches 0..2 run scoreboard players set $DifficultySpeed md_setting 1
+execute unless score $IncrementPeriod md_setting matches 0..2 run scoreboard players set $IncrementPeriod md_setting 1
+execute unless score $Bounties md_setting matches 0..1 run scoreboard players set $Bounties md_setting 1
+execute unless score $Hostiles md_setting matches 0..1 run scoreboard players set $Hostiles md_setting 1
+execute unless score $Nether md_setting matches 0..1 run scoreboard players set $Nether md_setting 1
+execute unless score $PassiveStart md_setting matches 0..1 run scoreboard players set $PassiveStart md_setting 1
 
 execute store result score #temp md_state run difficulty
 execute if score #temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = #temp md_state

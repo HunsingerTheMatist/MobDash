@@ -4,8 +4,8 @@
 # Batch #s are 1-19
 
 scoreboard players add #batch_chance md_state 1
-execute if score #batch_chance md_state > $AnimalTotalChance_Base md_state run return run scoreboard players set #batch_chance md_state 0
-execute if score #batch_chance md_state > $AnimalDespawnChance_Base md_state run return 1
+execute if score #batch_chance md_state > $AnimalTotalChance_Base md_animal_config run return run scoreboard players set #batch_chance md_state 0
+execute if score #batch_chance md_state > $AnimalDespawnChance_Base md_animal_config run return 1
 
 # Increment by 8 each step to evenly distribute few mobs
 scoreboard players add #despawn_batch md_state 8

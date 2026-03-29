@@ -6,8 +6,8 @@ scoreboard players operation $CurrentLevel md_state /= $ProgressionFactor md_sta
 scoreboard players add $CurrentLevel md_state 1
 
 # Start at level 2 if passive-only start is off OR if hostiles are off
-execute if score $PassiveStart md_state matches 0 run scoreboard players add $CurrentLevel md_state 1
-execute unless score $PassiveStart md_state matches 0 if score $Hostiles md_state matches 0 run scoreboard players add $CurrentLevel md_state 1
+execute if score $PassiveStart md_setting matches 0 run scoreboard players add $CurrentLevel md_state 1
+execute unless score $PassiveStart md_setting matches 0 if score $Hostiles md_setting matches 0 run scoreboard players add $CurrentLevel md_state 1
 
 # Set all mobs in level $CurrentLevel or below as eligible unless they are already a target or were just selected last time
 tag @e[distance=..1,type=marker,tag=md_eligible] remove md_eligible
@@ -17,12 +17,12 @@ execute as @e[distance=..1,type=marker,tag=md_target,tag=!md_selected,tag=!md_pr
 execute if entity @n[distance=..1,type=marker,tag=md_target,tag=md_prev_selected,tag=md_nether] run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_nether] remove md_eligible
 
 # Remove hostile mobs if hostiles are off
-execute if score $Hostiles md_state matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_hostile] remove md_eligible
+execute if score $Hostiles md_setting matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_hostile] remove md_eligible
 
 # Remove nether mobs if nether is off
-execute if score $Nether md_state matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_nether] remove md_eligible
+execute if score $Nether md_setting matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_nether] remove md_eligible
 
-execute if score $UseNightWeight md_state matches 1 run function mob_dash:game/target/check_night_eligibility
+execute if score $UseNightWeight md_config matches 1 run function mob_dash:game/target/check_night_eligibility
 
 # Randomly select a mob from the list of eligible mobs
 function mob_dash:game/target/choose_from_eligible

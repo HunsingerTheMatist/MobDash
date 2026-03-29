@@ -1,6 +1,6 @@
 
 
-execute if score $Bounties md_state matches 0 run return 1
+execute if score $Bounties md_setting matches 0 run return 1
 
 scoreboard players remove #bounty_countdown_minute md_state 1
 execute if score #bounty_countdown_minute md_state matches 1.. run return 1

@@ -17,4 +17,4 @@ function mob_dash:game/sidebar/update_sidebar_scores
 execute if function mob_dash:game/bounty/calculate_bounty_scores run function mob_dash:game/bounty/display_bounty
 
 # Check if team @s has won by score
-execute unless score $Win md_state matches 0 if score @s md_score >= $Win md_state run function mob_dash:game/end_game
+execute unless score $Win md_setting matches 0 if score @s md_score >= $Win md_setting run function mob_dash:game/end_game

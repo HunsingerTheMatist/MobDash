@@ -5,10 +5,10 @@ tag @e[distance=..1,type=marker,tag=md_eligible] remove md_eligible
 tag @e[distance=..1,type=marker,tag=md_bounty,tag=!md_prev_selected] add md_eligible
 
 # Remove hostile bounties if hostiles setting is off
-execute if score $Hostiles md_state matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_hostile] remove md_eligible
+execute if score $Hostiles md_setting matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_hostile] remove md_eligible
 
 # Remove nether bounties if nether setting is off
-execute if score $Nether md_state matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_nether] remove md_eligible
+execute if score $Nether md_setting matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_nether] remove md_eligible
 
 # Randomly select a bounty from the list of eligible bounties
 function mob_dash:game/target/choose_from_eligible

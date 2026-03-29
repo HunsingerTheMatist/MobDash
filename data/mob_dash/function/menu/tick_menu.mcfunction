@@ -24,9 +24,9 @@ execute as @a[scores={md_menu_ticks=..0},tag=!md_tutorial] run function mob_dash
 execute as @a[tag=md_tutorial] run function mob_dash:menu/tick_tutorial
 
 # React to unauthorized menu actions
-execute if score $OpOnly md_state matches 1 as @a[tag=!md_op,scores={WinScore=..2147483647}] run function mob_dash:menu/op_invalid_text
-execute if score $OpOnly md_state matches 1 as @a[tag=!md_op,scores={TimeLimit=..2147483647}] run function mob_dash:menu/op_invalid_text
-execute if score $OpOnly md_state matches 1 as @a[tag=!md_op,scores={MenuAction=10..}] run function mob_dash:menu/op_invalid_text
+execute if score $OpOnly md_setting matches 1 as @a[tag=!md_op,scores={WinScore=..2147483647}] run function mob_dash:menu/op_invalid_text
+execute if score $OpOnly md_setting matches 1 as @a[tag=!md_op,scores={TimeLimit=..2147483647}] run function mob_dash:menu/op_invalid_text
+execute if score $OpOnly md_setting matches 1 as @a[tag=!md_op,scores={MenuAction=10..}] run function mob_dash:menu/op_invalid_text
 
 # Handle WinScore triggers
 execute as @n[scores={WinScore=-2147483647..2147483647}] run function mob_dash:menu/settings/set_win_score

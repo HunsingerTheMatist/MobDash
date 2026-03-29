@@ -14,10 +14,10 @@ execute as @e[type=#mob_dash:despawnable_animals,tag=!md_persistent,tag=!md_desp
 # Put all active players in batches to process mob cap logic later in the tick
 execute as @a[gamemode=!spectator] run function mob_dash:game/animals/batch_player
 
-execute unless score #debug_animal_handling md_state matches 0 store result score #temp md_state if entity @e[type=#mob_dash:despawnable_animals,tag=md_despawn_batched]
-execute unless score #debug_animal_handling md_state matches 0 store result score #temp2 md_state if entity @e[type=#mob_dash:despawnable_animals,tag=!md_despawn_batched]
-execute unless score #debug_animal_handling md_state matches 0 run tellraw @a [{text:"PREPROCESSING: "},{score:{objective:md_state,name:"#temp"},color:blue},{text:"/"},{score:{objective:md_state,name:"#temp2"}},{text:" animals batched with "}, \
-    {score:{objective:md_state,name:"$AnimalDespawnChance_Base"}},{text:"/"},{score:{objective:md_state,name:"$AnimalTotalChance_Base"}},{text:" chance"}]
+execute unless score #debug_animal_handling md_animal_config matches 0 store result score #temp md_state if entity @e[type=#mob_dash:despawnable_animals,tag=md_despawn_batched]
+execute unless score #debug_animal_handling md_animal_config matches 0 store result score #temp2 md_state if entity @e[type=#mob_dash:despawnable_animals,tag=!md_despawn_batched]
+execute unless score #debug_animal_handling md_animal_config matches 0 run tellraw @a [{text:"PREPROCESSING: "},{score:{objective:md_state,name:"#temp"},color:blue},{text:"/"},{score:{objective:md_state,name:"#temp2"}},{text:" animals batched with "}, \
+    {score:{objective:md_animal_config,name:"$AnimalDespawnChance_Base"}},{text:"/"},{score:{objective:md_animal_config,name:"$AnimalTotalChance_Base"}},{text:" chance"}]
 
 # Tag any new animals as eligible for despawn in the next cycle
 # This is to allow all newly spawned mobs to exist for at least 400 ticks before they can be despawned

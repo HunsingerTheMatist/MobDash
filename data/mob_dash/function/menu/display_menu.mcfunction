@@ -28,11 +28,11 @@ tellraw @s \
 
 # If Op-Only Mode is off, show all players the 'Op-Only Mode' toggle
 # If Op-Only Mode is on, only show the toggle to op-ed players, and for the others show an authenticate option
-execute if score $OpOnly md_state matches 0 run tellraw @s \
+execute if score $OpOnly md_setting matches 0 run tellraw @s \
     [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Op-Only Mode: ", color:green, extra: [{storage:"mob_dash:data", nbt:Settings.OpOnlyMode, color:aqua}], click_event: {action:run_command, command:"function mob_dash:menu/settings/cycle_op_only"}}, {text:"]", color:gold, bold: true}]
-execute unless score $OpOnly md_state matches 0 run tellraw @s[tag=md_op] \
+execute unless score $OpOnly md_setting matches 0 run tellraw @s[tag=md_op] \
     [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Op-Only Mode: ", color:green, extra: [{storage:"mob_dash:data", nbt:Settings.OpOnlyMode, color:aqua}], click_event: {action:run_command, command:"function mob_dash:menu/settings/cycle_op_only"}}, {text:"]", color:gold, bold: true}]
-execute unless score $OpOnly md_state matches 0 run tellraw @s[tag=!md_op] \
+execute unless score $OpOnly md_setting matches 0 run tellraw @s[tag=!md_op] \
     [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Sign-In as Op: ", color:green, click_event: {action:run_command, command:"function mob_dash:menu/op_auth"}}, {text:"]", color:gold, bold: true}]
 
 tellraw @s \
@@ -45,7 +45,7 @@ tellraw @s \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Hostiles: ",              color:green, extra: [{storage:"mob_dash:data", nbt:Settings.Hostiles,        interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 14"}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Nether: ",                color:green, extra: [{storage:"mob_dash:data", nbt:Settings.Nether,          interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 15"}}, {text:"]", color:gold, bold: true}, \
 ]
-execute unless score $Hostiles md_state matches 0 run tellraw @s \
+execute unless score $Hostiles md_setting matches 0 run tellraw @s \
    [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Passive-only Start: ",    color:green, extra: [{storage:"mob_dash:data", nbt:Settings.PassiveStart,    interpret:true, color:aqua}], click_event: {action:run_command, command:"trigger MenuAction set 16"}}, {text:"]", color:gold, bold: true}]
 tellraw @s \
    [{text:"\n- "}, {text:"[", color:gold, bold: true}, {text:"Start Game", color:green, click_event: {action:run_command, command:"trigger MenuAction set 20"}}, {text:"]", color:gold, bold: true}]

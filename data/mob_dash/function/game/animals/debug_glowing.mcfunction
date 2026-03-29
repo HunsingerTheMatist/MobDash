@@ -4,7 +4,7 @@
 # - Purple: animals batched for despawn
 # - Green: temporarily persistent animals
 
-execute if score #debug_animal_handling md_state matches 0 run return 1
+execute if score #debug_animal_handling md_animal_config matches 0 run return 1
 
 execute if entity @s[tag=!md_persistent,tag=!md_temp_persistent,tag=!md_despawn_batched] run return run data modify entity @s Glowing set value false
 

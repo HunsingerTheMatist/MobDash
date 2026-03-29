@@ -1,2 +1,2 @@
-execute if score $PassiveStart md_state matches 0 run return run data modify storage mob_dash:data Settings.PassiveStart set value Off
+execute if score $PassiveStart md_setting matches 0 run return run data modify storage mob_dash:data Settings.PassiveStart set value Off
 data modify storage mob_dash:data Settings.PassiveStart set value On
