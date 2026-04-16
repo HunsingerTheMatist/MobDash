@@ -52,7 +52,6 @@ execute as @n[scores={MenuAction=12}] run function mob_dash:menu/settings/cycle_
 execute as @n[scores={MenuAction=13}] run function mob_dash:menu/settings/cycle_bounties
 execute as @n[scores={MenuAction=14}] run function mob_dash:menu/settings/cycle_hostiles
 execute as @n[scores={MenuAction=15}] run function mob_dash:menu/settings/cycle_nether
-execute as @n[scores={MenuAction=16}] run function mob_dash:menu/settings/cycle_passive_start
 
 execute as @n[scores={MenuAction=20}] unless entity @p[scores={md_team=1..8}] run tellraw @s [{text:"No players on any team, cannot start", color:red}]
 execute as @n[scores={MenuAction=20}] if entity @p[scores={md_team=1..8}] run function mob_dash:game/start_game

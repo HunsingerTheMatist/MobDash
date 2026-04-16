@@ -13,5 +13,6 @@ tag @s add md_prev_selected
 scoreboard players operation @s md_index = $TotalMobsSelected md_state
 
 # Set the string of the target's points to 'point' since it starts at 1
+scoreboard players set @s md_ticks 0
 scoreboard players set @s md_score 1
 data modify entity @s data.PointString set value " point"

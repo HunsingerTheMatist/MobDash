@@ -8,9 +8,10 @@ execute if score $EndTick md_state matches 1.. if score $GameTick md_state >= $E
 execute if score $EndTick md_state matches 1.. run function mob_dash:game/update_timer_bar
 
 # Process targets
-scoreboard players remove $TargetTick md_state 1
-execute if score #new_target_delay md_state matches 1.. run scoreboard players remove #new_target_delay md_state 1
-execute if score $TargetTick md_state matches ..0 run function mob_dash:game/target/increment_target_scores
+function mob_dash:game/target/process_targets
+
+# Check if a new target needs to be added
+function mob_dash:game/target/check_for_add_target
 
 # Process animal handling
 function mob_dash:game/animals/tick_animal_handling

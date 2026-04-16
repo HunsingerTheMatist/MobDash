@@ -18,7 +18,6 @@ tag @e[distance=..1,type=marker,tag=md_bounty,tag=md_prev_selected] remove md_pr
 execute as @n[distance=..1,type=marker,tag=md_bounty,tag=md_selected_new] run function mob_dash:game/bounty/setup_new_bounty
 
 # Delay target ticking by up to 100 ticks if necessary to prevent title overlap
-execute if score $TargetTick md_state matches ..99 run scoreboard players set $TargetTick md_state 100
 scoreboard players set #new_target_delay md_state 100
 
 # Set a random cooldown until the next bounty

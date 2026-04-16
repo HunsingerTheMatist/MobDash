@@ -1,5 +1,6 @@
 # Clean up mob stats
 
+scoreboard players reset @s md_ticks
 scoreboard players reset @s md_score
 scoreboard players reset @s md_index
 

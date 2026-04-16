@@ -26,7 +26,6 @@ tellraw @a "\n\n\n\n\n"
 function mob_dash:game/reset_marker_data
 
 scoreboard players set $GameTick md_state 0
-scoreboard players set $TargetTick md_state 0
 scoreboard players set $ActionBarTick md_state 0
 scoreboard players set $ActionBarCache md_state 0
 

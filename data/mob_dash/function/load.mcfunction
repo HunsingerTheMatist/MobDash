@@ -22,6 +22,7 @@ scoreboard objectives add md_index dummy "Mob Dash Target Index"
 scoreboard objectives add md_team dummy "Mob Dash Team ID"
 scoreboard objectives add md_team_count dummy "Mob Dash Team Member Count"
 scoreboard objectives add md_const dummy "Mob Dash Constants"
+scoreboard objectives add md_ticks dummy "Mob Dash Ticks"
 scoreboard objectives add md_score dummy "Mob Dash Scores"
 
 scoreboard objectives add md_player_scores dummy "Scores"
@@ -90,7 +91,6 @@ function mob_dash:menu/settings/update_increment_period_text
 function mob_dash:menu/settings/update_bounties_text
 function mob_dash:menu/settings/update_hostiles_text
 function mob_dash:menu/settings/update_nether_text
-function mob_dash:menu/settings/update_passive_start_text
 
 # Store various text components in storage for future use
 function mob_dash:load/store_text

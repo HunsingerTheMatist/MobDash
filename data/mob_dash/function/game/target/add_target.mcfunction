@@ -36,9 +36,6 @@ execute as @n[distance=..1,type=marker,tag=md_target,tag=md_selected_new] run fu
 scoreboard players add $TargetCount md_state 1
 scoreboard players add $TotalMobsSelected md_state 1
 
-# Set the next score increment time
-scoreboard players operation $TargetTick md_state = $ScorePeriod md_state
-
 # Delay next bounty selection by up to 100 ticks if necessary to prevent title overlap
 execute if score $BountyTick md_state matches ..1 if score #bounty_countdown_minute md_state matches ..99 run scoreboard players set #bounty_countdown_minute md_state 100
 
