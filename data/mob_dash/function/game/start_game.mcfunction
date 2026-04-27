@@ -7,6 +7,7 @@ execute in overworld run function mob_dash:game/setup_overworld
 gamerule advance_time true
 gamerule advance_weather true
 gamerule spawn_mobs true
+time of overworld set day
 
 clear @a
 xp add @a -1000 levels
@@ -17,7 +18,7 @@ effect give @a resistance 1 10 true
 gamemode survival @a[team=!gray]
 gamemode spectator @a[team=gray]
 
-scoreboard players set $GameState md_state 1
+scoreboard players set $GameState md_state 2
 scoreboard players set $TargetCount md_state 0
 scoreboard players set $TotalMobsSelected md_state 0
 
@@ -26,7 +27,6 @@ tellraw @a "\n\n\n\n\n"
 function mob_dash:game/reset_marker_data
 
 scoreboard players set $GameTick md_state 0
-scoreboard players set $ActionBarTick md_state 0
 scoreboard players set $ActionBarCache md_state 0
 
 scoreboard players operation $EndTick md_state = $Timeout md_setting
@@ -50,9 +50,13 @@ scoreboard players reset * md_team_scores_team7
 scoreboard players reset * md_team_scores_team8
 
 # Remove triggers
+scoreboard players add @a MenuAction 0
+scoreboard players add @a TeamCount 0
 scoreboard players add @a WinScore 0
 scoreboard players add @a TimeLimit 0
 scoreboard players add @a SetTeam 0
+scoreboard players reset @a MenuAction
+scoreboard players reset @a TeamCount
 scoreboard players reset @a WinScore
 scoreboard players reset @a TimeLimit
 scoreboard players reset @a SetTeam

@@ -3,6 +3,7 @@
 # Scoreboards for animal despawning
 scoreboard objectives add md_animal_config dummy "Mob Dash Animal Configs"
 scoreboard objectives add md_batch_idx dummy
+scoreboard objectives add md_player_cap dummy
 scoreboard objectives add md_id dummy
 scoreboard objectives add md_id_0 dummy
 scoreboard objectives add md_id_1 dummy
@@ -17,6 +18,9 @@ scoreboard objectives add md_id_8 dummy
 # Set default configs
 execute unless score $UseAnimalDespawning md_animal_config matches 0..1 run scoreboard players set $UseAnimalDespawning md_animal_config 1
 execute unless score $AnimalDespawningTargetCap md_animal_config matches 1.. run scoreboard players set $AnimalDespawningTargetCap md_animal_config 60
+
+execute unless score $AnimalDespawnChanceReduction_HalfCap md_animal_config matches 0.. run scoreboard players set $AnimalDespawnChanceReduction_HalfCap md_animal_config 3
+execute unless score $AnimalDespawnChanceReduction_ThirdCap md_animal_config matches 0.. run scoreboard players set $AnimalDespawnChanceReduction_ThirdCap md_animal_config 6
 
 execute unless score $AnimalDespawnChance_Base md_animal_config matches 0.. run scoreboard players set $AnimalDespawnChance_Base md_animal_config 1
 execute unless score $AnimalTotalChance_Base md_animal_config matches 0.. run scoreboard players set $AnimalTotalChance_Base md_animal_config 3

@@ -11,18 +11,19 @@ class MobInfo:
     nether: bool = False
 
 level_1_mobs = [
-    MobInfo("bee",     weight=3),
-    MobInfo("chicken", weight=5),
-    MobInfo("cod",     weight=5),
-    MobInfo("cow",     weight=5),
-    MobInfo("dolphin", weight=4),
-    MobInfo("horse",   weight=3),
-    MobInfo("pig",     weight=5),
-    MobInfo("rabbit",  weight=1),
-    MobInfo("salmon",  weight=5),
-    MobInfo("sheep",   weight=5),
-    MobInfo("squid",   weight=5),
-    MobInfo("turtle",  weight=3),
+    MobInfo("bee",      weight=3),
+    MobInfo("chicken",  weight=5),
+    MobInfo("cod",      weight=5),
+    MobInfo("cow",      weight=5),
+    MobInfo("dolphin",  weight=2),
+    MobInfo("horse",    weight=3),
+    MobInfo("nautilus", weight=3),
+    MobInfo("pig",      weight=5),
+    MobInfo("rabbit",   weight=1),
+    MobInfo("salmon",   weight=5),
+    MobInfo("sheep",    weight=5),
+    MobInfo("squid",    weight=5),
+    MobInfo("turtle",   weight=2),
 ]
 
 level_2_mobs = [
@@ -37,8 +38,8 @@ level_2_mobs = [
 level_3_mobs = [
     MobInfo("armadillo",        weight=1),
     MobInfo("axolotl",          weight=2),
-    MobInfo("copper_golem",     weight=3),
-    MobInfo("nautilus",         weight=1),
+    MobInfo("bat",              weight=1),
+    MobInfo("copper_golem",     weight=4),
     MobInfo("fox",              weight=2),
     MobInfo("frog",             weight=1),
     MobInfo("glow_squid",       weight=2),

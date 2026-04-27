@@ -7,10 +7,10 @@ data modify storage mob_dash:data Runtime.PointString set value " points"
 execute if score @s md_score matches 1 run data modify storage mob_dash:data Runtime.PointString set value " point"
 tellraw @a [\
     {text:"Target "}, {selector:"@n[distance=..1,type=marker,tag=md_target,tag=md_killed]", color:red}, \
-    {text:" worth "}, {score: {objective:md_score, name:"@n[distance=..1,type=marker,tag=md_target,tag=md_killed]"}, color:green}, {entity:"@n[distance=..1,type=marker,tag=md_target,tag=md_killed]",nbt:data.PointString}, \
+    {text:" worth "}, {score: {objective:md_score, name:"@n[distance=..1,type=marker,tag=md_target,tag=md_killed]"}, color:green}, {entity:"@n[distance=..1,type=marker,tag=md_target,tag=md_killed]", nbt:data.PointString, interpret:true}, \
     {text:" killed by "}, {selector:"@p[tag=md_current]"}, \
     {text:" from "}, {selector:"@s"}, \
-    {text:", now at "}, {score: {objective:md_score, name:"@s"}, color:green}, {storage:"mob_dash:data", nbt:Runtime.PointString} \
+    {text:", now at "}, {score: {objective:md_score, name:"@s"}, color:green}, {storage:"mob_dash:data", nbt:Runtime.PointString, interpret:true} \
 ]
 
 function mob_dash:game/sidebar/update_sidebar_scores

@@ -5,4 +5,4 @@ execute if score $Timeout md_setting matches ..-1 run scoreboard players set $Ti
 scoreboard players reset @s TimeLimit
 
 function mob_dash:menu/settings/update_time_limit_text
-function mob_dash:menu/display_menu
+execute as @a[tag=!md_tutorial] run function mob_dash:menu/push_menu

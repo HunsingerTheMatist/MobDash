@@ -22,3 +22,16 @@ execute unless score #debug_animal_handling md_animal_config matches 0 run tellr
 # Tag any new animals as eligible for despawn in the next cycle
 # This is to allow all newly spawned mobs to exist for at least 400 ticks before they can be despawned
 tag @e[type=#mob_dash:despawnable_animals,tag=!md_persistent,tag=!md_despawn_eligible] add md_despawn_eligible
+
+# Get the player cap for persistent animals
+# This is 10 less than the targeted cap, since the vanilla mob cap allows for 10 non-persistent animals
+scoreboard players operation #player_cap md_state = $AnimalDespawningTargetCap md_animal_config
+scoreboard players remove #player_cap md_state 10
+
+# Calculate what half the target cap is
+scoreboard players operation #half_cap md_state = $AnimalDespawningTargetCap md_animal_config
+scoreboard players operation #half_cap md_state /= 2 md_const
+
+# Calculate what 1/3 the target cap is
+scoreboard players operation #third_cap md_state = $AnimalDespawningTargetCap md_animal_config
+scoreboard players operation #third_cap md_state /= 3 md_const

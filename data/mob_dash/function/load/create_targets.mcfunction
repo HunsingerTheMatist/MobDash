@@ -4,16 +4,16 @@ summon marker ~ ~ ~ {CustomName:"Bee",              data: {level: 1, weight: 3},
 summon marker ~ ~ ~ {CustomName:"Chicken",          data: {level: 1, weight: 5}, Tags:[md_target, md_chicken]}
 summon marker ~ ~ ~ {CustomName:"Cod",              data: {level: 1, weight: 5}, Tags:[md_target, md_cod]}
 summon marker ~ ~ ~ {CustomName:"Cow",              data: {level: 1, weight: 5}, Tags:[md_target, md_cow]}
-summon marker ~ ~ ~ {CustomName:"Dolphin",          data: {level: 1, weight: 4}, Tags:[md_target, md_dolphin]}
+summon marker ~ ~ ~ {CustomName:"Dolphin",          data: {level: 1, weight: 2}, Tags:[md_target, md_dolphin]}
 summon marker ~ ~ ~ {CustomName:"Horse",            data: {level: 1, weight: 3}, Tags:[md_target, md_horse]}
+summon marker ~ ~ ~ {CustomName:"Nautilus",         data: {level: 1, weight: 3}, Tags:[md_target, md_nautilus]}
 summon marker ~ ~ ~ {CustomName:"Pig",              data: {level: 1, weight: 5}, Tags:[md_target, md_pig]}
 summon marker ~ ~ ~ {CustomName:"Rabbit",           data: {level: 1, weight: 1}, Tags:[md_target, md_rabbit]}
 summon marker ~ ~ ~ {CustomName:"Salmon",           data: {level: 1, weight: 5}, Tags:[md_target, md_salmon]}
 summon marker ~ ~ ~ {CustomName:"Sheep",            data: {level: 1, weight: 5}, Tags:[md_target, md_sheep]}
 summon marker ~ ~ ~ {CustomName:"Squid",            data: {level: 1, weight: 5}, Tags:[md_target, md_squid]}
-summon marker ~ ~ ~ {CustomName:"Turtle",           data: {level: 1, weight: 3}, Tags:[md_target, md_turtle]}
+summon marker ~ ~ ~ {CustomName:"Turtle",           data: {level: 1, weight: 2}, Tags:[md_target, md_turtle]}
 
-summon marker ~ ~ ~ {CustomName:"Bat",              data: {level: 2, weight: 2}, Tags:[md_target, md_bat]}
 summon marker ~ ~ ~ {CustomName:"Creeper",          data: {level: 2, weight: 5}, Tags:[md_target, md_hostile, md_night, md_creeper]}
 summon marker ~ ~ ~ {CustomName:"Drowned",          data: {level: 2, weight: 5}, Tags:[md_target, md_hostile, md_night, md_drowned]}
 summon marker ~ ~ ~ {CustomName:"Skeleton",         data: {level: 2, weight: 5}, Tags:[md_target, md_hostile, md_night, md_skeleton]}
@@ -22,8 +22,8 @@ summon marker ~ ~ ~ {CustomName:"Zombie",           data: {level: 2, weight: 5},
 
 summon marker ~ ~ ~ {CustomName:"Armadillo",        data: {level: 3, weight: 1}, Tags:[md_target, md_armadillo]}
 summon marker ~ ~ ~ {CustomName:"Axolotl",          data: {level: 3, weight: 2}, Tags:[md_target, md_axolotl]}
-summon marker ~ ~ ~ {CustomName:"Copper Golem",     data: {level: 3, weight: 3}, Tags:[md_target, md_copper_golem]}
-summon marker ~ ~ ~ {CustomName:"Nautilus",         data: {level: 3, weight: 1}, Tags:[md_target, md_nautilus]}
+summon marker ~ ~ ~ {CustomName:"Bat",              data: {level: 3, weight: 1}, Tags:[md_target, md_bat]}
+summon marker ~ ~ ~ {CustomName:"Copper Golem",     data: {level: 3, weight: 4}, Tags:[md_target, md_copper_golem]}
 summon marker ~ ~ ~ {CustomName:"Fox",              data: {level: 3, weight: 2}, Tags:[md_target, md_fox]}
 summon marker ~ ~ ~ {CustomName:"Frog",             data: {level: 3, weight: 1}, Tags:[md_target, md_frog]}
 summon marker ~ ~ ~ {CustomName:"Glow Squid",       data: {level: 3, weight: 2}, Tags:[md_target, md_glow_squid]}

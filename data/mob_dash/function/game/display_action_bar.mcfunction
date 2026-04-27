@@ -1,8 +1,5 @@
 # Display the action bar
 
-# Only needs to be displayed every 40 ticks unless invalidated elsewhere
-scoreboard players set $ActionBarTick md_state 40
-
 # Build the action bar text component if necessary
 scoreboard players set #temp md_state 0
 scoreboard players set #temp2 md_state 2147483647

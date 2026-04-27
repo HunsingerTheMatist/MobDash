@@ -1,6 +1,6 @@
 # On datapack load
 
-gamerule send_command_feedback false
+#gamerule send_command_feedback false
 
 scoreboard objectives add md_state dummy "Mob Dash Game State"
 scoreboard objectives add md_setting dummy "Mob Dash Game Settings"
@@ -11,7 +11,8 @@ scoreboard objectives add md_menu_ticks dummy "Mob Dash Menu Ticks"
 
 # Menu triggers
 scoreboard objectives add MenuAction trigger "Trigger Menu Actions"
-scoreboard objectives add SetTeam trigger "Set Team for player"
+scoreboard objectives add SetTeam trigger "Set Team for Player"
+scoreboard objectives add TeamCount trigger "Number of Teams to Randomize"
 scoreboard objectives add WinScore trigger "Mob Dash Win Score"
 scoreboard objectives add TimeLimit trigger "Mob Dash Time Limit"
 
@@ -52,6 +53,7 @@ scoreboard players set -1 md_const -1
 scoreboard players set 2 md_const 2
 scoreboard players set 3 md_const 3
 scoreboard players set 5 md_const 5
+scoreboard players set 10 md_const 10
 scoreboard players set 20 md_const 20
 scoreboard players set 100 md_const 100
 scoreboard players set 1200 md_const 1200
@@ -98,11 +100,16 @@ function mob_dash:load/store_text
 # Set the current version
 data modify storage mob_dash:data Version set value "beta 0.9"
 
+# Check if the md_markers dimension exists
+scoreboard players set #dimension_state md_state 1
+execute in mob_dash:md_markers run scoreboard players remove #dimension_state md_state 1
+execute if score #dimension_state md_state matches 1.. run return run tellraw @a [{text:"Custom dimension 'md_markers' not loaded! Try closing and re-opening the world!", color:red}]
+
 # Set up the game marker entities
 function mob_dash:load/setup_markers
 
 # Set up the spawn if there is no game running & no current spawn set up
-execute if score $GameState md_state matches 1..2 run return 1
-execute if entity @n[type=marker,tag=md_spawn] run return 1
+execute if score $GameState md_state matches 1..3 run return 1
+execute if entity @n[distance=0..,type=marker,tag=md_spawn] run return 1
 scoreboard players set $SpawnSetupDone md_state 0
 function mob_dash:menu/reset

@@ -24,9 +24,9 @@ scoreboard players set #new_target_delay md_state 100
 function mob_dash:game/bounty/roll_bounty_cooldown
 
 # Play sounds to notify players of a new bounty
-execute as @a at @s run playsound minecraft:block.vault.open_shutter master @s ~ ~ ~ 1 1.25
-execute as @a at @s run playsound minecraft:block.vault.open_shutter master @s ~ ~ ~ 1 1.5
-execute as @a at @s run playsound minecraft:block.vault.open_shutter master @s ~ ~ ~ 1 2
+execute as @a at @s run playsound minecraft:block.vault.open_shutter master @s ~ ~ ~ 0.5 1.25
+execute as @a at @s run playsound minecraft:block.vault.open_shutter master @s ~ ~ ~ 0.5 1.5
+execute as @a at @s run playsound minecraft:block.vault.open_shutter master @s ~ ~ ~ 0.5 2
 
 # Update the sidebar display
 function mob_dash:game/bounty/display_bounty

@@ -7,9 +7,15 @@ kill @e[type=marker,tag=md_team]
 kill @e[type=marker,tag=md_target]
 kill @e[type=marker,tag=md_bounty]
 
+tag @a remove md_assigned
+tag @a remove md_current
+tag @a remove md_op
+tag @a remove md_tutorial
+
 scoreboard players reset * md_state
 
 scoreboard players reset * MenuAction
+scoreboard players reset * TeamCount
 scoreboard players reset * SetTeam
 scoreboard players reset * WinScore
 scoreboard players reset * TimeLimit

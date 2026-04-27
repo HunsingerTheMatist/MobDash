@@ -1,5 +1,6 @@
 # Check target thresholds to determine if a new target needs to be added
 
+execute unless score $GameState md_state matches 2 run return 1
 execute if score $TargetCount md_state >= $MaxTargetCount md_config run return 1
 
 # Delay this function if necessary to prevent title overlap

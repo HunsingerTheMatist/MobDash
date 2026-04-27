@@ -4,6 +4,7 @@ function mob_dash:menu/welcome
 
 # - [Tutorial]
 # - [Switch Teams]
+# - [Randomize Teams]
 # - [Relocate Spawn]
 #
 # - [Op-Only Mode: Off]
@@ -22,17 +23,18 @@ tellraw @s \
     {text:"\n"}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Tutorial",       color:green, click_event: {action:run_command, command:"trigger MenuAction set 1"}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Switch Teams",   color:green, click_event: {action:run_command, command:"trigger MenuAction set 3"}}, {text:"]\n", color:gold, bold: true}, \
+    {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Randomize Teams",   color:green, click_event: {action:suggest_command, command:"/trigger TeamCount set "}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Relocate Spawn", color:green, click_event: {action:run_command, command:"function mob_dash:menu/relocate_spawn"}}, {text:"]\n", color:gold, bold: true}, \
 ]
 
 # If Op-Only Mode is off, show all players the 'Op-Only Mode' toggle
 # If Op-Only Mode is on, only show the toggle to op-ed players, and for the others show an authenticate option
 execute if score $OpOnly md_setting matches 0 run tellraw @s \
-    [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Op-Only Mode: ", color:green, extra: [{storage:"mob_dash:data", nbt:Settings.OpOnlyMode, color:aqua}], click_event: {action:run_command, command:"function mob_dash:menu/settings/cycle_op_only"}}, {text:"]", color:gold, bold: true}]
+    [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Op-Only Mode: ", color:green, extra: [{storage:"mob_dash:data", nbt:Settings.OpOnlyMode, interpret:true, color:aqua}], click_event: {action:run_command, command:"function mob_dash:menu/settings/cycle_op_only"}}, {text:"]", color:gold, bold: true}]
 execute unless score $OpOnly md_setting matches 0 run tellraw @s[tag=md_op] \
-    [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Op-Only Mode: ", color:green, extra: [{storage:"mob_dash:data", nbt:Settings.OpOnlyMode, color:aqua}], click_event: {action:run_command, command:"function mob_dash:menu/settings/cycle_op_only"}}, {text:"]", color:gold, bold: true}]
+    [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Op-Only Mode: ", color:green, extra: [{storage:"mob_dash:data", nbt:Settings.OpOnlyMode, interpret:true, color:aqua}], click_event: {action:run_command, command:"function mob_dash:menu/settings/cycle_op_only"}}, {text:"]", color:gold, bold: true}]
 execute unless score $OpOnly md_setting matches 0 run tellraw @s[tag=!md_op] \
-    [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Sign-In as Op: ", color:green, click_event: {action:run_command, command:"function mob_dash:menu/op_auth"}}, {text:"]", color:gold, bold: true}]
+    [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Sign-In as Op", color:green, click_event: {action:run_command, command:"function mob_dash:menu/op_auth"}}, {text:"]", color:gold, bold: true}]
 
 tellraw @s \
 [ \

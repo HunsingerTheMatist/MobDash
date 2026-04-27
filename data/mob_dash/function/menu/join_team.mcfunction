@@ -1,6 +1,7 @@
 # Join a team based on value in SetTeam
 
 execute if score @s SetTeam matches 1.. run scoreboard players operation @s md_team = @s SetTeam
+scoreboard players reset @s SetTeam
 
 execute if score @s md_team matches 1 run team join red @s
 execute if score @s md_team matches 2 run team join green @s
@@ -12,10 +13,11 @@ execute if score @s md_team matches 7 run team join aqua @s
 execute if score @s md_team matches 8 run team join black @s
 execute if score @s md_team matches 9 run team join gray @s
 
+execute if score #silent_joins md_state matches 1 run return 1
+
 tag @s add md_current
 execute in mob_dash:mb_markers positioned 0 0 0 as @e[distance=..1,type=marker,tag=md_team] if score @s md_team = @p[tag=md_current] md_team run tellraw @a [{selector:"@p[tag=md_current]", color:white}, {text:" has joined "}, {selector: "@s"}]
 tag @s remove md_current
 
-scoreboard players reset @s SetTeam
 
 function mob_dash:menu/display_menu

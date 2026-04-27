@@ -16,15 +16,12 @@ execute if score $WinningTeams md_state matches 2.. run data modify storage mob_
 title @a title "Game Over"
 title @a subtitle [{storage:"mob_dash:data", nbt:Runtime.Message, interpret:true}]
 tellraw @a [{storage:"mob_dash:data", nbt:Runtime.Message, interpret:true}]
-tellraw @a "Returning to menu in 60 seconds..."
+tellraw @a "Returning to menu in 30 seconds..."
 
 clear @a
 xp add @a -1000 levels
 gamemode spectator @a[gamemode=!spectator]
 
-bossbar remove mob_dash:timer
-
 function mob_dash:game/bounty/reset_sidebar
 
-scoreboard players set $GameState md_state 2
-scoreboard players set $GameTick md_state 0
+scoreboard players set $GameState md_state 3

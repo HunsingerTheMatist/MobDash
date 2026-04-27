@@ -4,5 +4,6 @@
 tellraw @s [{text:"Only operators can perform this action!", color:red}]
 
 scoreboard players reset @s MenuAction
+scoreboard players reset @s TeamCount
 scoreboard players reset @s WinScore
 scoreboard players reset @s TimeLimit
