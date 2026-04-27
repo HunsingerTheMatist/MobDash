@@ -1,7 +1,7 @@
-# Sets up the game marker entities in the mb_markers dimension
+# Sets up the game marker entities in the md_markers dimension
 
-# If not in the mb_markers dimension call this function again from that dimension (this is because schedule resets the dimension & position)
-execute unless dimension mob_dash:mb_markers in mob_dash:mb_markers positioned 0 0 0 run return run function mob_dash:load/setup_markers
+# If not in the md_markers dimension call this function again from that dimension (this is because schedule resets the dimension & position)
+execute unless dimension mob_dash:md_markers in mob_dash:md_markers positioned 0 0 0 run return run function mob_dash:load/setup_markers
 
 # If the current chunk isn't loaded schedule this function to try again in 10 ticks
 execute unless loaded ~ ~ ~ run forceload add ~ ~

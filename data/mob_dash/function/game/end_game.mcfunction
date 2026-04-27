@@ -1,6 +1,6 @@
 # End the game, display results, set post-game states
 
-execute unless dimension mob_dash:mb_markers in mob_dash:mb_markers positioned 0 0 0 run return run function mob_dash:game/end_game
+execute unless dimension mob_dash:md_markers in mob_dash:md_markers positioned 0 0 0 run return run function mob_dash:game/end_game
 
 scoreboard players set $Max md_score 0
 scoreboard players operation $Max md_score > @e[distance=..1,type=marker,tag=md_team] md_score

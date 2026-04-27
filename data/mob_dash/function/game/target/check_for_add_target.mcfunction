@@ -5,7 +5,7 @@ execute if score $TargetCount md_state >= $MaxTargetCount md_config run return 1
 
 # Delay this function if necessary to prevent title overlap
 execute if score #new_target_delay md_state matches 1.. run return run schedule function mob_dash:game/target/check_for_add_target 2
-execute unless dimension mob_dash:mb_markers in mob_dash:mb_markers positioned 0 0 0 run return run function mob_dash:game/target/check_for_add_target
+execute unless dimension mob_dash:md_markers in mob_dash:md_markers positioned 0 0 0 run return run function mob_dash:game/target/check_for_add_target
 
 # If all existing targets have point values above $AddTargetThreshold, add a new target
 # This also triggers if there are currently no targets

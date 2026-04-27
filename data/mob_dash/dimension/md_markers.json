@@ -1,5 +1,5 @@
 {
-    "type": "mob_dash:mb_markers",
+    "type": "mob_dash:md_markers",
     "generator": {
       "type": "minecraft:flat",
       "settings": {

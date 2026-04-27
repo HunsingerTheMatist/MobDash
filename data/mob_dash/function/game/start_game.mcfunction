@@ -1,6 +1,6 @@
 # Starts the game
 
-execute unless dimension mob_dash:mb_markers in mob_dash:mb_markers positioned 0 0 0 run return run function mob_dash:game/start_game
+execute unless dimension mob_dash:md_markers in mob_dash:md_markers positioned 0 0 0 run return run function mob_dash:game/start_game
 
 execute in overworld run function mob_dash:game/setup_overworld
 

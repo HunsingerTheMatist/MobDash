@@ -16,7 +16,8 @@ execute if score @s md_team matches 9 run team join gray @s
 execute if score #silent_joins md_state matches 1 run return 1
 
 tag @s add md_current
-execute in mob_dash:mb_markers positioned 0 0 0 as @e[distance=..1,type=marker,tag=md_team] if score @s md_team = @p[tag=md_current] md_team run tellraw @a [{selector:"@p[tag=md_current]", color:white}, {text:" has joined "}, {selector: "@s"}]
+execute in mob_dash:md_markers positioned 0 0 0 as @e[distance=..1,type=marker,tag=md_team] if score @s md_team = @p[tag=md_current] md_team run \
+    tellraw @a [{selector:"@p[tag=md_current]", color:white}, {text:" has joined "}, {selector: "@s"}]
 tag @s remove md_current
 
 
