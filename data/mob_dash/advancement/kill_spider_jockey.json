@@ -1,21 +1,18 @@
 {
   "criteria": {
-    "kill_vehicle": {
+    "kill_spider_carrying_entity": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
           "type": "minecraft:spider",
-          "passenger": {
-            "type": "#minecraft:skeletons"
-          }
+          "passenger": {}
         }
       }
     },
-    "kill_passenger": {
+    "kill_entity_riding_spider": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "type": "#minecraft:skeletons",
           "vehicle": {
             "type": "minecraft:spider"
           }
@@ -25,8 +22,8 @@
   },
   "requirements": [
     [
-      "kill_vehicle",
-      "kill_passenger"
+      "kill_spider_carrying_entity",
+      "kill_entity_riding_spider"
     ]
   ],
   "rewards": {

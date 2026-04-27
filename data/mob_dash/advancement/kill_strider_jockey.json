@@ -1,43 +1,18 @@
 {
   "criteria": {
-    "kill_vehicle1": {
+    "kill_strider_carrying_entity": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
           "type": "minecraft:strider",
-          "passenger": {
-            "type": "minecraft:strider"
-          }
+          "passenger": {}
         }
       }
     },
-    "kill_vehicle2": {
+    "kill_entity_riding_strider": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "type": "minecraft:strider",
-          "passenger": {
-            "type": "minecraft:zombified_piglin"
-          }
-        }
-      }
-    },
-    "kill_passenger1": {
-      "trigger": "minecraft:player_killed_entity",
-      "conditions": {
-        "entity": {
-          "type": "minecraft:strider",
-          "vehicle": {
-            "type": "minecraft:strider"
-          }
-        }
-      }
-    },
-    "kill_passenger2": {
-      "trigger": "minecraft:player_killed_entity",
-      "conditions": {
-        "entity": {
-          "type": "minecraft:zombified_piglin",
           "vehicle": {
             "type": "minecraft:strider"
           }
@@ -47,10 +22,8 @@
   },
   "requirements": [
     [
-      "kill_vehicle1",
-      "kill_vehicle2",
-      "kill_passenger1",
-      "kill_passenger2"
+      "kill_strider_carrying_entity",
+      "kill_entity_riding_strider"
     ]
   ],
   "rewards": {

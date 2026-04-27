@@ -1,43 +1,18 @@
 {
   "criteria": {
-    "kill_vehicle1": {
+    "kill_camel_husk_carrying_entity": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
           "type": "minecraft:camel_husk",
-          "passenger": {
-            "type": "minecraft:husk"
-          }
+          "passenger": {}
         }
       }
     },
-    "kill_vehicle2": {
+    "kill_entity_riding_camel_husk": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "type": "minecraft:camel_husk",
-          "passenger": {
-            "type": "minecraft:parched"
-          }
-        }
-      }
-    },
-    "kill_passenger1": {
-      "trigger": "minecraft:player_killed_entity",
-      "conditions": {
-        "entity": {
-          "type": "minecraft:husk",
-          "vehicle": {
-            "type": "minecraft:camel_husk"
-          }
-        }
-      }
-    },
-    "kill_passenger2": {
-      "trigger": "minecraft:player_killed_entity",
-      "conditions": {
-        "entity": {
-          "type": "minecraft:parched",
           "vehicle": {
             "type": "minecraft:camel_husk"
           }
@@ -47,10 +22,8 @@
   },
   "requirements": [
     [
-      "kill_vehicle1",
-      "kill_vehicle2",
-      "kill_passenger1",
-      "kill_passenger2"
+      "kill_camel_husk_carrying_entity",
+      "kill_entity_riding_camel_husk"
     ]
   ],
   "rewards": {

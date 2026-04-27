@@ -1,21 +1,18 @@
 {
   "criteria": {
-    "kill_vehicle": {
+    "kill_zombie_horse_carrying_entity": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
           "type": "minecraft:zombie_horse",
-          "passenger": {
-            "type": "#minecraft:zombies"
-          }
+          "passenger": {}
         }
       }
     },
-    "kill_passenger": {
+    "kill_entity_riding_zombie_horse": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "type": "#minecraft:zombies",
           "vehicle": {
             "type": "minecraft:zombie_horse"
           }
@@ -25,8 +22,8 @@
   },
   "requirements": [
     [
-      "kill_vehicle",
-      "kill_passenger"
+      "kill_zombie_horse_carrying_entity",
+      "kill_entity_riding_zombie_horse"
     ]
   ],
   "rewards": {

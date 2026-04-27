@@ -1,21 +1,18 @@
 {
   "criteria": {
-    "kill_vehicle": {
+    "kill_chicken_carrying_entity": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
           "type": "minecraft:chicken",
-          "passenger": {
-            "type": "#minecraft:zombies"
-          }
+          "passenger": {}
         }
       }
     },
-    "kill_passenger": {
+    "kill_entity_riding_chicken": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
         "entity": {
-          "type": "#minecraft:zombies",
           "vehicle": {
             "type": "minecraft:chicken"
           }
@@ -25,8 +22,8 @@
   },
   "requirements": [
     [
-      "kill_vehicle",
-      "kill_passenger"
+      "kill_chicken_carrying_entity",
+      "kill_entity_riding_chicken"
     ]
   ],
   "rewards": {

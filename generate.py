@@ -27,7 +27,6 @@ level_1_mobs = [
 ]
 
 level_2_mobs = [
-    MobInfo("bat",      weight=2),
     MobInfo("creeper",  weight=5, hostile=True, night=True),
     MobInfo("drowned",  weight=5, hostile=True, night=True),
     MobInfo("skeleton", weight=5, hostile=True, night=True),
@@ -74,31 +73,26 @@ all_mobs = {
 }
 
 @dataclass
-class JockeyInfo:
-    vehicle: str
-    passengers: List[str]
-
-@dataclass
 class BountyInfo(MobInfo):
     min_score: int = None
     max_score: int = None
     id_override: str = None
-    jockey: Optional[JockeyInfo] = None
+    jockey: str = None
     conditions: Optional[Dict] = None
 
 bounties = [
-    BountyInfo("mooshroom",              weight=2, min_score=10, max_score=15),
-    BountyInfo("panda",                  weight=1, min_score=10, max_score=14),
+    BountyInfo("mooshroom",              weight=5, min_score=5, max_score=8),
+    BountyInfo("panda",                  weight=3, min_score=7, max_score=10),
     BountyInfo("warden",                 weight=4, min_score=20, max_score=30, hostile=True),
-    BountyInfo("creaking",               weight=2, min_score=17, max_score=22, hostile=True, night=True),
-    BountyInfo("zoglin",                 weight=4, min_score=17, max_score=20, hostile=True, nether=True),
-    BountyInfo("camel_husk_jockey",      weight=1, min_score=18, max_score=24, hostile=True, night=True, jockey=JockeyInfo(vehicle="camel_husk", passengers=["husk","parched"])),
-    BountyInfo("chicken_jockey",         weight=5, min_score=12, max_score=17, hostile=True, night=True, jockey=JockeyInfo(vehicle="chicken", passengers=["#zombies"])),
-    BountyInfo("spider_jockey",          weight=4, min_score=14, max_score=18, hostile=True, night=True, jockey=JockeyInfo(vehicle="spider", passengers=["#skeletons"])),
-    BountyInfo("zombie_horseman",        weight=3, min_score=13, max_score=17, hostile=True, night=True, jockey=JockeyInfo(vehicle="zombie_horse", passengers=["#zombies"])),
-    BountyInfo("zombie_nautilus_jockey", weight=2, min_score=18, max_score=25, hostile=True, night=True, jockey=JockeyInfo(vehicle="zombie_nautilus", passengers=["#zombies"])),
+    BountyInfo("creaking",               weight=3, min_score=10, max_score=13, hostile=True, night=True),
+    BountyInfo("zoglin",                 weight=3, min_score=17, max_score=20, hostile=True, nether=True),
+    BountyInfo("camel_husk_jockey",      weight=1, min_score=18, max_score=24, hostile=True, night=True, jockey="camel_husk"),
+    BountyInfo("chicken_jockey",         weight=5, min_score=12, max_score=17, hostile=True, night=True, jockey="chicken"),
+    BountyInfo("spider_jockey",          weight=4, min_score=14, max_score=18, hostile=True, night=True, jockey="spider"),
+    BountyInfo("zombie_horseman",        weight=3, min_score=13, max_score=17, hostile=True, night=True, jockey="zombie_horse"),
+    BountyInfo("zombie_nautilus_jockey", weight=2, min_score=18, max_score=25, hostile=True, night=True, jockey="zombie_nautilus"),
     BountyInfo("invisible_spider",       weight=2, min_score=15, max_score=20, hostile=True, night=True, id_override="spider", conditions={"effects": {"minecraft:invisibility": {}}}),
-    BountyInfo("strider_jockey",         weight=4, min_score=10, max_score=12, nether=True, jockey=JockeyInfo(vehicle="strider", passengers=["strider","zombified_piglin"])),
+    BountyInfo("strider_jockey",         weight=5, min_score=10, max_score=12, nether=True, jockey="strider"),
 ]
 
 def get_display_name(mob: str) -> str:
@@ -372,6 +366,35 @@ def get_normal_kill_json(name: str, id_override: str=None) -> json:
     }
     return advancement_json
 
+def get_jockey_kill_json(name: str, jockey: str) -> dict:
+    """Write the kill advancement JSON for a jockey-type bounty.
+    Awards the kill whenever any mob is killed that participates in a passenger/vehicle
+    relationship with the given jockey type, regardless of the other party's type."""
+    jockey_ns = add_entity_namespace(jockey)
+    criteria = {
+        #f"kill_entity_carrying_{vehicle}": {
+        #    "trigger": "minecraft:player_killed_entity",
+        #    "conditions": {"entity": {"passenger": {"type": vehicle_ns}}}
+        #},
+        f"kill_{jockey}_carrying_entity": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {"entity": {"type": jockey_ns, "passenger": {}}}
+        },
+        #f"kill_{vehicle}_riding_entity": {
+        #    "trigger": "minecraft:player_killed_entity",
+        #    "conditions": {"entity": {"type": vehicle_ns, "vehicle": {}}}
+        #},
+        f"kill_entity_riding_{jockey}": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {"entity": {"vehicle": {"type": jockey_ns}}}
+        },
+    }
+    return {
+        "criteria": criteria,
+        "requirements": [list(criteria.keys())],
+        "rewards": {"function": f"mob_dash:game/kill_detection/killed_{name}"}
+    }
+
 for mobs in all_mobs.values():
     for mob in mobs:
         name = mob.name
@@ -385,7 +408,7 @@ for mobs in all_mobs.values():
             f.write(f'advancement revoke @s only mob_dash:kill_{name}\n')
             f.write('tag @s add md_current\n')
             f.write(
-                f'execute in mob_dash:mb_markers positioned 0 0 0 '
+                f'execute in mob_dash:md_markers positioned 0 0 0 '
                 f'as @n[distance=..1,type=marker,tag=md_target,tag=md_selected,tag={get_marker_tag(name)}] '
                 f'run function mob_dash:game/award_kill\n'
             )
@@ -401,48 +424,18 @@ for bounty in bounties:
         # Inject special conditions if present
         if bounty.conditions:
             advancement_json["criteria"]["requirement"]["conditions"]["entity"].update(bounty.conditions)
-
-        with open(f"data/mob_dash/advancement/kill_{name}.json", "w") as f:
-            json.dump(advancement_json, f, indent=2)
     else:
-        # Jockey bounty: generate custom JSON
-        vehicle = add_entity_namespace(bounty.jockey.vehicle)
-        passengers = [add_entity_namespace(p) for p in bounty.jockey.passengers]
+        advancement_json = get_jockey_kill_json(name, bounty.jockey)
 
-        multiple = len(passengers) > 1
-        vehicles_dict = {}
-        passengers_dict = {}
-        for idx, passenger in enumerate(passengers, start=1):
-            suffix = str(idx) if multiple else ""
-            vehicle_key = f"kill_vehicle{suffix}"
-            passenger_key = f"kill_passenger{suffix}"
-
-            vehicles_dict[vehicle_key] = {
-                "trigger": "minecraft:player_killed_entity",
-                "conditions": {"entity": {"type": vehicle, "passenger": {"type": passenger}}}
-            }
-            passengers_dict[passenger_key] = {
-                "trigger": "minecraft:player_killed_entity",
-                "conditions": {"entity": {"type": passenger, "vehicle": {"type": vehicle}}}
-            }
-
-        advancement_json = {
-            #"_autogenerated": True,
-            "criteria": {**vehicles_dict, **passengers_dict},
-            "requirements": [list(vehicles_dict.keys()) + list(passengers_dict.keys())],
-            "rewards": {"function": f"mob_dash:game/kill_detection/killed_{name}"}
-        }
-
-        # Write jockey advancement JSON
-        with open(f"data/mob_dash/advancement/kill_{name}.json", "w") as f:
-            json.dump(advancement_json, f, indent=2)
+    with open(f"data/mob_dash/advancement/kill_{name}.json", "w") as f:
+        json.dump(advancement_json, f, indent=2)
 
     with open(f"data/mob_dash/function/game/kill_detection/killed_{name}.mcfunction", "w") as f:
             f.write('# Runs when the current bounty has been killed (auto-generated file)\n\n')
             f.write(f'advancement revoke @s only mob_dash:kill_{name}\n')
             f.write('tag @s add md_current\n')
             f.write(
-                f'execute in mob_dash:mb_markers positioned 0 0 0 '
+                f'execute in mob_dash:md_markers positioned 0 0 0 '
                 f'as @n[distance=..1,type=marker,tag=md_bounty,tag=md_selected,tag={get_marker_tag(name)}] '
                 f'run function mob_dash:game/bounty/award_kill\n'
             )
