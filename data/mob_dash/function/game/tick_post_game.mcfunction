@@ -24,6 +24,7 @@ execute if score #end_wait20 md_state matches 1.. run return 1
 
 title @a clear
 bossbar remove mob_dash:timer
-tp @a @n[distance=0..,type=marker,tag=md_spawn]
+execute as @a run function mob_dash:game/player/player_menu_setup
+scoreboard players add $GameIndex md_state 10
 function mob_dash:menu/reset
 execute at @n[distance=0..,type=marker,tag=md_spawn] run function mob_dash:menu/setup_spawn

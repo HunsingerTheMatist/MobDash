@@ -20,5 +20,4 @@ execute in mob_dash:md_markers positioned 0 0 0 as @e[distance=..1,type=marker,t
     tellraw @a [{selector:"@p[tag=md_current]", color:white}, {text:" has joined "}, {selector: "@s"}]
 tag @s remove md_current
 
-
 function mob_dash:menu/display_menu

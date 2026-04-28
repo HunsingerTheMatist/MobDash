@@ -7,9 +7,6 @@ execute if score $EndTick md_state matches 1.. if score $GameTick md_state >= $E
 # Update the bossbar timer
 execute if score $EndTick md_state matches 1.. run function mob_dash:game/update_timer_bar
 
-# Process players who joined after game start
-execute as @a unless score @s md_game_idx = $GameIndex md_state run function mob_dash:game/handle_new_players
-
 # Process targets
 function mob_dash:game/target/process_targets
 

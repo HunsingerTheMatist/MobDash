@@ -25,6 +25,7 @@ scoreboard objectives add md_team_count dummy "Mob Dash Team Member Count"
 scoreboard objectives add md_const dummy "Mob Dash Constants"
 scoreboard objectives add md_ticks dummy "Mob Dash Ticks"
 scoreboard objectives add md_score dummy "Mob Dash Scores"
+scoreboard objectives add md_game_idx dummy "Mob Dash Game Index"
 
 scoreboard objectives add md_player_scores dummy "Scores"
 scoreboard objectives add md_team_scores_base_ dummy "Team Scores"
@@ -58,6 +59,8 @@ scoreboard players set 20 md_const 20
 scoreboard players set 100 md_const 100
 scoreboard players set 1200 md_const 1200
 scoreboard players set 24000 md_const 24000
+
+scoreboard players add $GameState md_state 0
 
 # Set default configs
 execute unless score $MaxTargetScore md_config matches 1.. run scoreboard players set $MaxTargetScore md_config 5
@@ -111,5 +114,4 @@ function mob_dash:load/setup_markers
 # Set up the spawn if there is no game running & no current spawn set up
 execute if score $GameState md_state matches 1..3 run return 1
 execute if entity @n[distance=0..,type=marker,tag=md_spawn] run return 1
-scoreboard players set $SpawnSetupDone md_state 0
 function mob_dash:menu/reset

@@ -7,17 +7,8 @@ gamerule spawn_mobs false
 difficulty peaceful
 time of overworld set noon
 
-# Player griefing fixup
-gamemode adventure @a
-effect give @a weakness infinite 100 true
-effect give @a mining_fatigue infinite 100 true
-effect give @a saturation infinite 1 true
-
 # Handle setting up spawn once a player is present
-execute unless score $SpawnSetupDone md_state matches 1 at @p align xyz positioned ~0.5 ~ ~0.5 run function mob_dash:menu/setup_spawn
-
-# Handle new players
-execute as @a[tag=!md_assigned] run function mob_dash:menu/new_player
+execute unless entity @n[distance=0..,type=marker,tag=md_spawn] at @p align xyz positioned ~0.5 ~ ~0.5 run function mob_dash:menu/setup_spawn
 
 scoreboard players remove @a md_menu_ticks 1
 execute as @a[scores={md_menu_ticks=..0},tag=!md_tutorial] run function mob_dash:menu/push_menu
@@ -60,7 +51,7 @@ execute as @n[scores={MenuAction=14}] run function mob_dash:menu/settings/cycle_
 execute as @n[scores={MenuAction=15}] run function mob_dash:menu/settings/cycle_nether
 
 execute as @n[scores={MenuAction=20}] unless entity @p[scores={md_team=1..8}] run tellraw @s [{text:"No players on any team, cannot start", color:red}]
-execute as @n[scores={MenuAction=20}] if entity @p[scores={md_team=1..8}] run scoreboard players set $GameState md_state 1
+execute as @n[scores={MenuAction=20}] if entity @p[scores={md_team=1..8}] run return run function mob_dash:game/setup_game
 
 scoreboard players reset @a MenuAction
 scoreboard players enable @a MenuAction
