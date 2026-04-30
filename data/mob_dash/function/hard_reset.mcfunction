@@ -27,6 +27,18 @@ scoreboard players reset * md_team_count
 scoreboard players reset * md_const
 scoreboard players reset * md_game_idx
 
+scoreboard players reset * md_player_scores
+
+scoreboard players reset * md_team_scores_base_
+scoreboard players reset * md_team_scores_team1
+scoreboard players reset * md_team_scores_team2
+scoreboard players reset * md_team_scores_team3
+scoreboard players reset * md_team_scores_team4
+scoreboard players reset * md_team_scores_team5
+scoreboard players reset * md_team_scores_team6
+scoreboard players reset * md_team_scores_team7
+scoreboard players reset * md_team_scores_team8
+
 data remove storage mob_dash:data Templates
 data remove storage mob_dash:data Runtime
 data remove storage mob_dash:data Settings
