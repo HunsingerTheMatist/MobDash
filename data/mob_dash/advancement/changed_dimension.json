@@ -1,0 +1,10 @@
+{
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "rewards": {
+    "function": "mob_dash:game/player/changed_dimension"
+  }
+}
