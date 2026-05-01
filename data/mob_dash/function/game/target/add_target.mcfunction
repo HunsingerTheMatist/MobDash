@@ -15,11 +15,13 @@ execute unless score $Hostiles md_setting matches 2 run scoreboard players add $
 tag @e[distance=..1,type=marker,tag=md_eligible] remove md_eligible
 execute as @e[distance=..1,type=marker,tag=md_target,tag=!md_selected,tag=!md_prev_selected] if score @s md_level <= $CurrentLevel md_state run tag @s add md_eligible
 
-# Remove nether mobs if previous mob selected was a nether mob
-execute if entity @n[distance=..1,type=marker,tag=md_target,tag=md_prev_selected,tag=md_nether] run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_nether] remove md_eligible
+# Remove nether mobs if any of the current targets are nether mobs
+execute if entity @n[distance=..1,type=marker,tag=md_target,tag=md_selected,tag=md_nether] run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_nether] remove md_eligible
 
-# Remove hostile mobs if hostiles are off
+# Remove hostile mobs if hostiles are off or if the difficulty is peaceful
 execute if score $Hostiles md_setting matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_hostile] remove md_eligible
+execute store result score #temp md_state run difficulty
+execute unless score $Hostiles md_setting matches 0 if score #temp md_state matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_hostile] remove md_eligible
 
 # Remove nether mobs if nether is off
 execute if score $Nether md_setting matches 0 run tag @e[distance=..1,type=marker,tag=md_eligible,tag=md_nether] remove md_eligible

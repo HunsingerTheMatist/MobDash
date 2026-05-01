@@ -1,6 +1,7 @@
 # On datapack load
 
 #gamerule send_command_feedback false
+gamerule spawn_phantoms false
 
 scoreboard objectives add md_state dummy "Mob Dash Game State"
 scoreboard objectives add md_setting dummy "Mob Dash Game Settings"
