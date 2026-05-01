@@ -1,0 +1,38 @@
+{
+  "_comment": "Increases beach biome size by flattening continentalness within a band around the beach center using the formula y = x - clamp(x + a, -w, w), with 'a' being the negated beach center (default 0.15) and 'w' being the half-width of the flattened band (default 0.08). Inputs in [-a-w, -a+w] all collapse to -a, so terrain across that whole band shares one Y level (flat beaches). To make beaches bigger just increase 'w' (ex: 0.12 for ~3x the band width), and the opposite to shrink them. Note: values of 'w' larger than ~0.16 may erase deep_ocean or inland biomes adjacent to the beach band.",
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:shifted_noise",
+      "noise": "minecraft:continentalness",
+      "shift_x": "minecraft:shift_x",
+      "shift_y": 0.0,
+      "shift_z": "minecraft:shift_z",
+      "xz_scale": 0.25,
+      "y_scale": 0.0
+    },
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": -1.0,
+      "argument2": {
+        "type": "minecraft:clamp",
+        "input": {
+          "type": "minecraft:add",
+          "argument1": 0.15,
+          "argument2": {
+            "type": "minecraft:shifted_noise",
+            "noise": "minecraft:continentalness",
+            "shift_x": "minecraft:shift_x",
+            "shift_y": 0.0,
+            "shift_z": "minecraft:shift_z",
+            "xz_scale": 0.25,
+            "y_scale": 0.0
+          }
+        },
+        "min": -0.08,
+        "max": 0.08
+      }
+    }
+  }
+}
