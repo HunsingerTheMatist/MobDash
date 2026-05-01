@@ -78,9 +78,6 @@ execute unless score $Bounties md_setting matches 0..1 run scoreboard players se
 execute unless score $Hostiles md_setting matches 0..2 run scoreboard players set $Hostiles md_setting 2
 execute unless score $Nether md_setting matches 0..1 run scoreboard players set $Nether md_setting 1
 
-execute store result score #temp md_state run difficulty
-execute if score #temp md_state matches 1.. run scoreboard players operation $GameDifficulty md_state = #temp md_state
-
 # Set up animal handling
 function mob_dash:game/animals/load_animal_handling
 
@@ -112,6 +109,6 @@ execute if score #dimension_state md_state matches 1.. run return run tellraw @a
 function mob_dash:load/setup_markers
 
 # Set up the spawn if there is no game running & no current spawn set up
-execute if score $GameState md_state matches 1..3 run return 1
+execute if score $GameState md_state matches 2..4 run return 1
 execute if entity @n[distance=0..,type=marker,tag=md_spawn] run return 1
 function mob_dash:menu/reset

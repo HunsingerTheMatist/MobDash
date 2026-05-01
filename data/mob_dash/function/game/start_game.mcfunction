@@ -13,7 +13,7 @@ tellraw @a "\n\n\n\n\n"
 
 execute as @a run function mob_dash:game/player/player_game_setup
 
-scoreboard players set $GameState md_state 2
+scoreboard players set $GameState md_state 3
 function mob_dash:game/player/update_game_index
 
 function mob_dash:game/reset_marker_data
@@ -23,7 +23,9 @@ scoreboard players set $TotalMobsSelected md_state 0
 scoreboard players set $GameTick md_state 0
 scoreboard players set $ActionBarCache md_state 0
 
-# Set appropriate difficulty
+# Set difficulty stored at start of menu (if the difficulty has been manually changed from peaceful use that instead)
+execute store result score #temp md_state run difficulty
+execute unless score #temp md_state matches 0 run scoreboard players operation $GameDifficulty md_state = #temp md_state
 execute if score $GameDifficulty md_state matches 1 run difficulty easy
 execute if score $GameDifficulty md_state matches 2 run difficulty normal
 execute if score $GameDifficulty md_state matches 3 run difficulty hard

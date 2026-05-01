@@ -13,5 +13,5 @@ execute unless score $BountyMaxCountdown md_config matches 1.. run scoreboard pl
 scoreboard players set #debug_bounty md_config 0
 
 # If no game is running, make sure sidebar is reset without bounty text
-execute if score $GameState md_state matches 1..3 run return 1
+execute if score $GameState md_state matches 2..4 run return 1
 function mob_dash:game/bounty/reset_sidebar

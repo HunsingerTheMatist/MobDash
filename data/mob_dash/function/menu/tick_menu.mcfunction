@@ -1,12 +1,5 @@
 # Runs every tick in menu mode
 
-# Keep the game stalled until starting
-gamerule advance_time false
-gamerule advance_weather false
-gamerule spawn_mobs false
-difficulty peaceful
-time of overworld set noon
-
 # Handle setting up spawn once a player is present
 execute unless entity @n[distance=0..,type=marker,tag=md_spawn] at @p align xyz positioned ~0.5 ~ ~0.5 run function mob_dash:menu/setup_spawn
 
