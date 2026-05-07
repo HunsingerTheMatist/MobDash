@@ -8,7 +8,7 @@ execute if score $BorderCooldown md_state matches 3 run title @a subtitle "1"
 
 execute if score $BorderCooldown md_state matches ..3 run return run schedule function mob_dash:menu/relocate_players 1s
 
-execute if score $BorderCooldown md_state matches 5.. at @n[distance=0..,type=marker,tag=md_spawn] run return run function mob_dash:menu/setup_spawn
+execute if score $BorderCooldown md_state matches 5.. at @n[distance=0..,type=marker,tag=md_spawn] positioned over motion_blocking_no_leaves run return run function mob_dash:menu/setup_spawn
 
 # Spread a random player out, then teleport all other players & spawn marker to them
 tag @p add md_current

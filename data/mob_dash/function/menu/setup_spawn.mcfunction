@@ -1,8 +1,8 @@
-# Set the world border
-
-execute if block ~ ~-1 ~ #air positioned ~ ~-1 ~ run return run function mob_dash:menu/setup_spawn
+# Sets up the menu spawn point at the current position. Callers are responsible
+#  for snapping to ground via `execute positioned over motion_blocking_no_leaves`.
 
 execute unless entity @n[distance=0..,type=marker,tag=md_spawn] run summon marker ~ ~ ~ {Tags:[md_spawn]}
+tp @n[distance=0..,type=marker,tag=md_spawn] ~ ~ ~
 forceload add ~ ~
 
 tp @a ~ ~ ~

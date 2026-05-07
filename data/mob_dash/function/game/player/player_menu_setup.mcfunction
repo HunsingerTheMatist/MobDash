@@ -15,5 +15,5 @@ execute if score @s md_team matches 1..9 run return 1
 tag @s add md_current
 scoreboard players set #temp md_state 0
 execute store result score @s SetTeam run random value 1..8
-execute run function mob_dash:menu/find_empty_team
+execute run function mob_dash:menu/teams/find_empty_team
 tag @s remove md_current
