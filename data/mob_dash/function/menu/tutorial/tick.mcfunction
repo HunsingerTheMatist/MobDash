@@ -12,4 +12,4 @@ execute if score @s md_menu_ticks matches 2200 run return run tellraw @s ["\n", 
 execute if score @s md_menu_ticks matches 2100 run return run tellraw @s ["\n", {text: "Nether", color:"#FF46B6"}, {text:" toggle controls whether nether mobs can be chosen by the game."}, {storage:"mob_dash:data", nbt:Templates.CancelTutorialButton, interpret:true}]
 execute if score @s md_menu_ticks matches 2000 run return run tellraw @s ["\n", {text: "When everyone is ready, start the game using the "}, {text:"Start Game", color:"#FF46B6"}, {text:" menu option."}]
 
-execute if score @s md_menu_ticks matches ..1900 run function mob_dash:menu/cancel_tutorial
+execute if score @s md_menu_ticks matches ..1900 run function mob_dash:menu/tutorial/cancel
