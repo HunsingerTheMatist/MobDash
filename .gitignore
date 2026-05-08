@@ -1,4 +1,6 @@
-MobDash.zip
+builds/
 tiers.md
 credentials.json
 .claude/settings.local.json
+__pycache__/
+*.pyc

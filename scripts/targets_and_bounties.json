@@ -1,0 +1,69 @@
+{
+  "tiers": {
+    "1": [
+      {"name": "bee",      "weight": 3},
+      {"name": "chicken",  "weight": 5},
+      {"name": "cod",      "weight": 5},
+      {"name": "cow",      "weight": 5},
+      {"name": "dolphin",  "weight": 2},
+      {"name": "horse",    "weight": 3},
+      {"name": "nautilus", "weight": 3},
+      {"name": "pig",      "weight": 5},
+      {"name": "rabbit",   "weight": 1},
+      {"name": "salmon",   "weight": 5},
+      {"name": "sheep",    "weight": 5},
+      {"name": "squid",    "weight": 5},
+      {"name": "turtle",   "weight": 2}
+    ],
+    "2": [
+      {"name": "creeper",  "weight": 5, "hostile": true, "night": true},
+      {"name": "drowned",  "weight": 5, "hostile": true, "night": true},
+      {"name": "skeleton", "weight": 5, "hostile": true, "night": true},
+      {"name": "spider",   "weight": 5, "hostile": true, "night": true},
+      {"name": "zombie",   "weight": 5, "hostile": true, "night": true}
+    ],
+    "3": [
+      {"name": "armadillo",        "weight": 1},
+      {"name": "axolotl",          "weight": 2},
+      {"name": "bat",              "weight": 1},
+      {"name": "copper_golem",     "weight": 4},
+      {"name": "fox",              "weight": 2},
+      {"name": "frog",             "weight": 1},
+      {"name": "glow_squid",       "weight": 2},
+      {"name": "goat",             "weight": 1},
+      {"name": "iron_golem",       "weight": 3},
+      {"name": "llama",            "weight": 1},
+      {"name": "polar_bear",       "weight": 2},
+      {"name": "snow_golem",       "weight": 3},
+      {"name": "tropical_fish",    "weight": 1},
+      {"name": "wolf",             "weight": 2},
+      {"name": "enderman",         "weight": 4, "hostile": true, "night": true},
+      {"name": "witch",            "weight": 2, "hostile": true, "night": true},
+      {"name": "strider",          "weight": 5, "nether": true},
+      {"name": "ghast",            "weight": 4, "hostile": true, "nether": true},
+      {"name": "hoglin",           "weight": 5, "hostile": true, "nether": true},
+      {"name": "magma_cube",       "weight": 3, "hostile": true, "nether": true},
+      {"name": "piglin",           "weight": 5, "hostile": true, "nether": true},
+      {"name": "zombified_piglin", "weight": 5, "hostile": true, "nether": true}
+    ],
+    "4": [
+      {"name": "blaze",           "weight": 3, "hostile": true, "nether": true},
+      {"name": "piglin_brute",    "weight": 2, "hostile": true, "nether": true},
+      {"name": "wither_skeleton", "weight": 3, "hostile": true, "nether": true}
+    ]
+  },
+  "bounties": [
+    {"name": "mooshroom",              "weight": 5, "min_score":  5, "max_score":  8},
+    {"name": "panda",                  "weight": 3, "min_score":  7, "max_score": 10},
+    {"name": "warden",                 "weight": 4, "min_score": 20, "max_score": 30, "hostile": true},
+    {"name": "creaking",               "weight": 3, "min_score": 10, "max_score": 13, "hostile": true, "night": true},
+    {"name": "zoglin",                 "weight": 3, "min_score": 17, "max_score": 20, "hostile": true, "nether": true},
+    {"name": "camel_husk_jockey",      "weight": 1, "min_score": 18, "max_score": 24, "hostile": true, "night": true, "jockey": "camel_husk"},
+    {"name": "chicken_jockey",         "weight": 5, "min_score": 12, "max_score": 17, "hostile": true, "night": true, "jockey": "chicken"},
+    {"name": "spider_jockey",          "weight": 4, "min_score": 14, "max_score": 18, "hostile": true, "night": true, "jockey": "spider"},
+    {"name": "zombie_horseman",        "weight": 3, "min_score": 13, "max_score": 17, "hostile": true, "night": true, "jockey": "zombie_horse"},
+    {"name": "zombie_nautilus_jockey", "weight": 2, "min_score": 18, "max_score": 25, "hostile": true, "night": true, "jockey": "zombie_nautilus"},
+    {"name": "invisible_spider",       "weight": 2, "min_score": 15, "max_score": 20, "hostile": true, "night": true, "id_override": "spider", "conditions": {"effects": {"minecraft:invisibility": {}}}},
+    {"name": "strider_jockey",         "weight": 5, "min_score": 10, "max_score": 12, "nether": true, "jockey": "strider"}
+  ]
+}
