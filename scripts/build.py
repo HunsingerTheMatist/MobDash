@@ -9,6 +9,7 @@ MobDash-v<datapack version>-mc<MC version>-build<build #>.zip, where:
   - build # is tracked in build_info.json: increments on each run while the
     datapack version is unchanged, resets to 1 when the version changes.
 """
+import argparse
 import json
 import re
 import sys
@@ -75,6 +76,11 @@ def update_build_info(dp_version: str) -> int:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Build the distributable MobDash zip.")
+    parser.add_argument("-v", "--verbose", action="store_true",
+                        help="Print every file as it's added to the zip.")
+    args = parser.parse_args()
+
     dp_version = parse_datapack_version()
     mc_version = short_mc_version(resolve_target_mc_version(ROOT))
     build = update_build_info(dp_version)
@@ -94,17 +100,19 @@ def main() -> None:
                 sys.exit(f"Required entry missing from datapack root: {entry}")
             if src.is_file():
                 zf.write(src, entry)
-                print(entry)
+                if args.verbose:
+                    print(entry)
                 written += 1
                 continue
             for sub in sorted(src.rglob("*")):
                 if sub.is_file():
                     rel = sub.relative_to(ROOT).as_posix()
                     zf.write(sub, rel)
-                    print(rel)
+                    if args.verbose:
+                        print(rel)
                     written += 1
 
-    print(f"\nWrote builds/{zip_name} ({written} files)")
+    print(f"Wrote builds/{zip_name} ({written} files)")
 
 
 if __name__ == "__main__":
