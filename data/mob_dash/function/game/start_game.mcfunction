@@ -14,7 +14,7 @@ tellraw @a "\n\n\n\n\n"
 execute as @a run function mob_dash:game/player/player_game_setup
 
 scoreboard players set $GameState md_state 3
-function mob_dash:game/player/update_game_index
+function mob_dash:global/update_game_index
 
 function mob_dash:game/reset_marker_data
 

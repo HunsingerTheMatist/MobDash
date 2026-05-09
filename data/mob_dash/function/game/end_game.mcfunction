@@ -25,4 +25,4 @@ gamemode spectator @a[gamemode=!spectator]
 function mob_dash:game/bounty/reset_sidebar
 
 scoreboard players set $GameState md_state 4
-function mob_dash:game/player/update_game_index
+function mob_dash:global/update_game_index

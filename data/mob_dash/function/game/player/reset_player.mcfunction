@@ -17,5 +17,5 @@ clear @s
 effect clear @a
 xp add @s -1000 levels
 
-tp @s @n[distance=0..,type=marker,tag=md_spawn]
-execute at @n[distance=0..,type=marker,tag=md_spawn] run spawnpoint @s ~ ~ ~
+tp @s @n[distance=0..,type=marker,tag=md_game_spawn]
+execute at @n[distance=0..,type=marker,tag=md_game_spawn] run spawnpoint @s ~ ~ ~

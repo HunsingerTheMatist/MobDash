@@ -1,8 +1,8 @@
 # Hard reset the minigame
 
-function mob_dash:menu/reset
+function mob_dash:global/reset
 
-kill @e[type=marker,tag=md_spawn]
+kill @e[type=marker,tag=md_game_spawn]
 kill @e[type=marker,tag=md_team]
 kill @e[type=marker,tag=md_target]
 kill @e[type=marker,tag=md_bounty]

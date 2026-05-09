@@ -24,7 +24,7 @@ tellraw @s \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Tutorial",       color:green, click_event: {action:run_command, command:"trigger MenuAction set 1"}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Switch Teams",   color:green, click_event: {action:run_command, command:"trigger MenuAction set 3"}}, {text:"]\n", color:gold, bold: true}, \
     {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Randomize Teams",   color:green, click_event: {action:suggest_command, command:"/trigger TeamCount set "}}, {text:"]\n", color:gold, bold: true}, \
-    {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Relocate Spawn", color:green, click_event: {action:run_command, command:"function mob_dash:menu/relocate_spawn"}}, {text:"]\n", color:gold, bold: true}, \
+    {text:"- "}, {text:"[", color:gold, bold: true}, {text:"Relocate Spawn", color:green, click_event: {action:run_command, command:"function mob_dash:menu/relocate_spawn_start"}}, {text:"]\n", color:gold, bold: true}, \
 ]
 
 # If Op-Only Mode is off, show all players the 'Op-Only Mode' toggle

@@ -1,6 +1,6 @@
 # Show team switching menu to @s
 
-execute unless dimension mob_dash:md_markers in mob_dash:md_markers positioned 0 0 0 run return run function mob_dash:menu/teams/display_teams_menu
+execute unless dimension mob_dash:md_markers in mob_dash:md_markers positioned 0 0 0 run return run function mob_dash:menu/teams/display_menu
 
 tellraw @s ""
 tellraw @s [{text:"- "}, {text:"[", color:gold, bold: true}, {text:"Join ", color:white, click_event: {action:run_command, command:"trigger SetTeam set 1"}, extra: [{selector:"@n[distance=..1,type=marker,tag=md_team,scores={md_team=1}]"}]}, {text:"]", color:gold, bold: true}]

@@ -3,7 +3,7 @@
 execute unless dimension mob_dash:md_markers in mob_dash:md_markers positioned 0 0 0 run return run function mob_dash:game/setup_game
 
 scoreboard players set $GameState md_state 2
-function mob_dash:game/player/update_game_index
+function mob_dash:global/update_game_index
 
 scoreboard players operation $EndTick md_state = $Timeout md_setting
 scoreboard players operation $EndTick md_state *= 1200 md_const

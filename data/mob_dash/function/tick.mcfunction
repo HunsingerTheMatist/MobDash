@@ -11,7 +11,7 @@ execute if score #dimension_state md_state matches -2147483648..2147483647 run r
 execute as @a unless score @s md_game_idx = $GameIndex md_state run function mob_dash:game/player/process_joining_player
 
 execute if score $GameState md_state matches 0 run function mob_dash:menu/setup_menu
-execute if score $GameState md_state matches 1 run function mob_dash:menu/tick_menu
+execute if score $GameState md_state matches 1 run function mob_dash:menu/tick
 execute if score $GameState md_state matches 2 run function mob_dash:game/tick_pre_game
 execute if score $GameState md_state matches 3 in mob_dash:md_markers positioned 0 0 0 run function mob_dash:game/tick_game
 execute if score $GameState md_state matches 4 run function mob_dash:game/tick_post_game

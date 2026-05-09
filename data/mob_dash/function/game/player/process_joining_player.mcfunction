@@ -15,5 +15,5 @@ execute if score $GameState md_state matches 0..1 run return run function mob_da
 execute if score $GameState md_state matches 2 run return run function mob_dash:game/player/put_player_in_spec
 execute if score $GameState md_state matches 3 if score #index_delta md_state matches 1 run return run function mob_dash:game/player/player_game_setup
 execute if score $GameState md_state matches 3 unless score #index_delta md_state matches 1 run return run function mob_dash:game/player/put_player_in_spec
-execute if score $GameState md_state matches 4 if score #index_delta md_state matches 10.. in overworld run tp @s @n[distance=0..,type=marker,tag=md_spawn]
+execute if score $GameState md_state matches 4 if score #index_delta md_state matches 10.. in overworld run tp @s @n[distance=0..,type=marker,tag=md_game_spawn]
 execute if score $GameState md_state matches 4 run return run gamemode spectator @s

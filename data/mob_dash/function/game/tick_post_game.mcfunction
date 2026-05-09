@@ -26,5 +26,5 @@ title @a clear
 bossbar remove mob_dash:timer
 execute as @a run function mob_dash:game/player/player_menu_setup
 scoreboard players add $GameIndex md_state 10
-function mob_dash:menu/reset
-execute at @n[distance=0..,type=marker,tag=md_spawn] positioned over motion_blocking_no_leaves run function mob_dash:menu/setup_spawn
+function mob_dash:global/reset
+execute at @n[distance=0..,type=marker,tag=md_game_spawn] positioned over motion_blocking_no_leaves run function mob_dash:menu/setup_spawn

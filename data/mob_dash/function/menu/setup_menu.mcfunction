@@ -12,4 +12,4 @@ scoreboard players operation $GameDifficulty md_state = #temp md_state
 difficulty peaceful
 
 scoreboard players set $GameState md_state 1
-function mob_dash:game/player/update_game_index
+function mob_dash:global/update_game_index

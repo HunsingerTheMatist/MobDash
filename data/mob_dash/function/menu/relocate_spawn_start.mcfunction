@@ -6,4 +6,4 @@ title @a title "Teleporting In:"
 
 worldborder set 50000
 
-function mob_dash:menu/relocate_players
+function mob_dash:menu/relocate_spawn_tick

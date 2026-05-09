@@ -111,5 +111,5 @@ function mob_dash:load/setup_markers
 
 # Set up the spawn if there is no game running & no current spawn set up
 execute if score $GameState md_state matches 2..4 run return 1
-execute if entity @n[distance=0..,type=marker,tag=md_spawn] run return 1
-function mob_dash:menu/reset
+execute if entity @n[distance=0..,type=marker,tag=md_game_spawn] run return 1
+function mob_dash:global/reset
