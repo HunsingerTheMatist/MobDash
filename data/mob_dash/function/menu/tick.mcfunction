@@ -19,12 +19,12 @@ scoreboard players set @a TeamCount -2147483648
 scoreboard players enable @a TeamCount
 
 # Handle WinScore triggers
-execute as @n[scores={WinScore=-2147483647..2147483647}] run function mob_dash:menu/settings/set_win_score
+execute as @n[scores={WinScore=-2147483647..2147483647}] run function mob_dash:menu/settings/win_score/set
 scoreboard players set @a WinScore -2147483648
 scoreboard players enable @a WinScore
 
 # Handle TimeLimit triggers
-execute as @n[scores={TimeLimit=-2147483647..2147483647}] run function mob_dash:menu/settings/set_time_limit
+execute as @n[scores={TimeLimit=-2147483647..2147483647}] run function mob_dash:menu/settings/time_limit/set
 scoreboard players set @a TimeLimit -2147483648
 scoreboard players enable @a TimeLimit
 
@@ -37,11 +37,11 @@ execute as @a[scores={MenuAction=1}] run function mob_dash:menu/tutorial/start
 execute as @a[scores={MenuAction=2}] run function mob_dash:menu/tutorial/cancel
 execute as @a[scores={MenuAction=3}] run function mob_dash:menu/teams/display_menu
 
-execute as @n[scores={MenuAction=11}] run function mob_dash:menu/settings/cycle_difficulty_speed
-execute as @n[scores={MenuAction=12}] run function mob_dash:menu/settings/cycle_increment_period
-execute as @n[scores={MenuAction=13}] run function mob_dash:menu/settings/cycle_bounties
-execute as @n[scores={MenuAction=14}] run function mob_dash:menu/settings/cycle_hostiles
-execute as @n[scores={MenuAction=15}] run function mob_dash:menu/settings/cycle_nether
+execute as @n[scores={MenuAction=11}] run function mob_dash:menu/settings/difficulty_speed/cycle
+execute as @n[scores={MenuAction=12}] run function mob_dash:menu/settings/increment_period/cycle
+execute as @n[scores={MenuAction=13}] run function mob_dash:menu/settings/bounties/cycle
+execute as @n[scores={MenuAction=14}] run function mob_dash:menu/settings/hostiles/cycle
+execute as @n[scores={MenuAction=15}] run function mob_dash:menu/settings/nether/cycle
 
 execute as @n[scores={MenuAction=20}] unless entity @p[scores={md_team=1..8}] run tellraw @s [{text:"No players on any team, cannot start", color:red}]
 execute as @n[scores={MenuAction=20}] if entity @p[scores={md_team=1..8}] run return run function mob_dash:game/setup_game

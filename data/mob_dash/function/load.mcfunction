@@ -86,14 +86,14 @@ function mob_dash:game/animals/load_animal_handling
 function mob_dash:game/bounty/load_bounty
 
 # TODO: Fix this in the 1.20 branch!
-function mob_dash:menu/settings/update_op_only_text
-function mob_dash:menu/settings/update_win_score_text
-function mob_dash:menu/settings/update_time_limit_text
-function mob_dash:menu/settings/update_difficulty_speed_text
-function mob_dash:menu/settings/update_increment_period_text
-function mob_dash:menu/settings/update_bounties_text
-function mob_dash:menu/settings/update_hostiles_text
-function mob_dash:menu/settings/update_nether_text
+function mob_dash:menu/settings/op_only/update_text
+function mob_dash:menu/settings/win_score/update_text
+function mob_dash:menu/settings/time_limit/update_text
+function mob_dash:menu/settings/difficulty_speed/update_text
+function mob_dash:menu/settings/increment_period/update_text
+function mob_dash:menu/settings/bounties/update_text
+function mob_dash:menu/settings/hostiles/update_text
+function mob_dash:menu/settings/nether/update_text
 
 # Store various text components in storage for future use
 function mob_dash:load/store_text
