@@ -83,7 +83,7 @@ execute unless score $Nether md_setting matches 0..1 run scoreboard players set 
 function mob_dash:game/animals/load_animal_handling
 
 # Set up bounties
-function mob_dash:game/bounty/load_bounty
+function mob_dash:game/bounty/load
 
 # TODO: Fix this in the 1.20 branch!
 function mob_dash:menu/settings/op_only/update_text

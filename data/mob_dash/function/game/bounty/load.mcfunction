@@ -14,4 +14,4 @@ scoreboard players set #debug_bounty md_config 0
 
 # If no game is running, make sure sidebar is reset without bounty text
 execute if score $GameState md_state matches 2..4 run return 1
-function mob_dash:game/bounty/reset_sidebar
+function mob_dash:game/bounty/sidebar_reset

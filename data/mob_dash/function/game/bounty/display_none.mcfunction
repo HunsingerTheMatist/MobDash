@@ -1,6 +1,6 @@
 
 
-function mob_dash:game/bounty/setup_sidebar
+function mob_dash:game/bounty/sidebar_setup
 
 scoreboard players display name $Bounty md_team_scores_base_ {storage:"mob_dash:data", nbt:Templates.Bounty.BountyNoneText, interpret:true}
 scoreboard players display name $Bounty md_team_scores_team1 {storage:"mob_dash:data", nbt:Templates.Bounty.BountyNoneText, interpret:true}

@@ -1,7 +1,7 @@
 # Increase the score of team @s and the player who killed the bounty
 
 # Figure out the bounty scores each team would get
-function mob_dash:game/bounty/calculate_bounty_scores
+function mob_dash:game/bounty/calculate_scores
 
 scoreboard players operation @s md_score += @s md_bounty_score
 scoreboard players operation @p[tag=md_current] md_player_scores += @s md_bounty_score

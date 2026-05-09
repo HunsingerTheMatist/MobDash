@@ -17,7 +17,7 @@ function mob_dash:game/target/check_for_add_target
 function mob_dash:game/animals/tick_animal_handling
 
 # Process bounties
-function mob_dash:game/bounty/tick_bounty
+function mob_dash:game/bounty/tick
 
 # Display the action bar
 function mob_dash:game/display_action_bar

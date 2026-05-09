@@ -32,8 +32,8 @@ execute if score $GameDifficulty md_state matches 3 run difficulty hard
 
 function mob_dash:game/sidebar/update_sidebar_scores
 
-execute unless score $Bounties md_setting matches 0 run function mob_dash:game/bounty/roll_bounty_cooldown
-execute unless score $Bounties md_setting matches 0 run function mob_dash:game/bounty/setup_sidebar
-execute unless score $Bounties md_setting matches 0 run function mob_dash:game/bounty/display_no_bounty
+execute unless score $Bounties md_setting matches 0 run function mob_dash:game/bounty/roll_cooldown
+execute unless score $Bounties md_setting matches 0 run function mob_dash:game/bounty/sidebar_setup
+execute unless score $Bounties md_setting matches 0 run function mob_dash:game/bounty/display_none
 
 execute if score $EndTick md_state matches 1.. run function mob_dash:game/setup_timer_bar

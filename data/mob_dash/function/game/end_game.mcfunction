@@ -22,7 +22,7 @@ clear @a
 xp add @a -1000 levels
 gamemode spectator @a[gamemode=!spectator]
 
-function mob_dash:game/bounty/reset_sidebar
+function mob_dash:game/bounty/sidebar_reset
 
 scoreboard players set $GameState md_state 4
 function mob_dash:global/update_game_index
