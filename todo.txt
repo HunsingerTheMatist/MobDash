@@ -100,5 +100,16 @@ Add better reset functionality (optional config):
     - Detect players opening containers via advancement:
         - /replace item to remove all items with the opposite parity component
 
+Kits:
+- Batman: 1x bat egg, 1x carved pumpkin, leather armor, boat (batmobile)
+- Fisherman: 1x bucket of cod, 1x bucket of salmon, 1x fishing rod w/ lure 3 & luck of the sea 3
+- Speedrunner: 16x cobblestone, 16x planks, 1x iron axe, 1x iron pickaxe, 1x shield
+- Iron Golem / Iron Man: 8x iron
+- Rancher: 1x cow egg, 1x sheep egg, 1x chicken egg, 3x wheat, 2x seeds, 2x lead
+- Archer: 1x bow w/ power 3, 16x arrow, 1x spyglass
+- Aquaman: 1x turtle helmet, 1x water breathing pot (3 min), 1x trident
+- Hare: 1x rabbit egg, 1x leather boots, 1x speed 2 pot (3 min), 1x rabbit's foot
+- Wolverine: 1x wolf egg, 6x bone, 4x beef
+
 Maybe:
 - Refactor the code to support an arbitrary number of simultaneous targets, rather than just 3
