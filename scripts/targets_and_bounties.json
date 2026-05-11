@@ -24,7 +24,7 @@
     ],
     "3": [
       {"name": "armadillo",        "weight": 1},
-      {"name": "axolotl",          "weight": 2},
+      {"name": "axolotl",          "weight": 1},
       {"name": "bat",              "weight": 1},
       {"name": "copper_golem",     "weight": 4},
       {"name": "fox",              "weight": 2},
@@ -33,6 +33,7 @@
       {"name": "goat",             "weight": 1},
       {"name": "iron_golem",       "weight": 3},
       {"name": "llama",            "weight": 1},
+      {"name": "parrot",           "weight": 1},
       {"name": "polar_bear",       "weight": 2},
       {"name": "snow_golem",       "weight": 3},
       {"name": "tropical_fish",    "weight": 1},
