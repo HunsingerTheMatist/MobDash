@@ -29,3 +29,17 @@ data modify storage mob_dash:data Templates.Bounty set value { \
     CountdownNumber: [{score: {objective:md_state, name:"$BountyTick"}, color:red}, {text:" mins"}], \
     TeamScoresHeader: "---Team Scores---", \
 }
+
+data modify storage mob_dash:data Debug.AnimalSpawn set value { \
+    text: "[", color:green, \
+    click_event: {action:suggest_command, command:"TP_COMMAND"}, \
+    hover_event: {action:show_text, value:"Click to teleport"}, \
+    extra:[ \
+        {storage:"mob_dash:data", nbt:Debug.MacroArgs.x}, \
+        {text: ", "}, \
+        {storage:"mob_dash:data", nbt:Debug.MacroArgs.y}, \
+        {text: ", "}, \
+        {storage:"mob_dash:data", nbt:Debug.MacroArgs.z}, \
+        {text: "]"}, \
+    ], \
+}

@@ -1,0 +1,25 @@
+{
+    "values": [
+        "#mob_dash:allow_spawning_inside",
+
+        "#buttons",
+        "#fire",
+        "#pressure_plates",
+        "#rails",
+
+        "bubble_column",
+        "kelp",
+        "kelp_plant",
+        "lava",
+        "lever",
+        "powder_snow",
+        "redstone_torch",
+        "redstone_wall_torch",
+        "red_tulip",
+        "redstone_wire",
+        "sweet_berry_bush",
+        "tripwire_hook",
+        "water",
+        "wither_rose"
+    ]
+}

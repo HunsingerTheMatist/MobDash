@@ -1,0 +1,19 @@
+{
+  "_comment": "Passes if the selected entity is a non-spectator player in the overworld at y >= 50. These players actively drive the spawn pipeline and have animals despawn around them",
+  "condition": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "type_specific": {
+      "type": "player",
+      "gamemode": ["survival", "creative", "adventure"]
+    },
+    "location": {
+      "dimension": "minecraft:overworld",
+      "position": {
+        "y": {
+          "min": 50
+        }
+      }
+    }
+  }
+}

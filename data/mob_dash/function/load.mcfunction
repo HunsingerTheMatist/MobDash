@@ -80,7 +80,7 @@ execute unless score $Hostiles md_setting matches 0..2 run scoreboard players se
 execute unless score $Nether md_setting matches 0..1 run scoreboard players set $Nether md_setting 1
 
 # Set up animal handling
-function mob_dash:game/animals/load_animal_handling
+function mob_dash:game/animals/load
 
 # Set up bounties
 function mob_dash:game/bounty/load

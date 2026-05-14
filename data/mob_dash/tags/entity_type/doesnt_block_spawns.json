@@ -1,0 +1,25 @@
+{
+  "_comment": "Entities that don't physically obstruct mob spawning",
+  "values": [
+    "#minecraft:impact_projectiles",
+
+    "minecraft:area_effect_cloud",
+    "minecraft:block_display",
+    "minecraft:ender_pearl",
+    "minecraft:experience_bottle",
+    "minecraft:experience_orb",
+    "minecraft:eye_of_ender",
+    "minecraft:fishing_bobber",
+    "minecraft:interaction",
+    "minecraft:item",
+    "minecraft:item_display",
+    "minecraft:leash_knot",
+    "minecraft:lightning_bolt",
+    "minecraft:lingering_potion",
+    "minecraft:llama_spit",
+    "minecraft:marker",
+    "minecraft:shulker_bullet",
+    "minecraft:splash_potion",
+    "minecraft:text_display"
+  ]
+}

@@ -5,12 +5,8 @@ data modify entity @s PersistenceRequired set value true
 # Remove its interaction id since it's already persistent
 function mob_dash:game/animals/interaction/remove_id
 
-# Give it the persistence tag and remove all other conflicting tags
 tag @s add md_persistent
-tag @s remove md_temp_persistent
-tag @s remove md_has_or_is_passenger
-tag @s remove md_despawn
-tag @s remove md_despawn_batched
-tag @s remove md_despawn_eligible
+scoreboard players reset @s md_despawn_timer
+scoreboard players reset @s md_batch_id
 
-function mob_dash:game/animals/debug_glowing
+execute unless score #debug_animal_handling md_animal_config matches 0 run function mob_dash:game/animals/debug/glowing

@@ -1,0 +1,20 @@
+{
+  "values": [
+    "minecraft:cold_ocean",
+    "minecraft:deep_cold_ocean",
+    "minecraft:deep_dark",
+    "minecraft:deep_lukewarm_ocean",
+    "minecraft:deep_ocean",
+    "minecraft:dripstone_caves",
+    "minecraft:frozen_river",
+    "minecraft:lukewarm_ocean",
+    "minecraft:lush_caves",
+    "minecraft:ocean",
+    "minecraft:pale_garden",
+    "minecraft:river",
+    "minecraft:snowy_beach",
+    "minecraft:stony_peaks",
+    "minecraft:stony_shore",
+    "minecraft:warm_ocean"
+  ]
+}

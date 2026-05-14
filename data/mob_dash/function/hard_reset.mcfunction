@@ -42,5 +42,8 @@ scoreboard players reset * md_team_scores_team8
 data remove storage mob_dash:data Templates
 data remove storage mob_dash:data Runtime
 data remove storage mob_dash:data Settings
+data remove storage mob_dash:data Debug
+
+function mob_dash:game/animals/hard_reset
 
 function mob_dash:load

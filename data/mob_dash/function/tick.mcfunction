@@ -15,3 +15,6 @@ execute if score $GameState md_state matches 1 run function mob_dash:menu/tick
 execute if score $GameState md_state matches 2 run function mob_dash:game/tick_pre_game
 execute if score $GameState md_state matches 3 in mob_dash:md_markers positioned 0 0 0 run function mob_dash:game/tick_game
 execute if score $GameState md_state matches 4 run function mob_dash:game/tick_post_game
+
+# Process animal handling
+execute unless score $GameState md_state matches 4 run function mob_dash:game/animals/tick

@@ -9,4 +9,4 @@ scoreboard players operation #ids_left md_state -= #next_id md_state
 execute if score #animals_without_ids md_state > #ids_left md_state run function mob_dash:game/animals/interaction/reset_all_ids
 
 # Assigns ids to any non-persistent animals that don't have them
-execute as @e[type=#mob_dash:non_persistent_animals,tag=!md_persistent,predicate=!mob_dash:has_id] run function mob_dash:game/animals/interaction/assign_animal_id
+execute as @e[type=#mob_dash:non_persistent_animals,tag=!md_persistent,predicate=!mob_dash:has_id] run function mob_dash:game/animals/interaction/assign_id

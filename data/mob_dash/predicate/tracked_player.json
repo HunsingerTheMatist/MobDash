@@ -1,0 +1,19 @@
+{
+  "_comment": "Passes if the selected entity is a non-spectator player in the overworld at y >= 30. These players have their spawn-pipeline caches refreshed and their md_animals_nearby score kept current via +1/-1 bookkeeping, so the values are ready if/when they cross into spawn_driver range (y >= 50)",
+  "condition": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "type_specific": {
+      "type": "player",
+      "gamemode": ["survival", "creative", "adventure"]
+    },
+    "location": {
+      "dimension": "minecraft:overworld",
+      "position": {
+        "y": {
+          "min": 30
+        }
+      }
+    }
+  }
+}
